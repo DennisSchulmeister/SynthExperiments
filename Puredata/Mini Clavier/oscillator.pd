@@ -35,7 +35,7 @@ the carrier and modulator wavetables with the wanted harmonics., f
 #X msg 390 1310 set \$1;
 #X obj 390 1280 r \$0-wavetable;
 #X text 390 1250 Selected Wavetable;
-#X msg 390 1340 p0-modulator-1;
+#X msg 390 1340 p0-carrier-6;
 #X floatatom 290 670 5 0 0 1 Hz - - 0 0 1, f 5;
 #X obj 290 740 trigger f f;
 #X text 290 250 Frequency;

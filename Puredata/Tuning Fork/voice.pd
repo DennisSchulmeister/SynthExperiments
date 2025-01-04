@@ -1,0 +1,50 @@
+#N canvas 0 49 1920 1009 12;
+#X obj -30 -30 preset_hub k12 1 %hidden%;
+#X text 10 10 A single synthesizer voice;
+#X obj 100 100 inlet;
+#X floatatom 100 180 5 0 0 1 Note - - 0 0 1, f 5;
+#X floatatom 300 180 5 0 0 1 Velocity - - 0 0 1, f 5;
+#X obj 100 290 mtof;
+#X obj 300 240 expr sqrt($f1/127);
+#X floatatom 100 319 5 0 0 1 Frequency - - 0 0 1, f 5;
+#X floatatom 300 269 5 0 0 1 Amplitude - - 0 0 1, f 5;
+#X obj 100 382 osc~;
+#X obj 140 492 vline~;
+#X obj 100 522 *~;
+#X text 110 432 --- Envelope;
+#X text 110 260 --- Pitch;
+#X obj 100 602 *~;
+#X text 110 572 --- Peak Amplitude;
+#X obj 100 632 outlet~;
+#X obj 100 129 unpack f f;
+#X obj 100 350 trigger f b;
+#X obj 300 208 moses 1;
+#X msg 140 462 1 15 \, 0 2000 15;
+#X text 260 462 Target Value \, Ramp Time [ms] \, Initial Delay [ms]
+;
+#X text 260 482 Don't forget to set the initial delay after the first
+value!;
+#X text 260 502 It must skip all previous ramps (sum of the ramp times).
+;
+#X text 260 522 Otherwise the ramp will just jump to the last value!
+;
+#X obj 100 210 spigot;
+#X connect 2 0 17 0;
+#X connect 3 0 25 0;
+#X connect 4 0 19 0;
+#X connect 4 0 25 1;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 18 0;
+#X connect 8 0 14 1;
+#X connect 9 0 11 0;
+#X connect 10 0 11 1;
+#X connect 11 0 14 0;
+#X connect 14 0 16 0;
+#X connect 17 0 3 0;
+#X connect 17 1 4 0;
+#X connect 18 0 9 0;
+#X connect 18 1 20 0;
+#X connect 19 1 6 0;
+#X connect 20 0 10 0;
+#X connect 25 0 5 0;
