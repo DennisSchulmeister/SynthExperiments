@@ -31,7 +31,7 @@ positive values the opposite., f 79;
 #X obj 1020 150 s \$0-in-sustenuto;
 #X text 10 220 \$1 must be the polyphony (maximum number of voices)
 , f 68;
-#N canvas 0 49 1920 1009 vac__struct_voice 1;
+#N canvas 0 49 1920 1009 vac__struct_voice 0;
 #X text 10 10 A single voice of the voice allocator;
 #X obj 100 200 filledpolygon -x bg_color 0 1 0 0 200 0 200 160 0 160
 ;
@@ -58,9 +58,19 @@ float bg_color float sustain_color float sustenuto_color, f 184;
 ;
 #X restore 600 280 pd vac__struct_main;
 #N canvas 0 49 1920 1009 vac__data 0;
-#X scalar vac__main 0 \; 0 0 0 0 0 0 0 0 0 777 777 777 \; \;;
+#X scalar vac__main 16 \; 0 0 0 62 0 0 109147 0 0 777 777 777 \; 210
+0 1 65 0 0 98072.4 0 0 777 777 777 \; 420 0 2 67 0 0 109158 0 0 777
+777 777 \; 630 0 3 70 0 0 89781.4 0 0 777 777 777 \; 840 0 4 72 0 0
+108140 0 0 777 777 777 \; 1050 0 5 74 0 0 85360.9 0 0 777 777 777 \;
+1260 0 6 51 0 0 88668.3 0 0 777 777 777 \; 1470 0 7 69 0 0 98127.5
+0 0 777 777 777 \; 0 170 8 63 0 0 88634.9 0 0 777 777 777 \; 210 170
+9 60 0 0 87542.1 0 0 777 777 777 \; 420 170 10 64 0 0 96667.6 0 0 777
+777 777 \; 630 170 11 58 0 0 85404.4 0 0 777 777 777 \; 840 170 12
+71 0 0 109154 0 0 777 777 777 \; 1050 170 13 57 0 0 96664.7 0 0 777
+777 777 \; 1260 170 14 55 0 0 109160 0 0 777 777 777 \; 1470 170 15
+53 0 0 98142 0 0 777 777 777 \; \;;
 #X restore 600 370 pd vac__data;
-#N canvas 0 49 1920 1009 vac__init 1;
+#N canvas 0 49 1920 1009 vac__init 0;
 #X obj 100 100 loadbang;
 #X msg 130 230 clear;
 #X obj 100 130 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
@@ -660,6 +670,7 @@ here kind of. Because this makes the code more readable and avoids
 a timing dependency between the structs., f 68;
 #X text 10 410 To be sure don't use the vac__ prefix in your own patch
 to not accidently mess-up the voice allocator., f 68;
+#X text 700 370 <--- Watch voice allocation here;
 #X connect 8 0 12 0;
 #X connect 9 0 13 0;
 #X connect 10 0 14 0;

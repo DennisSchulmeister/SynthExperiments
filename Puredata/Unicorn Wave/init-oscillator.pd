@@ -11,7 +11,7 @@
 #X obj 100 370 outlet;
 #X obj 130 260 list append \$1 \$2 \$3 \$4;
 #X msg 130 290 \; p-p\$1-\$2\$3-enabled \$4 \; p-p\$1-\$2\$3-waveform
-0 \; p-p\$1-\$2\$3-volume \$4;
+0 \; p-p\$1-\$2\$3-volume 1;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
 #X connect 7 1 9 0;

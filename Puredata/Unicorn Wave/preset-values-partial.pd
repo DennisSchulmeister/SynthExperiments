@@ -2,7 +2,6 @@
 #X obj -30 -30 preset_hub k12 1 %hidden%;
 #X text 10 30 \$1 must be the partial number starting from zero.;
 #X text 10 10 Declaration of preset values for a voice partial.;
-#X obj 100 130 ./preset/preset-value pm float p-p\$1-volume;
 #X obj 600 130 ./preset-values-oscillator \$1 car1;
 #X obj 600 160 ./preset-values-oscillator \$1 car2;
 #X obj 600 190 ./preset-values-oscillator \$1 car3;
@@ -15,35 +14,51 @@
 #X obj 1100 160 ./preset-values-oscillator \$1 mod2;
 #X obj 1100 190 ./preset-values-oscillator \$1 mod3;
 #X obj 1100 220 ./preset-values-oscillator \$1 mod4;
-#X text 100 100 ---- General Parameters ----;
 #X text 1100 100 ---- Modulator Parameters ----;
 #X text 600 100 ---- Carrier Parameters ----;
-#X obj 100 190 ./preset/preset-value pm float p-p\$1-transpose;
-#X obj 100 220 ./preset/preset-value pm float p-p\$1-detune;
-#X obj 600 390 ./preset/preset-value pm float p-p\$1-car-noise-enabled
+#X obj 100 130 ./preset/preset-value pm float p-p\$1-transpose;
+#X obj 100 160 ./preset/preset-value pm float p-p\$1-detune;
+#X obj 600 680 ./preset/preset-value pm float p-p\$1-car-detune;
+#X obj 600 710 ./preset/preset-value pm float p-p\$1-car-frequency
 ;
-#X obj 600 420 ./preset/preset-value pm float p-p\$1-car-noise-volume
+#X obj 1100 680 ./preset/preset-value pm float p-p\$1-mod-detune;
+#X obj 1100 710 ./preset/preset-value pm float p-p\$1-mod-frequency
 ;
-#X obj 600 470 ./preset/preset-value pm float p-p\$1-car-detune;
-#X obj 600 500 ./preset/preset-value pm float p-p\$1-car-frequency
+#X obj 1100 650 ./preset/preset-value pm float p-p\$1-mod-volume;
+#X text 100 250 ---- Filters ----;
+#X obj 100 280 ./preset/preset-value pm float p-p\$1-car-flt-type;
+#X obj 100 310 ./preset/preset-value pm float p-p\$1-car-flt-cutoff
 ;
-#X obj 1100 500 ./preset/preset-value pm float p-p\$1-mod-detune;
-#X obj 1100 530 ./preset/preset-value pm float p-p\$1-mod-frequency
+#X obj 100 340 ./preset/preset-value pm float p-p\$1-car-flt-qfactor
 ;
-#X obj 1100 470 ./preset/preset-value pm float p-p\$1-mod-volume;
-#X obj 100 160 ./preset/preset-value pm float p-p\$1-panorama;
-#X text 100 310 ---- Filters ----;
-#X obj 100 340 ./preset/preset-value pm float p-p\$1-car-flt-type;
-#X obj 100 370 ./preset/preset-value pm float p-p\$1-car-flt-cutoff
+#X obj 100 390 ./preset/preset-value pm float p-p\$1-mod-flt-type;
+#X obj 100 420 ./preset/preset-value pm float p-p\$1-mod-flt-cutoff
 ;
-#X obj 100 400 ./preset/preset-value pm float p-p\$1-car-flt-qfactor
+#X obj 100 450 ./preset/preset-value pm float p-p\$1-mod-flt-qfactor
 ;
-#X obj 100 450 ./preset/preset-value pm float p-p\$1-mod-flt-type;
-#X obj 100 480 ./preset/preset-value pm float p-p\$1-mod-flt-cutoff
-;
-#X obj 100 510 ./preset/preset-value pm float p-p\$1-mod-flt-qfactor
-;
-#X obj 600 600 ./preset/preset-value pm list p-p\$1-car-aenv1;
-#X obj 600 630 ./preset/preset-value pm list p-p\$1-car-fenv1;
-#X obj 1100 600 ./preset/preset-value pm list p-p\$1-mod-aenv1;
-#X obj 1100 630 ./preset/preset-value pm list p-p\$1-mod-fenv1;
+#X obj 600 780 ./preset/preset-value pm list p-p\$1-car-aenv1;
+#X obj 600 810 ./preset/preset-value pm list p-p\$1-car-fenv1;
+#X obj 1100 780 ./preset/preset-value pm list p-p\$1-mod-aenv1;
+#X obj 1100 810 ./preset/preset-value pm list p-p\$1-mod-fenv1;
+#X obj 600 650 ./preset/preset-value pm float p-p\$1-car-volume;
+#X obj 600 370 ./preset-values-oscillator \$1 car9;
+#X obj 600 400 ./preset-values-oscillator \$1 car10;
+#X obj 600 430 ./preset-values-oscillator \$1 car11;
+#X obj 600 460 ./preset-values-oscillator \$1 car12;
+#X obj 600 490 ./preset-values-oscillator \$1 car13;
+#X obj 600 520 ./preset-values-oscillator \$1 car14;
+#X obj 600 550 ./preset-values-oscillator \$1 car15;
+#X obj 600 580 ./preset-values-oscillator \$1 car16;
+#X obj 1100 250 ./preset-values-oscillator \$1 mod5;
+#X obj 1100 280 ./preset-values-oscillator \$1 mod6;
+#X obj 1100 310 ./preset-values-oscillator \$1 mod7;
+#X obj 1100 340 ./preset-values-oscillator \$1 mod8;
+#X obj 1100 370 ./preset-values-oscillator \$1 mod9;
+#X obj 1100 400 ./preset-values-oscillator \$1 mod10;
+#X obj 1100 430 ./preset-values-oscillator \$1 mod11;
+#X obj 1100 460 ./preset-values-oscillator \$1 mod12;
+#X obj 1100 490 ./preset-values-oscillator \$1 mod13;
+#X obj 1100 520 ./preset-values-oscillator \$1 mod14;
+#X obj 1100 550 ./preset-values-oscillator \$1 mod15;
+#X obj 1100 580 ./preset-values-oscillator \$1 mod16;
+#X text 100 100 ---- Tuning ----;

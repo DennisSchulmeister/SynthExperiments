@@ -36,13 +36,13 @@ float sustain_color float sustenuto_color;
 #X obj 420 290 s \$0-preset-manager;
 #X obj 1300 430 ./preset-values-partial 0;
 #X text 1300 400 ---- Partial Parameters ----;
-#X obj 100 460 ./preset/preset-value pm float p-glb-balance;
 #X text 10 40 This is basically the Unicorn Wave synthesizer without
 the GUI (to save CPU cycles or where the GUI cannot be used anyway).
 Technically it wraps the synth enginge (main2.pd) and adds a mechanism
 to save and load presets., f 68;
 #X text 1300 460 Only one partial left here \, as switching between
 partials is rather costly ..., f 23;
+#X obj 100 460 ./preset/preset-value pm float p-glb-panorama;
 #X connect 4 0 5 0;
 #X connect 5 0 26 0;
 #X connect 6 0 7 0;
