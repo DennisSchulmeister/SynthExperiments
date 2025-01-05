@@ -2,7 +2,7 @@ Puredata Instruments and Utilities
 ==================================
 
 1. [Directory Content](#directory-content)
-1. [How to Use][#how-to-use]
+1. [How to Use](#how-to-use)
 1. [Main, Main, Main1, Main2](#main-main1-main2)
 1. [Instruments](#instruments)
 1. [Utilities](#utilities)
