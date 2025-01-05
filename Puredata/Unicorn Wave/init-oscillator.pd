@@ -8,11 +8,12 @@
 #X text 10 90 \$4 must be the value for the "enabled" parameter.;
 #X obj 100 200 inlet;
 #X obj 100 230 trigger b b;
-#X obj 100 370 outlet;
-#X obj 130 260 list append \$1 \$2 \$3 \$4;
+#X obj 100 380 outlet;
+#X text 10 110 \$5 must be the waveform number.;
 #X msg 130 290 \; p-p\$1-\$2\$3-enabled \$4 \; p-p\$1-\$2\$3-waveform
-0 \; p-p\$1-\$2\$3-volume 1;
+0 \; p-p\$1-\$2\$3-volume 1 \; p-p\$1-\$2\$3-waveform \$5;
+#X obj 130 260 list append \$1 \$2 \$3 \$4 \$5;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
-#X connect 7 1 9 0;
-#X connect 9 0 10 0;
+#X connect 7 1 11 0;
+#X connect 11 0 10 0;

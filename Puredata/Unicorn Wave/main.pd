@@ -206,15 +206,15 @@ f 5;
 #X coords 0 -1 1 1 660 300 2 480 240;
 #X restore 670 80 pd fx_parameters;
 #N canvas 0 49 1920 1009 dsp 0;
-#X obj 0 0 cnv 15 1320 60 empty empty Unicorn\ Wave 20 23 0 30 #144678
+#X obj 0 0 cnv 15 1650 60 empty empty Unicorn\ Wave 20 23 0 30 #144678
 #f5f5f5 0;
-#X obj 970 18 bng 25 250 50 0 cmd-load-preset empty Load\ Preset 30
+#X obj 1290 17 bng 25 250 50 0 cmd-load-preset empty Load\ Preset 30
 10 0 15 #144678 #79d9ec #f5f5f5 1;
-#X obj 810 18 bng 25 250 50 0 cmd-save-preset empty Save\ Preset 30
+#X obj 1130 17 bng 25 250 50 0 cmd-save-preset empty Save\ Preset 30
 10 0 15 #144678 #79d9ec #f5f5f5 1;
 #X obj 10 80 ./main1;
 #X text 80 80 <-- Synth enginge + preset handling;
-#X obj 1130 18 bng 25 250 50 0 cmd-reset-parameters empty Reset\ Parameters
+#X obj 1450 17 bng 25 250 50 0 cmd-reset-parameters empty Reset\ Parameters
 30 10 0 15 #144678 #79d9ec #f5f5f5 1;
 #X obj 10 250 r pre-init;
 #X obj 10 280 bng 20 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
@@ -224,14 +224,14 @@ f 5;
 #X text 220 200 <-- Enevelope Editor UI;
 #X connect 6 0 7 0;
 #X connect 7 0 9 0;
-#X coords 0 -1 1 1 1320 60 2 0 0;
+#X coords 0 -1 1 1 1650 60 2 0 0;
 #X restore 10 10 pd dsp;
 #N canvas 0 49 1920 1009 partial_parameters 0;
-#X obj 700 400 cnv 15 1320 30 empty empty Synthesizer\ Parameters 12
+#X obj 700 400 cnv 15 1650 30 empty empty Synthesizer\ Parameters 12
 12 0 14 #144678 #f5f5f5 0;
 #X obj 710 440 cnv 15 250 15 empty empty Tuning 4 6 0 12 #e0e0e0 #404040
 0;
-#X obj 970 440 cnv 15 1040 15 empty empty Carrier 4 6 0 12 #e0e0e0
+#X obj 970 440 cnv 15 1370 15 empty empty Carrier 4 6 0 12 #e0e0e0
 #404040 0;
 #X obj 1070 530 vsl 20 128 0 1 0 0 p-p0-car1-volume empty empty 0 -9
 0 10 #cdafaf #825050 #000000 12700 1 0 1;
@@ -324,7 +324,7 @@ f 5;
 #X obj 2110 310 r p-p0-car7-waveform;
 #X obj 2280 310 r p-p0-car8-waveform;
 #X text 980 670 Volume;
-#X obj 970 800 cnv 15 1040 15 empty empty Modulator 4 6 0 12 #e0e0e0
+#X obj 970 800 cnv 15 1370 15 empty empty Modulator 4 6 0 12 #e0e0e0
 #404040 0;
 #X obj 1070 890 vsl 20 128 0 1 0 0 p-p0-mod1-volume empty empty 0 -9
 0 10 #f5f5be #969600 #000000 12700 1 0 1;
@@ -338,7 +338,7 @@ f 5;
 #X msg 1250 1300 set \$1;
 #X floatatom 1131 1030 5 0 1 3 - - p-p0-mod2-volume 0 0 1, f 5;
 #X obj 1130 860 tgl 20 0 p-p0-mod2-enabled empty empty 0 27 0 12 #ffffff
-#000000 #000000 0 1 1;
+#000000 #000000 1 1 1;
 #X msg 1250 1230 set \$1;
 #X obj 1190 890 vsl 20 128 0 1 0 0 p-p0-mod3-volume empty empty 0 -9
 0 10 #f5f5be #969600 #000000 12700 1 0 1;
@@ -439,7 +439,7 @@ f 5;
 #X obj 490 750 r p-p0-mod-flt-cutoff;
 #X obj 490 820 r p-p0-mod-flt-qfactor;
 #X obj 910 620 vradio 20 0 0 4 p-p0-car-flt-type empty empty 0 -8 0
-10 #fcfcfc #000000 #000000 0 1;
+10 #fcfcfc #000000 #000000 1 1;
 #X text 940 620 NO;
 #X text 940 640 LP;
 #X text 940 660 HP;
@@ -452,7 +452,7 @@ f 5;
 #X text 940 770 HP;
 #X text 940 790 BP;
 #X obj 710 620 hsl 128 20 0.1 10 1 0 p-p0-car-flt-cutoff empty empty
--2 -8 0 10 #d7e6be #286024 #000000 12700 1 0 1;
+-2 -8 0 10 #d7e6be #286024 #000000 11596 1 0 1;
 #X obj 710 670 hsl 128 20 0 1 0 0 p-p0-car-flt-qfactor empty empty
 -2 -8 0 10 #d7e6be #286024 #000000 12700 1 0 1;
 #X obj 710 730 hsl 128 20 0.1 10 1 0 p-p0-mod-flt-cutoff empty empty
@@ -465,18 +465,18 @@ f 5;
 #X text 710 910 2 Square;
 #X text 710 930 3 Triangle;
 #X text 980 700 Waveform;
-#X floatatom 1070 700 5 0 0 0 - - p-p0-car1-waveform 0 0 1, f 5;
-#X floatatom 1130 700 5 0 0 0 - - p-p0-car2-waveform 0 0 1, f 5;
-#X floatatom 1190 700 5 0 0 0 - - p-p0-car3-waveform 0 0 1, f 5;
-#X floatatom 1250 700 5 0 0 0 - - p-p0-car4-waveform 0 0 1, f 5;
-#X floatatom 1310 700 5 0 0 0 - - p-p0-car5-waveform 0 0 1, f 5;
-#X floatatom 1370 700 5 0 0 0 - - p-p0-car6-waveform 0 0 1, f 5;
-#X floatatom 1430 700 5 0 0 0 - - p-p0-car7-waveform 0 0 1, f 5;
-#X floatatom 1490 700 5 0 0 0 - - p-p0-car8-waveform 0 0 1, f 5;
-#X floatatom 1070 1060 5 0 0 0 - - p-p0-mod1-waveform 0 0 1, f 5;
-#X floatatom 1130 1060 5 0 0 0 - - p-p0-mod2-waveform 0 0 1, f 5;
-#X floatatom 1190 1060 5 0 0 0 - - p-p0-mod3-waveform 0 0 1, f 5;
-#X floatatom 1250 1060 5 0 0 0 - - p-p0-mod4-waveform 0 0 1, f 5;
+#X floatatom 1070 700 5 0 3 0 - - p-p0-car1-waveform 0 0 1, f 5;
+#X floatatom 1130 700 5 0 3 0 - - p-p0-car2-waveform 0 0 1, f 5;
+#X floatatom 1190 700 5 0 3 0 - - p-p0-car3-waveform 0 0 1, f 5;
+#X floatatom 1250 700 5 0 3 0 - - p-p0-car4-waveform 0 0 1, f 5;
+#X floatatom 1310 700 5 0 3 0 - - p-p0-car5-waveform 0 0 1, f 5;
+#X floatatom 1370 700 5 0 3 0 - - p-p0-car6-waveform 0 0 1, f 5;
+#X floatatom 1430 700 5 0 3 0 - - p-p0-car7-waveform 0 0 1, f 5;
+#X floatatom 1490 700 5 0 3 0 - - p-p0-car8-waveform 0 0 1, f 5;
+#X floatatom 1070 1060 5 0 3 0 - - p-p0-mod1-waveform 0 0 1, f 5;
+#X floatatom 1130 1060 5 0 3 0 - - p-p0-mod2-waveform 0 0 1, f 5;
+#X floatatom 1190 1060 5 0 3 0 - - p-p0-mod3-waveform 0 0 1, f 5;
+#X floatatom 1250 1060 5 0 3 0 - - p-p0-mod4-waveform 0 0 1, f 5;
 #X text 980 890 Volume;
 #X text 980 860 Enabled;
 #X text 980 830 Harmonic;
@@ -548,14 +548,14 @@ f 5;
 #X msg 3320 340 set \$1;
 #X msg 3490 340 set \$1;
 #X msg 3660 340 set \$1;
-#X floatatom 1550 700 5 0 0 0 - - p-p0-car9-waveform 0 0 1, f 5;
-#X floatatom 1610 700 5 0 0 0 - - p-p0-car10-waveform 0 0 1, f 5;
-#X floatatom 1670 700 5 0 0 0 - - p-p0-car11-waveform 0 0 1, f 5;
-#X floatatom 1730 700 5 0 0 0 - - p-p0-car12-waveform 0 0 1, f 5;
-#X floatatom 1790 700 5 0 0 0 - - p-p0-car13-waveform 0 0 1, f 5;
-#X floatatom 1850 700 5 0 0 0 - - p-p0-car14-waveform 0 0 1, f 5;
-#X floatatom 1910 700 5 0 0 0 - - p-p0-car15-waveform 0 0 1, f 5;
-#X floatatom 1970 700 5 0 0 0 - - p-p0-car16-waveform 0 0 1, f 5;
+#X floatatom 1550 700 5 0 3 0 - - p-p0-car9-waveform 0 0 1, f 5;
+#X floatatom 1610 700 5 0 3 0 - - p-p0-car10-waveform 0 0 1, f 5;
+#X floatatom 1670 700 5 0 3 0 - - p-p0-car11-waveform 0 0 1, f 5;
+#X floatatom 1730 700 5 0 3 0 - - p-p0-car12-waveform 0 0 1, f 5;
+#X floatatom 1790 700 5 0 3 0 - - p-p0-car13-waveform 0 0 1, f 5;
+#X floatatom 1850 700 5 0 3 0 - - p-p0-car14-waveform 0 0 1, f 5;
+#X floatatom 1910 700 5 0 3 0 - - p-p0-car15-waveform 0 0 1, f 5;
+#X floatatom 1970 700 5 0 3 0 - - p-p0-car16-waveform 0 0 1, f 5;
 #X text 1550 470 9;
 #X text 1610 470 10;
 #X text 1670 470 11;
@@ -620,10 +620,10 @@ f 5;
 #X msg 1940 1370 set \$1;
 #X msg 2110 1370 set \$1;
 #X msg 2280 1370 set \$1;
-#X floatatom 1310 1060 5 0 0 0 - - p-p0-mod5-waveform 0 0 1, f 5;
-#X floatatom 1370 1060 5 0 0 0 - - p-p0-mod6-waveform 0 0 1, f 5;
-#X floatatom 1430 1060 5 0 0 0 - - p-p0-mod7-waveform 0 0 1, f 5;
-#X floatatom 1490 1060 5 0 0 0 - - p-p0-mod8-waveform 0 0 1, f 5;
+#X floatatom 1310 1060 5 0 3 0 - - p-p0-mod5-waveform 0 0 1, f 5;
+#X floatatom 1370 1060 5 0 3 0 - - p-p0-mod6-waveform 0 0 1, f 5;
+#X floatatom 1430 1060 5 0 3 0 - - p-p0-mod7-waveform 0 0 1, f 5;
+#X floatatom 1490 1060 5 0 3 0 - - p-p0-mod8-waveform 0 0 1, f 5;
 #X text 1310 830 5;
 #X text 1370 830 6;
 #X text 1430 830 7;
@@ -672,12 +672,12 @@ f 5;
 #X msg 2630 1370 set \$1;
 #X msg 2800 1370 set \$1;
 #X msg 2970 1370 set \$1;
-#X floatatom 1550 1060 5 0 0 0 - - p-p0-mod9-waveform 0 0 1, f 5;
-#X floatatom 1610 1060 5 0 0 0 - - p-p0-mod10-waveform 0 0 1, f 5
+#X floatatom 1550 1060 5 0 3 0 - - p-p0-mod9-waveform 0 0 1, f 5;
+#X floatatom 1610 1060 5 0 3 0 - - p-p0-mod10-waveform 0 0 1, f 5
 ;
-#X floatatom 1670 1060 5 0 0 0 - - p-p0-mod11-waveform 0 0 1, f 5
+#X floatatom 1670 1060 5 0 3 0 - - p-p0-mod11-waveform 0 0 1, f 5
 ;
-#X floatatom 1730 1060 5 0 0 0 - - p-p0-mod12-waveform 0 0 1, f 5
+#X floatatom 1730 1060 5 0 3 0 - - p-p0-mod12-waveform 0 0 1, f 5
 ;
 #X obj 1790 890 vsl 20 128 0 1 0 0 p-p0-mod13-volume empty empty 0
 -9 0 10 #f5f5be #969600 #000000 12700 1 0 1;
@@ -711,13 +711,13 @@ f 5;
 #X msg 3320 1370 set \$1;
 #X msg 3490 1370 set \$1;
 #X msg 3660 1370 set \$1;
-#X floatatom 1790 1060 5 0 0 0 - - p-p0-mod13-waveform 0 0 1, f 5
+#X floatatom 1790 1060 5 0 3 0 - - p-p0-mod13-waveform 0 0 1, f 5
 ;
-#X floatatom 1850 1060 5 0 0 0 - - p-p0-mod14-waveform 0 0 1, f 5
+#X floatatom 1850 1060 5 0 3 0 - - p-p0-mod14-waveform 0 0 1, f 5
 ;
-#X floatatom 1910 1060 5 0 0 0 - - p-p0-mod15-waveform 0 0 1, f 5
+#X floatatom 1910 1060 5 0 3 0 - - p-p0-mod15-waveform 0 0 1, f 5
 ;
-#X floatatom 1970 1060 5 0 0 0 - - p-p0-mod16-waveform 0 0 1, f 5
+#X floatatom 1970 1060 5 0 3 0 - - p-p0-mod16-waveform 0 0 1, f 5
 ;
 #X text 1550 830 9;
 #X text 1610 830 10;
@@ -755,6 +755,10 @@ f 5;
 #X text 980 1060 Waveform;
 #X obj 710 840 cnv 15 250 15 empty empty Waveforms 4 7 0 12 #e0e0e0
 #404040 0;
+#X obj 2040 470 ./envgen/envgen-gui Amplitude p-p0-car-aenv1 p-p0-car-aenv2
+;
+#X obj 2040 830 ./envgen/envgen-gui Amplitude p-p0-mod-aenv1 p-p0-mod-aenv2
+;
 #X connect 4 0 3 0;
 #X connect 4 0 6 0;
 #X connect 5 0 4 0;
@@ -1011,12 +1015,9 @@ f 5;
 #X connect 427 0 389 0;
 #X connect 428 0 386 0;
 #X connect 429 0 393 0;
-#X coords 0 -1 1 1 1320 750 2 700 400;
+#X coords 0 -1 1 1 1650 750 2 700 400;
 #X restore 10 390 pd partial_parameters;
-#X text 1370 200 TODO: More waveforms (e.g. piano \, DX piano \, bass
-\, frettless \, ...), f 69;
-#X text 1370 230 TODO: LFO + Mod Wheel;
-#X obj 1350 450 ./envgen/envgen-gui Carrier-Volume p-p0-car-aenv1 p-p0-car-aenv2
-;
-#X obj 1350 810 ./envgen/envgen-gui Modulator-Volume p-p0-mod-aenv1
-p-p0-mod-aenv2;
+#X text 1670 80 TODO: LFO + Mod Wheel;
+#N canvas 0 49 1920 1009 modulation_parameters 0;
+#X coords 0 -1 1 1 320 300 2 100 100;
+#X restore 1340 80 pd modulation_parameters;
