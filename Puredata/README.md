@@ -2,6 +2,8 @@ Puredata Instruments and Utilities
 ==================================
 
 1. [Directory Content](#directory-content)
+1. [How to Use][#how-to-use]
+1. [Main, Main, Main1, Main2](#main-main1-main2)
 1. [Instruments](#instruments)
 1. [Utilities](#utilities)
 
@@ -13,13 +15,6 @@ built using Puredata. These resources demonstrate how Puredata can be employed t
 program real-time MIDI synthesizers and serves as a starting point for exploring
 Puredata's capabilities and challenges.
 
-This directory showcases Puredata's capability in programming real-time MIDI synthesizers
-and investigates the feasibility of building portable virtual instruments using Android
-and Puredata (via Java and libpd). The investigation focuses on determining the minimum
-achievable latency on Android, the maximum polyphony Puredata can handle on mobile devices
-with medium complexity synthesis (e.g., 4-operator FM), and evaluating the required programming
-skills, DSP knowledge, and overall development effort.
-
 First some screenshots and demos. Find more detailed descriptions below.
 For more demos please see the [Main README file](../README.md).
 
@@ -30,43 +25,15 @@ For more demos please see the [Main README file](../README.md).
                 <img src="Tuning%20Fork/Screenshots/Tuning%20Fork.png" width="300">
             </a>
             <br/>
-            <audio src="Tuning%20Fork/Demos/Tuning%20Fork.mp3" type="audio/mpeg">
+            <a href="Tuning%20Fork/Demos/Tuning%20Fork.mp3">
         </td>
         <td>
             <a href="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png">
                 <img src="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png" width="300">
             </a>
             <br/>
-            <audio src="Vanilla%20Sustain%20Pedal/Demos/Sustain%20Pedal.mp3" type="audio/mpeg">
+            <a href="Vanilla%20Sustain%20Pedal/Demos/Sustain%20Pedal.mp3">
         </td>
-    </tr>
-    <tr>
-        <td>Tuning Fork</td>
-        <td>Vanilla Sustain Pedal</td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-        <td>
-            To be done ...
-        </td>
-        <td>
-            <a href="Mini%20Clavier/Screenshots/Main%20View.png">
-                <img src="Mini%20Clavier/Screenshots/Main%20View.png" width="300">
-            </a>
-            <br/>
-            <audio src="Mini%20Clavier/Demos/Default%20Sound.mp3" type="audio/mpeg">
-        </td>
-    </tr>
-    <tr>
-        <td>FM4</td>
-        <td>Mini Clavier</td>
-    </tr>
-</table>
-
-<table>
-    <tr>
         <td>
             <a href="Wave%20Table%20Generator/Screenshots/Main View.png">
                 <img src="Wave%20Table%20Generator/Screenshots/Main View.png" width="300">
@@ -74,36 +41,81 @@ For more demos please see the [Main README file](../README.md).
         </td>
     </tr>
     <tr>
-        <td>Wave Table Generator</td>
+        <td>Tuning Fork</td>
+        <td>Vanilla Sustain Pedal</td>
+        <td>Wavetable Generator</td>
     </tr>
 </table>
+
+<table>
+    <tr>
+        <td>
+            <img src="../Images/TODO.png" width="300">
+        </td>
+        <td>
+            <img src="../Images/TODO.png" width="300">
+        </td>
+        <td>
+            <img src="../Images/TODO.png" width="300">
+        </td>
+    </tr>
+    <tr>
+        <td>Unicorn Wave</td>
+        <td>Mini Clavier</td>
+        <td>FM4</td>
+    </tr>
+</table>
+
+How to Use
+----------
+
+All patches have been built with [PD-L2Ork](http://l2ork.music.vt.edu/main/) –
+the Puredata version built for the Linux Laptop Orchestra. Only objects from
+[PD Vanilla](https://puredata.info/downloads/vanilla) are used, so the patches
+should work with that, too. But some UI elements will be misaligned since PD
+Vanilla places some elements differently and the overall look and UI performance
+will be worse.
+
+Main, Main1, Main2
+------------------
+
+The patch itself is always contained in `main.pd`. All other files are usually
+abstractions (custom objects) or data files. There are different main files,
+however:
+
+ * `main.pd`: Full version including a user interface built with PD (wraps `main1.pd`)
+ * `main1.pd`: The synthesizer without UI but with preset management (wraps `main2.pd`)
+ * `main2.pd`: The core synthesizer engine without UI and no preset management
+
+On Desktop you usually want to run `main.pd` but on headless devices (e.g.
+Raspberry Pi hidden in a custom case) running `main1.pd` may save CPU cycles.
+`main2.pd` is meant for embedding in custom built applications with `libpd` where
+PDs load and save dialogues usually don't work and presets are handled by the app,
+instead.
 
 Instruments
 -----------
 
-- **Tuning Fork:** A minimal synth producing a pure sine wave. It serves as a testbed for
+- **Tuning Fork**: A minimal synth producing a pure sine wave. Serves as a testbed for
   `libpd` on Android and MIDI message handling.
 
-- **Vanilla Sustain Pedal:**:Demonstrates the use of PD's `[poly]`, `[clone]`, and `[bag]`
+- **Vanilla Sustain Pedal:** Demonstrates the use of PD's `[poly]`, `[clone]`, and `[bag]`
   objects to handle sustain pedal (MIDI CC 64).
+
+- **Unicorn Wave:** Wavetable synthesizer using band-limited wavetables (one per octave).
+  Rather uninteresting sound but really a unicorn regarding clean-code principles in PD.
+  Custom voice allocators and envelops making full use of structures in PD. But rather
+  CPU hungry due to this.
+
+- **Mini Clavier**: Experimental implementation of the Synclavier FM algorithm, using an
+  oscillator bank for the carrier and a single sine for the modulator.
 
 - **FM4:** A 4-operator FM synth inspired by Yamaha 1980s hardware (e.g., DX9). It implements
   4-operator algorithms with a sound profile similar to the originals, while maintaining manageable
   complexity.
 
-- **Mini Clavier:** An experimental synth using band-limited wave tables and frequency modulation.
-  - Features:
-    - Full UI built in Puredata.
-    - Custom voice allocator with improved voice stealing, sustain and sustenuto.
-    - Preset loading and saving.
-    - Additive synthesis for FM carriers and modulators.
-    - Dynamic band-limited wave tables for aliasing reduction.
-    - Custom chorus/flanger effect.
-    - Visual GUI editor for arbitrary-length envelopes.
-  - _Note:_ This project exceeds Puredata's limits even on desktop systems and remains incomplete.
-
 Utilities
 ---------
 
-- **Wave Table Generator**: Creates band-limited wave tables for classic analog waveforms
-  (Sine, Triangle, Saw, Square) to be used with PD's `[tabosc4~]` object
+- **Wave Table Generator**: Creates band-limited wave tables for classic analogue
+  waveforms (Sine, Triangle, Saw, Square) to be used with PD's `[tabosc4~]` object
