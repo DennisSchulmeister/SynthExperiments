@@ -44,7 +44,6 @@ float enabled float selected float value float duration float starttime
 #X msg 880 180 set \$1;
 #X obj 420 240 cnv 15 220 15 empty empty Global\ Parameters 4 6 0 12
 #e0e0e0 #404040 0;
-#X obj 1100 270 loadbang;
 #X obj 520 270 vsl 20 128 0 48 0 0 p-glb-pbrange empty empty 0 -9 0
 10 #2f6036 #a6c5a6 #000000 529 1 0 1;
 #X obj 650 240 cnv 15 270 15 empty empty Input\ Monitor 4 6 0 12 #e0e0e0
@@ -56,8 +55,6 @@ float enabled float selected float value float duration float starttime
 #X obj 1030 150 r in-expression;
 #X obj 680 540 r in-sustain;
 #X obj 800 540 r in-sustenuto;
-#X msg 1100 300 \; in-expression 1 \; in-pitchbend 0 \; in-modulation
-0 \; in-sustain 0 \; in-sustenuto 0 \;;
 #X obj 300 270 vu 15 200 empty empty -1 -8 0 10 #404040 #000000 1 0
 ;
 #X obj 180 150 r out-vu-rms1;
@@ -80,7 +77,7 @@ float enabled float selected float value float duration float starttime
 #X connect 3 0 2 0;
 #X connect 5 0 10 0;
 #X connect 5 0 4 0;
-#X connect 7 0 23 0;
+#X connect 7 0 22 0;
 #X connect 7 0 6 0;
 #X connect 12 0 11 0;
 #X connect 12 0 13 0;
@@ -89,21 +86,20 @@ float enabled float selected float value float duration float starttime
 #X connect 18 0 19 0;
 #X connect 20 0 18 0;
 #X connect 20 0 19 0;
-#X connect 22 0 32 0;
-#X connect 25 0 1 0;
-#X connect 26 0 7 0;
-#X connect 27 0 12 0;
-#X connect 28 0 20 0;
-#X connect 29 0 3 0;
-#X connect 30 0 16 0;
-#X connect 31 0 17 0;
-#X connect 34 0 33 0;
-#X connect 35 0 36 0;
-#X connect 37 0 33 1;
-#X connect 38 0 36 1;
-#X connect 42 0 43 0;
-#X connect 43 0 40 0;
-#X connect 44 0 5 0;
+#X connect 24 0 1 0;
+#X connect 25 0 7 0;
+#X connect 26 0 12 0;
+#X connect 27 0 20 0;
+#X connect 28 0 3 0;
+#X connect 29 0 16 0;
+#X connect 30 0 17 0;
+#X connect 32 0 31 0;
+#X connect 33 0 34 0;
+#X connect 35 0 31 1;
+#X connect 36 0 34 1;
+#X connect 40 0 41 0;
+#X connect 41 0 38 0;
+#X connect 42 0 5 0;
 #X coords 0 -1 1 1 650 300 2 280 230;
 #X restore 10 80 pd global_parameters;
 #N canvas 0 49 1920 1009 fx_parameters 0;
@@ -111,7 +107,6 @@ float enabled float selected float value float duration float starttime
 0 12 #f4f4d7 #dd9e55 #000000 4191 1 0 1;
 #X msg 970 200 set \$1;
 #X floatatom 880 420 5 0 100 3 Length - p-rev-length 0 0 1, f 5;
-#X obj 1590 379 loadbang;
 #X obj 860 250 cnv 15 270 15 empty empty Reverb 4 6 0 12 #e0e0e0 #404040
 0;
 #X text 920 420 %;
@@ -159,7 +154,6 @@ f 5;
 #X obj 510 510 tgl 20 0 p-cho-enabled empty Chorus\ enabled 24 7 0
 12 #fcfcfc #000000 #000000 1 1 1;
 #X msg 540 579 set \$1;
-#X obj 1590 180 loadbang;
 #X obj 470 170 r p-cho-frequency;
 #X obj 730 170 r p-cho-width;
 #X obj 840 170 r p-cho-feedback;
@@ -170,8 +164,6 @@ f 5;
 #X obj 540 550 r p-cho-enabled;
 #X obj 1160 480 r p-rev-drywet;
 #X obj 920 550 r p-rev-enabled;
-#X msg 1590 409 \; p-rev-length 33 \; p-rev-crossover 3000 \; p-rev-hfdamping
-20 \; p-rev-drywet 0 \; p-rev-enabled 1 \;;
 #X text 730 420 ms;
 #X obj 600 280 vsl 20 128 0 30 0 0 p-cho-delay empty empty 0 -11 0
 12 #d7def4 #5555dc #000000 12700 1 0 1;
@@ -179,42 +171,37 @@ f 5;
 #X floatatom 600 420 5 0 30 3 Delay - p-cho-delay 0 0 1, f 5;
 #X text 640 420 ms;
 #X obj 620 170 r p-cho-delay;
-#X msg 1590 209 \; p-cho-frequency 1.5 \; p-cho-delay 30 \; p-cho-width
-1.8 \; p-cho-feedback 0 \; p-cho-drywet 0.75 \; p-cho-enabled 1 \;
-;
 #X connect 1 0 0 0;
 #X connect 1 0 2 0;
-#X connect 3 0 47 0;
-#X connect 7 0 8 0;
-#X connect 7 0 6 0;
-#X connect 11 0 10 0;
-#X connect 11 0 12 0;
-#X connect 15 0 16 0;
-#X connect 15 0 14 0;
-#X connect 18 0 17 0;
-#X connect 18 0 19 0;
-#X connect 22 0 21 0;
-#X connect 22 0 23 0;
-#X connect 26 0 27 0;
-#X connect 26 0 25 0;
-#X connect 29 0 28 0;
-#X connect 29 0 30 0;
-#X connect 33 0 32 0;
-#X connect 35 0 34 0;
-#X connect 36 0 54 0;
-#X connect 37 0 22 0;
-#X connect 38 0 18 0;
-#X connect 39 0 29 0;
-#X connect 40 0 1 0;
-#X connect 41 0 7 0;
-#X connect 42 0 11 0;
-#X connect 43 0 26 0;
-#X connect 44 0 35 0;
-#X connect 45 0 15 0;
-#X connect 46 0 33 0;
-#X connect 50 0 49 0;
-#X connect 50 0 51 0;
-#X connect 53 0 50 0;
+#X connect 6 0 7 0;
+#X connect 6 0 5 0;
+#X connect 10 0 9 0;
+#X connect 10 0 11 0;
+#X connect 14 0 15 0;
+#X connect 14 0 13 0;
+#X connect 17 0 16 0;
+#X connect 17 0 18 0;
+#X connect 21 0 20 0;
+#X connect 21 0 22 0;
+#X connect 25 0 26 0;
+#X connect 25 0 24 0;
+#X connect 28 0 27 0;
+#X connect 28 0 29 0;
+#X connect 32 0 31 0;
+#X connect 34 0 33 0;
+#X connect 35 0 21 0;
+#X connect 36 0 17 0;
+#X connect 37 0 28 0;
+#X connect 38 0 1 0;
+#X connect 39 0 6 0;
+#X connect 40 0 10 0;
+#X connect 41 0 25 0;
+#X connect 42 0 34 0;
+#X connect 43 0 14 0;
+#X connect 44 0 32 0;
+#X connect 47 0 46 0;
+#X connect 47 0 48 0;
+#X connect 50 0 47 0;
 #X coords 0 -1 1 1 660 300 2 480 240;
 #X restore 670 80 pd fx_parameters;
 #N canvas 0 49 1920 1009 dsp 0;
@@ -225,12 +212,20 @@ f 5;
 #X obj 810 18 bng 25 250 50 0 cmd-save-preset empty Save\ Preset 30
 10 0 15 #144678 #79d9ec #f5f5f5 1;
 #X obj 10 80 ./main1;
-#X text 100 80 <-- Synth enginge + preset handling;
+#X text 80 80 <-- Synth enginge + preset handling;
 #X obj 1130 18 bng 25 250 50 0 cmd-reset-parameters empty Reset\ Parameters
 30 10 0 15 #144678 #79d9ec #f5f5f5 1;
+#X obj 10 250 r pre-init;
+#X obj 10 280 bng 20 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 1;
+#X obj 10 200 ./envgen/envgen-gui-structs;
+#X obj 10 310 s egui-initialize;
+#X text 220 200 <-- Enevelope Editor UI;
+#X connect 6 0 7 0;
+#X connect 7 0 9 0;
 #X coords 0 -1 1 1 1320 60 2 0 0;
 #X restore 10 10 pd dsp;
-#N canvas 0 49 1920 1009 partial_parameters 1;
+#N canvas 0 49 1920 1009 partial_parameters 0;
 #X obj 700 400 cnv 15 1320 30 empty empty Synthesizer\ Parameters 12
 12 0 14 #144678 #f5f5f5 0;
 #X msg 580 380 set \$1;
@@ -248,7 +243,7 @@ f 5;
 #X obj 970 440 cnv 15 620 15 empty empty Carrier 4 6 0 12 #e0e0e0 #404040
 0;
 #X obj 1060 530 vsl 20 128 0 1 0 0 p-p0-car1-volume empty empty 0 -9
-0 10 #cdafaf #825050 #000000 8000 1 0 1;
+0 10 #cdafaf #825050 #000000 12700 1 0 1;
 #X msg 1060 270 set \$1;
 #X obj 1060 240 r p-p0-car1-volume;
 #X floatatom 1060 670 5 0 1 3 - - p-p0-car1-volume 0 0 1, f 5;
@@ -440,17 +435,6 @@ f 5;
 #X obj 2440 170 r p-p0-car-noise-enabled;
 #X obj 2440 240 r p-p0-car-noise-volume;
 #X text 1540 470 Noise;
-#X obj 1850 530 vsl 20 128 0 1 0 0 p-p0-mod-noise-volume empty empty
-0 -9 0 10 #f9f9d7 #a6a64e #000000 0 1 0 1;
-#X msg 3360 270 set \$1;
-#X floatatom 1850 670 5 0 1 3 - - p-p0-mod-noise-volume 0 0 1, f 5
-;
-#X obj 1850 500 tgl 20 0 p-p0-mod-noise-enabled empty empty 0 27 0
-12 #ffffff #000000 #000000 0 1 1;
-#X msg 3360 200 set \$1;
-#X text 1850 470 Noise;
-#X obj 3360 170 r p-p0-mod-noise-enabled;
-#X obj 3362 239 r p-p0-mod-noise-volume;
 #X text 980 760 Triangle;
 #X msg 740 230 set \$1;
 #X floatatom 1060 800 5 0 10 3 Frequency - p-p0-car-frequency 0 0 1
@@ -525,11 +509,6 @@ f 5;
 #X text 710 810 Modulator;
 #X obj 710 880 hsl 128 20 0 1 0 0 p-p0-mod-flt-qfactor empty empty
 -2 -8 0 10 #d7e6be #286024 #000000 0 1 0 1;
-#X obj 10 60 r pre-init;
-#X obj 10 90 bng 20 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 1;
-#X obj 10 10 ./envgen/envgen-gui-structs;
-#X obj 10 120 s egui-initialize;
 #X connect 1 0 8 0;
 #X connect 1 0 4 0;
 #X connect 3 0 5 0;
@@ -627,46 +606,39 @@ f 5;
 #X connect 157 0 156 0;
 #X connect 158 0 157 0;
 #X connect 159 0 154 0;
-#X connect 162 0 161 0;
 #X connect 162 0 163 0;
-#X connect 165 0 164 0;
+#X connect 164 0 162 0;
+#X connect 165 0 166 0;
 #X connect 167 0 165 0;
-#X connect 168 0 162 0;
+#X connect 168 0 169 0;
 #X connect 170 0 171 0;
-#X connect 172 0 170 0;
-#X connect 173 0 174 0;
-#X connect 175 0 173 0;
-#X connect 176 0 177 0;
+#X connect 172 0 173 0;
+#X connect 174 0 168 0;
+#X connect 175 0 170 0;
+#X connect 176 0 172 0;
 #X connect 178 0 179 0;
-#X connect 180 0 181 0;
-#X connect 182 0 176 0;
-#X connect 183 0 178 0;
-#X connect 184 0 180 0;
-#X connect 186 0 187 0;
-#X connect 186 0 185 0;
-#X connect 188 0 186 0;
-#X connect 191 0 3 0;
+#X connect 178 0 177 0;
+#X connect 180 0 178 0;
+#X connect 183 0 3 0;
+#X connect 187 0 188 0;
+#X connect 187 0 214 0;
+#X connect 189 0 190 0;
+#X connect 189 0 215 0;
+#X connect 191 0 187 0;
+#X connect 192 0 189 0;
+#X connect 193 0 203 0;
+#X connect 194 0 193 0;
 #X connect 195 0 196 0;
-#X connect 195 0 222 0;
 #X connect 197 0 198 0;
-#X connect 197 0 223 0;
-#X connect 199 0 195 0;
-#X connect 200 0 197 0;
-#X connect 201 0 211 0;
-#X connect 202 0 201 0;
-#X connect 203 0 204 0;
-#X connect 205 0 206 0;
-#X connect 207 0 217 0;
-#X connect 208 0 207 0;
-#X connect 209 0 203 0;
-#X connect 210 0 205 0;
-#X connect 227 0 228 0;
-#X connect 228 0 230 0;
+#X connect 199 0 209 0;
+#X connect 200 0 199 0;
+#X connect 201 0 195 0;
+#X connect 202 0 197 0;
 #X coords 0 -1 1 1 1320 530 2 700 400;
 #X restore 10 390 pd partial_parameters;
 #X text 1370 430 TODO: Carrier A.Env/F.Env \, modulator A.Env/F.Env
 ;
 #X text 1370 460 TODO: LFOs;
 #X text 1370 490 TODO: Debug aliasing issues!;
-#X text 1370 400 TODO: Debug env.gens. (100% CPU + not working yet)
+#X obj 10 930 ./envgen/envgen-gui Carrier-Volume s p-p0-car-aenv1 p-p0-car-aenv2
 ;

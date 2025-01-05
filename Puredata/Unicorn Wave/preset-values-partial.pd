@@ -24,10 +24,6 @@
 ;
 #X obj 600 420 ./preset/preset-value pm float p-p\$1-car-noise-volume
 ;
-#X obj 1100 390 ./preset/preset-value pm float p-p\$1-mod-noise-enabled
-;
-#X obj 1100 420 ./preset/preset-value pm float p-p\$1-mod-noise-volume
-;
 #X obj 600 470 ./preset/preset-value pm float p-p\$1-car-detune;
 #X obj 600 500 ./preset/preset-value pm float p-p\$1-car-frequency
 ;
