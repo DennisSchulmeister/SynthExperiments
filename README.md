@@ -1,3 +1,12 @@
+Future Archive of Experimental Software Synthesizers
+====================================================
+
+(Zukunftsarchiv experimenteller Software-Synthesizer)
+
+----
+
+TODO: Rewrite README
+
 MiniClavier Synthesizer
 =======================
 
