@@ -407,9 +407,9 @@ and sends the resulting values to everybody who wants to receive them.
 #X obj 210 160 r cmd-reset-parameters;
 #X obj 100 190 bng 20 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000 1;
-#X obj 100 590 ./init-global;
-#X obj 100 690 s reinit;
-#X obj 100 620 ./init-partial 0 1;
+#X obj 100 360 ./init-global;
+#X obj 100 780 s reinit;
+#X obj 100 390 ./init-partial 0 1;
 #N canvas 0 49 1920 1009 volume_and_balance 0;
 #X obj 100 400 inlet~;
 #X obj 100 550 outlet~;
@@ -455,16 +455,16 @@ and sends the resulting values to everybody who wants to receive them.
 #X connect 22 0 1 0;
 #X connect 22 1 2 0;
 #X restore 800 280 pd volume_and_balance;
-#X obj 100 390 ./wavetables/saw/wavetable-saw;
-#X obj 100 420 ./wavetables/square/wavetable-square;
-#X obj 100 450 ./wavetables/triangle/wavetable-triangle;
-#X obj 100 360 ./wavetables/sin/wavetable-sin;
+#X obj 100 580 ./wavetables/saw/wavetable-saw;
+#X obj 100 610 ./wavetables/square/wavetable-square;
+#X obj 100 640 ./wavetables/triangle/wavetable-triangle;
+#X obj 100 550 ./wavetables/sin/wavetable-sin;
 #X text 100 100 ---- Initialization ----;
-#X text 110 570 ---- Parameters ----;
-#X text 110 340 ---- Basic Wavetables ----;
-#X text 110 500 ---- Partial carrier/modulator wavetables ----;
-#X obj 100 520 ./partial-wavetables 0;
-#X text 110 670 ---- Everything else ----;
+#X text 110 340 ---- Parameters ----;
+#X text 110 440 ---- Basic Wavetables ----;
+#X text 110 690 ---- Partial carrier/modulator wavetables ----;
+#X obj 100 710 ./partial-wavetables 0;
+#X text 110 760 ---- Everything else ----;
 #X obj 100 260 trigger b b;
 #X text 110 240 ---- Pre-Initialization ----;
 #X obj 130 290 s pre-init;
@@ -473,9 +473,9 @@ and sends the resulting values to everybody who wants to receive them.
 #X text 1090 240 <<<< Polyphony: 16;
 #X obj 800 220 ./voice_allocator/voice_allocator 16;
 #X obj 800 250 clone voice 16;
-#X text 400 340 NOTE: New waveforms must also be included in partial-add-harmonic.pd
+#X text 400 610 NOTE: New waveforms must also be included in partial-add-harmonic.pd
 , f 25;
-#N canvas 0 49 1920 1009 lfo 1;
+#N canvas 0 49 1920 1009 lfo 0;
 #X text 10 10 LFO Generators;
 #X obj 500 220 ./utils/lfo;
 #X obj 1000 220 ./utils/lfo;
@@ -516,9 +516,9 @@ and sends the resulting values to everybody who wants to receive them.
 #X obj 700 390 hsl 128 15 0 1 0 0 empty empty 0\ …\ 1 10 -8 0 10
 #fcfcfc #000000 #000000 0 1 0 1;
 #X obj 1000 390 hsl 128 15 -1 1 0 0 empty empty -1\ …\ 1 10 -8 0
-10 #fcfcfc #000000 #000000 10082 1 0 1;
+10 #fcfcfc #000000 #000000 9233 1 0 1;
 #X obj 1200 390 hsl 128 15 0 1 0 0 empty empty 0\ …\ 1 10 -8 0 10
-#fcfcfc #000000 #000000 10082 1 0 1;
+#fcfcfc #000000 #000000 9233 1 0 1;
 #X obj 200 170 trigger b f;
 #X obj 200 200 s \$0-update;
 #X obj 800 100 r \$0-update;
@@ -564,6 +564,13 @@ and sends the resulting values to everybody who wants to receive them.
 #X connect 41 0 23 0;
 #X connect 42 0 30 0;
 #X restore 800 160 pd lfo;
+#X obj 140 460 r cmd-change-wavetable-size;
+#X obj 470 460 r wavetable-size;
+#X obj 470 490 print Set Wavetable size;
+#X obj 470 520 print Reload wavetables;
+#X obj 140 520 s p0-carrier-recalc;
+#X obj 300 520 s p0-modulator-recalc;
+#X obj 140 490 trigger b b b b;
 #X connect 1 0 2 0;
 #X connect 1 1 2 1;
 #X connect 2 0 4 0;
@@ -577,15 +584,21 @@ and sends the resulting values to everybody who wants to receive them.
 #X connect 12 0 13 0;
 #X connect 13 0 28 0;
 #X connect 14 0 16 0;
-#X connect 16 0 15 0;
+#X connect 16 0 21 0;
 #X connect 17 0 1 0;
 #X connect 17 1 1 1;
 #X connect 18 0 19 0;
 #X connect 19 0 20 0;
 #X connect 20 0 26 0;
 #X connect 21 0 18 0;
-#X connect 26 0 14 0;
-#X connect 28 0 21 0;
+#X connect 26 0 15 0;
+#X connect 28 0 14 0;
 #X connect 28 1 30 0;
 #X connect 34 0 35 0;
 #X connect 35 0 17 0;
+#X connect 38 0 44 0;
+#X connect 39 0 40 0;
+#X connect 44 0 42 0;
+#X connect 44 1 43 0;
+#X connect 44 2 21 0;
+#X connect 44 3 41 0;

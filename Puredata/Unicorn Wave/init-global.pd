@@ -9,7 +9,6 @@
 30 \; p-cho-width 1.8 \; p-cho-feedback 0 \; p-cho-drywet 0.75 \; p-cho-enabled
 1 \; \; p-rev-length 33 \; p-rev-crossover 3000 \; p-rev-hfdamping
 0 \; p-rev-drywet 0.75 \; p-rev-enabled 1;
-#X obj 100 130 trigger b b b b b;
 #X msg 850 160 \; p-mw-car-volume 0 \; p-mw-car-frequency 0 \; p-mw-car-detune
 0 \; p-mw-car-cutoff 0 \; p-mw-car-q 0 \; \; p-mw-mod-volume 0 \; p-mw-mod-frequency
 0 \; p-mw-mod-detune 0 \; p-mw-mod-cutoff 0 \; p-mw-mod-q 0 \; \; p-mw-lfo1
@@ -24,9 +23,12 @@ p-lfo2-car-detune 0 \; p-lfo2-car-cutoff 0 \; p-lfo2-car-q 0 \; \;
 p-lfo2-mod-volume 0 \; p-lfo2-mod-frequency 0 \; p-lfo2-mod-detune
 0 \; p-lfo2-mod-cutoff 0 \; p-lfo2-mod-q 0 \; \; p-lfo2-frequency 0.5
 ;
-#X connect 1 0 5 0;
-#X connect 5 0 2 0;
-#X connect 5 1 4 0;
-#X connect 5 2 7 0;
-#X connect 5 3 8 0;
-#X connect 5 4 6 0;
+#X obj 100 130 trigger b b b b b b;
+#X msg 1040 160 \; wavetable-size 16384;
+#X connect 1 0 8 0;
+#X connect 8 0 2 0;
+#X connect 8 1 4 0;
+#X connect 8 2 6 0;
+#X connect 8 3 7 0;
+#X connect 8 4 5 0;
+#X connect 8 5 9 0;
