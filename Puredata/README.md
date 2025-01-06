@@ -106,10 +106,10 @@ Instruments
 - **Vanilla Sustain Pedal:** Demonstrates the use of PD's `[poly]`, `[clone]`, and `[bag]`
   objects to handle sustain pedal (MIDI CC 64).
 
-- **Unicorn Wave:** Wavetable synthesizer using band-limited wavetables (one per octave).
-  Rather uninteresting sound but really a unicorn regarding clean-code principles in PD.
-  Custom voice allocators and envelops making full use of structures in PD. But rather
-  CPU hungry due to this.
+- **Unicorn Wave:** Wavetable synthesizer using band-limited wavetables (one per octave,
+  similar principle as in the Korg DW8000). Really a unicorn regarding clean-code principles
+  and complexity in PD. Custom voice allocators and envelops making full use of structures
+  in PD. But rather CPU hungry due to this.
 
 - **Mini Clavier**: Experimental implementation of the Synclavier FM algorithm, using an
   oscillator bank for the carrier and a single sine for the modulator.
