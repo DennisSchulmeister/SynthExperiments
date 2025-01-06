@@ -1,9 +1,11 @@
-MiniClavier (Pure Data Implementation)
-======================================
+Unicorn Wave
+============
 
 This is the Pure Data version of the MiniClavier synthesizer.
 
-![Screenshot](screenshot.png?raw=true "Screenshot of the unfinished version")
+![Screenshot](Screenshots/Default%20Sound.png?raw=true)
+
+TODO: Rewrite README
 
 The screenshot shows a work-in-progress version which doesn't include all
 planned features, yet.

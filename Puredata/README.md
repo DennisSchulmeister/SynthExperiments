@@ -25,14 +25,14 @@ For more demos please see the [Main README file](../README.md).
                 <img src="Tuning%20Fork/Screenshots/Tuning%20Fork.png" width="300">
             </a>
             <br/>
-            <a href="Tuning%20Fork/Demos/Tuning%20Fork.mp3">
+            <a href="Tuning%20Fork/Demos/Tuning%20Fork.mp3">Tuning Fork.mp3</a>
         </td>
         <td>
             <a href="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png">
                 <img src="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png" width="300">
             </a>
             <br/>
-            <a href="Vanilla%20Sustain%20Pedal/Demos/Sustain%20Pedal.mp3">
+            <a href="Vanilla%20Sustain%20Pedal/Demos/Sustain%20Pedal.mp3">Sustain Pedal.mp3</a>
         </td>
         <td>
             <a href="Wave%20Table%20Generator/Screenshots/Main View.png">
@@ -50,7 +50,11 @@ For more demos please see the [Main README file](../README.md).
 <table>
     <tr>
         <td>
-            <img src="../Images/TODO.png" width="300">
+            <a href="Unicorn%20Wave/Screenshots/Default%20Sound.png">
+                <img src="Unicorn%20Wave/Screenshots/Default%20Sound.png" width="300">
+            </a>
+            <br/>
+            <a href="Unicorn%20Wave/Demos/Default%20Sound.mp3">Default Sound.mp3</a>
         </td>
         <td>
             <img src="../Images/TODO.png" width="300">

@@ -15,34 +15,75 @@ float sustain_color float sustenuto_color;
 #X text 710 230 <---- Click messages to load or save preset files;
 #X obj 100 430 ./preset/preset-value pm float p-glb-volume;
 #X obj 100 490 ./preset/preset-value pm float p-glb-pbrange;
-#X obj 490 430 ./preset/preset-value pm float p-cho-frequency;
-#X obj 490 460 ./preset/preset-value pm float p-cho-delay;
-#X obj 490 490 ./preset/preset-value pm float p-cho-width;
-#X obj 490 520 ./preset/preset-value pm float p-cho-feedback;
-#X obj 490 550 ./preset/preset-value pm float p-cho-drywet;
-#X obj 490 580 ./preset/preset-value pm float p-cho-enabled;
-#X obj 890 430 ./preset/preset-value pm float p-rev-length;
-#X obj 890 460 ./preset/preset-value pm float p-rev-crossover;
-#X obj 890 490 ./preset/preset-value pm float p-rev-hfdamping;
-#X obj 890 520 ./preset/preset-value pm float p-rev-drywet;
-#X obj 890 550 ./preset/preset-value pm float p-rev-enabled;
+#X obj 100 590 ./preset/preset-value pm float p-cho-frequency;
+#X obj 100 620 ./preset/preset-value pm float p-cho-delay;
+#X obj 100 650 ./preset/preset-value pm float p-cho-width;
+#X obj 100 680 ./preset/preset-value pm float p-cho-feedback;
+#X obj 100 710 ./preset/preset-value pm float p-cho-drywet;
+#X obj 100 740 ./preset/preset-value pm float p-cho-enabled;
+#X obj 100 840 ./preset/preset-value pm float p-rev-length;
+#X obj 100 870 ./preset/preset-value pm float p-rev-crossover;
+#X obj 100 900 ./preset/preset-value pm float p-rev-hfdamping;
+#X obj 100 930 ./preset/preset-value pm float p-rev-drywet;
+#X obj 100 960 ./preset/preset-value pm float p-rev-enabled;
 #X text 100 400 ---- Global Parameters ----;
-#X text 490 400 ---- Chorus ----;
-#X text 890 400 ---- Reverb ----;
+#X text 100 560 ---- Chorus ----;
+#X text 100 810 ---- Reverb ----;
 #X obj 400 320 s reinit;
 #X obj 400 260 trigger b a;
 #X obj 600 260 s \$0-preset-manager;
 #X obj 100 200 r \$0-preset-manager;
 #X obj 420 290 s \$0-preset-manager;
-#X obj 1300 430 ./preset-values-partial 0;
-#X text 1300 400 ---- Partial Parameters ----;
+#X obj 500 840 ./preset-values-partial 0;
 #X text 10 40 This is basically the Unicorn Wave synthesizer without
 the GUI (to save CPU cycles or where the GUI cannot be used anyway).
 Technically it wraps the synth enginge (main2.pd) and adds a mechanism
 to save and load presets., f 68;
-#X text 1300 460 Only one partial left here \, as switching between
+#X text 500 870 Only one partial left here \, as switching between
 partials is rather costly ..., f 23;
 #X obj 100 460 ./preset/preset-value pm float p-glb-panorama;
+#X text 500 400 ---- LFO 1 ----;
+#X obj 500 750 ./preset/preset-value pm float p-lfo1-frequency;
+#X obj 500 430 ./preset/preset-value pm float p-lfo1-car-volume;
+#X obj 500 460 ./preset/preset-value pm float p-lfo1-car-frequency
+;
+#X obj 500 490 ./preset/preset-value pm float p-lfo1-car-detune;
+#X obj 500 520 ./preset/preset-value pm float p-lfo1-car-cutoff;
+#X obj 500 550 ./preset/preset-value pm float p-lfo1-car-q;
+#X obj 500 590 ./preset/preset-value pm float p-lfo1-mod-volume;
+#X obj 500 620 ./preset/preset-value pm float p-lfo1-mod-frequency
+;
+#X obj 500 650 ./preset/preset-value pm float p-lfo1-mod-detune;
+#X obj 500 680 ./preset/preset-value pm float p-lfo1-mod-cutoff;
+#X obj 500 710 ./preset/preset-value pm float p-lfo1-mod-q;
+#X text 1000 400 ---- LFO 2 ----;
+#X obj 1000 750 ./preset/preset-value pm float p-lfo2-frequency;
+#X obj 1000 430 ./preset/preset-value pm float p-lfo2-car-volume;
+#X obj 1000 460 ./preset/preset-value pm float p-lfo2-car-frequency
+;
+#X obj 1000 490 ./preset/preset-value pm float p-lfo2-car-detune;
+#X obj 1000 520 ./preset/preset-value pm float p-lfo2-car-cutoff;
+#X obj 1000 550 ./preset/preset-value pm float p-lfo2-car-q;
+#X obj 1000 590 ./preset/preset-value pm float p-lfo2-mod-volume;
+#X obj 1000 620 ./preset/preset-value pm float p-lfo2-mod-frequency
+;
+#X obj 1000 650 ./preset/preset-value pm float p-lfo2-mod-detune;
+#X obj 1000 680 ./preset/preset-value pm float p-lfo2-mod-cutoff;
+#X obj 1000 710 ./preset/preset-value pm float p-lfo2-mod-q;
+#X text 1500 400 ---- Mod. Wheel ----;
+#X obj 1500 430 ./preset/preset-value pm float p-mw-car-volume;
+#X obj 1500 460 ./preset/preset-value pm float p-mw-car-frequency;
+#X obj 1500 490 ./preset/preset-value pm float p-mw-car-detune;
+#X obj 1500 520 ./preset/preset-value pm float p-mw-car-cutoff;
+#X obj 1500 550 ./preset/preset-value pm float p-mw-car-q;
+#X obj 1500 590 ./preset/preset-value pm float p-mw-mod-volume;
+#X obj 1500 620 ./preset/preset-value pm float p-mw-mod-frequency;
+#X obj 1500 650 ./preset/preset-value pm float p-mw-mod-detune;
+#X obj 1500 680 ./preset/preset-value pm float p-mw-mod-cutoff;
+#X obj 1500 710 ./preset/preset-value pm float p-mw-mod-q;
+#X text 500 810 ---- Synthesizer Partial Parameters ----;
+#X obj 1500 750 ./preset/preset-value pm float p-mw-lfo1;
+#X obj 1500 780 ./preset/preset-value pm float p-mw-lfo2;
 #X connect 4 0 5 0;
 #X connect 5 0 26 0;
 #X connect 6 0 7 0;

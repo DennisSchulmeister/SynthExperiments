@@ -1,7 +1,6 @@
 #N canvas 0 49 1920 1009 12;
 #X obj -30 -30 preset_hub k12 1 %hidden%;
 #X obj 100 100 inlet;
-#X obj 100 130 trigger b b;
 #X obj 100 580 outlet;
 #X text 10 10 Initialize global parameters;
 #X msg 130 160 \; p-out-mastervolume 20 \; \; p-glb-volume 1 \; p-glb-panorama
@@ -10,6 +9,24 @@
 30 \; p-cho-width 1.8 \; p-cho-feedback 0 \; p-cho-drywet 0.75 \; p-cho-enabled
 1 \; \; p-rev-length 33 \; p-rev-crossover 3000 \; p-rev-hfdamping
 0 \; p-rev-drywet 0.75 \; p-rev-enabled 1;
-#X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 2 1 5 0;
+#X obj 100 130 trigger b b b b b;
+#X msg 850 160 \; p-mw-car-volume 0 \; p-mw-car-frequency 0 \; p-mw-car-detune
+0 \; p-mw-car-cutoff 0 \; p-mw-car-q 0 \; \; p-mw-mod-volume 0 \; p-mw-mod-frequency
+0 \; p-mw-mod-detune 0 \; p-mw-mod-cutoff 0 \; p-mw-mod-q 0 \; \; p-mw-lfo1
+1 \; p-mw-lfo2 0;
+#X msg 360 160 \; p-lfo1-car-volume 20 \; p-lfo1-car-frequency 0 \;
+p-lfo1-car-detune 0 \; p-lfo1-car-cutoff 0 \; p-lfo1-car-q 0 \; \;
+p-lfo1-mod-volume 0 \; p-lfo1-mod-frequency 0 \; p-lfo1-mod-detune
+0 \; p-lfo1-mod-cutoff 0 \; p-lfo1-mod-q 0 \; \; p-lfo1-frequency 2.5
+;
+#X msg 600 160 \; p-lfo2-car-volume 0 \; p-lfo2-car-frequency 0 \;
+p-lfo2-car-detune 0 \; p-lfo2-car-cutoff 0 \; p-lfo2-car-q 0 \; \;
+p-lfo2-mod-volume 0 \; p-lfo2-mod-frequency 0 \; p-lfo2-mod-detune
+0 \; p-lfo2-mod-cutoff 0 \; p-lfo2-mod-q 0 \; \; p-lfo2-frequency 0.5
+;
+#X connect 1 0 5 0;
+#X connect 5 0 2 0;
+#X connect 5 1 4 0;
+#X connect 5 2 7 0;
+#X connect 5 3 8 0;
+#X connect 5 4 6 0;
