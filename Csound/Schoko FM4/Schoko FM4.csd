@@ -1,6 +1,6 @@
 /**
- * Facelift FM4 - 4 Operator FM Synthesizer
- * ========================================
+ * Schoko FM4 - 4 Operator FM Synthesizer
+ * ======================================
  *
  * Dec 28 2024 - Jan 03 2025: Dennis Schulmeister-Zimolong
  * This is the synthesizer with which Android will be tested.
