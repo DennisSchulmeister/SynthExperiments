@@ -1,6 +1,8 @@
 Envelope Generator
 ==================
 
+![](Screenshots/Envelope%20Generator%20UI.png?raw=true)
+
 This directory contains the \[envgen~\] abstraction, which is a linear envelope
 generator with unlimited breakpoints. See `envgen~.pd` for details. Additionaly,
 the \[envgen-gui\] abstraction provides a graphical user interface to program

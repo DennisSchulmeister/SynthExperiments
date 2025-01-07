@@ -35,7 +35,7 @@ __Corresponding UI patch to set the parameter:__
 
 ![](Screenshots/UI%20Patch.png?raw=true)
 
-__Properties of the slider object, note the "send symbol"" field:__
+__Properties of the slider object, note the "send symbol" field:__
 
 ![](Screenshots/Slider%20Properties.png?raw=true)
 
