@@ -1,7 +1,7 @@
 FM4
 ===
 
-![../../Images/TODO.png?raw=true](TODO)
+![TODO](../../Images/TODO.png?raw=true)
 
 **To be done - this synth has not yet been built.**
 

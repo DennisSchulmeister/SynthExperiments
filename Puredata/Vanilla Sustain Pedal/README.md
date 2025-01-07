@@ -1,12 +1,12 @@
 Vanilla Sustain Pedal
 =====================
 
-![Screenshots/Main%20Patch.png?raw=true](Screenshot)
+![Screenshot](Screenshots/Main%20Patch.png?raw=true)
 
-[Demos/Sustain%20Pedal.mp3?raw=true](Sound Demo)
+![Sound Demo](Demos/Sustain%20Pedal.mp3?raw=true)
 
 This is the patch that led to the `[poly-sustain]` abstraction in the
-[../Reusable%20Abstractions](Reusable Abstractions) directory. It shows how
+[Reusable Abstractions](../Reusable%20Abstractions) directory. It shows how
 the PD Vanilla `[poly]`, `[bag]` and `[clone]` can be used to realize a basic
 MIDI voice allocator that -- unlike `[poly]`, and `[clone]` alone -- can also
 handle the sustain pedal:

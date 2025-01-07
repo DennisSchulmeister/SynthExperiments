@@ -1,7 +1,7 @@
 Band-limited Wave Table Generator
 =================================
 
-![Screenshot](Screenshots/Main%20View.png?raw=true "Screenshot of the wave table generator")
+![Screenshot of the wave table generator](Screenshots/Main%20View.png?raw=true)
 
 This directory contains a small Puredata program to calculate band-limited
 wave tables for different wave tables and octaves. The following waveforms

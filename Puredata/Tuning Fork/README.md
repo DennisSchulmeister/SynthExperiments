@@ -1,9 +1,9 @@
 Tuning Fork
 ===========
 
-![Screenshots/Tuning%20Fork.png?raw=true](Screenshot)
+![Screenshot](Screenshots/Tuning%20Fork.png?raw=true)
 
-[Demos/Tuning%20Fork.mp3?raw=true](Sound Demo)
+![Sound Demo](Demos/Tuning%20Fork.mp3?raw=true)
 
 The most pedestrian MIDI synthesizer you could build. Simply plays a sine wave
 with a simple amplitude envelope when a key is pressed. At least there is a
