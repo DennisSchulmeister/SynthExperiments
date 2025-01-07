@@ -21,22 +21,22 @@ For more demos please see the [Main README file](../README.md).
 <table>
     <tr>
         <td>
-            <a href="Tuning%20Fork/Screenshots/Tuning%20Fork.png">
-                <img src="Tuning%20Fork/Screenshots/Tuning%20Fork.png" width="300">
+            <a href="Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true">
+                <img src="Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true" width="300">
             </a>
             <br/>
-            <a href="Tuning%20Fork/Demos/Tuning%20Fork.mp3">Tuning Fork.mp3</a>
+            <a href="Tuning%20Fork/Demos/Tuning%20Fork.mp3?raw=true">Tuning Fork.mp3</a>
         </td>
         <td>
-            <a href="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png">
-                <img src="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png" width="300">
+            <a href="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png?raw=true">
+                <img src="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png?raw=true" width="300">
             </a>
             <br/>
-            <a href="Vanilla%20Sustain%20Pedal/Demos/Sustain%20Pedal.mp3">Sustain Pedal.mp3</a>
+            <a href="Vanilla%20Sustain%20Pedal/Demos/Sustain%20Pedal.mp3?raw=true">Sustain Pedal.mp3</a>
         </td>
         <td>
-            <a href="Wave%20Table%20Generator/Screenshots/Main View.png">
-                <img src="Wave%20Table%20Generator/Screenshots/Main View.png" width="300">
+            <a href="Wave%20Table%20Generator/Screenshots/Main View.png?raw=true">
+                <img src="Wave%20Table%20Generator/Screenshots/Main View.png?raw=true" width="300">
             </a>
         </td>
     </tr>
@@ -50,17 +50,17 @@ For more demos please see the [Main README file](../README.md).
 <table>
     <tr>
         <td>
-            <a href="Unicorn%20Wave/Screenshots/Default%20Sound.png">
-                <img src="Unicorn%20Wave/Screenshots/Default%20Sound.png" width="300">
+            <a href="Unicorn%20Wave/Screenshots/Default%20Sound.png?raw=true">
+                <img src="Unicorn%20Wave/Screenshots/String%20Section%20(Default%20Sound).png?raw=true" width="300">
             </a>
             <br/>
-            <a href="Unicorn%20Wave/Demos/Default%20Sound.mp3">Default Sound.mp3</a>
+            <a href="Unicorn%20Wave/Demos/String%20Section%20(Default%20Sound).mp3?raw=true">String Section.mp3</a>
         </td>
         <td>
-            <img src="../Images/TODO.png" width="300">
+            <img src="../Images/TODO.png?raw=true" width="300">
         </td>
         <td>
-            <img src="../Images/TODO.png" width="300">
+            <img src="../Images/TODO.png?raw=true" width="300">
         </td>
     </tr>
     <tr>
@@ -107,9 +107,9 @@ Instruments
   objects to handle sustain pedal (MIDI CC 64).
 
 - **Unicorn Wave:** Wavetable synthesizer using band-limited wavetables (one per octave,
-  similar principle as in the Korg DW8000). Really a unicorn regarding clean-code principles
-  and complexity in PD. Custom voice allocators and envelops making full use of structures
-  in PD. But rather CPU hungry due to this.
+  similar principle as in the Korg DW-8000). Really a unicorn regarding clean-code principles
+  and complexity in PD. Custom voice allocators and envelopes making full use of structures
+  in PD. But the UI is **very** CPU intensive.
 
 - **Mini Clavier**: Experimental implementation of the Synclavier FM algorithm, using an
   oscillator bank for the carrier and a single sine for the modulator.
@@ -123,3 +123,7 @@ Utilities
 
 - **Wave Table Generator**: Creates band-limited wave tables for classic analogue
   waveforms (Sine, Triangle, Saw, Square) to be used with PD's `[tabosc4~]` object
+
+- **Reusable Abstractions**: As the name implies, generic custom objects extracted
+  from the other projects. Can simply be copied into other projects for different
+  purposes like LFO, Equal-Power Panning, etc.
