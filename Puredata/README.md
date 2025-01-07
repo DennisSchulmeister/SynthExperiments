@@ -100,8 +100,8 @@ instead.
 Instruments
 -----------
 
-- **Tuning Fork**: A minimal synth producing a pure sine wave. Serves as a testbed for
-  `libpd` on Android and MIDI message handling.
+- **Tuning Fork**: A minimal synth producing a pure sine wave. Serves as a test bed
+  for `libpd` on Android and MIDI message handling.
 
 - **Vanilla Sustain Pedal:** Demonstrates the use of PD's `[poly]`, `[clone]`, and `[bag]`
   objects to handle sustain pedal (MIDI CC 64).
