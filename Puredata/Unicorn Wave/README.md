@@ -8,8 +8,8 @@ Unicorn Wave
 This is by all means a true unicorn. 🦄 At its heart a wavetable synthesizer
 using band-limited wavetables (one per octave, similar in principle as the
 Korg DW-8000) combined with frequency modulation, additive synthesizes (up
-to 16 harmonics for carrier and modulator) and a but subtractive synthesis
-(some basic filters).
+to 16 harmonics for carrier and modulator) and a sprinkle of subtractive synthesis
+(just some basic filters).
 
 That alone would only be half-way special. But this patch is really an exercise
 in applying clean code principles to Puredata and complexity of some of its
