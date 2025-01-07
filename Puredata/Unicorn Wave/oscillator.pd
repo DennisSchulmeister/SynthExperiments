@@ -1,99 +1,131 @@
 #N canvas 0 49 1920 1009 12;
 #X obj -30 -30 preset_hub k12 1 %hidden%;
-#X obj 290 300 inlet;
-#X obj 290 1050 phasor~;
-#X obj 290 1290 tabread4~;
-#X obj 0 30 cnv 15 600 180 empty empty empty 20 12 0 14 #f5f5f5 #404040
+#X obj 700 280 inlet;
+#X obj 700 1220 phasor~;
+#X obj 700 1450 tabread4~;
+#X obj 0 30 cnv 15 600 250 empty empty empty 20 12 0 14 #f5f5f5 #404040
 0;
-#X text 10 80 \$3 must be the number of wavetables (e.g. 11 for 1/octave)
-\, starting with one., f 82;
 #X obj 0 0 cnv 15 600 30 empty empty Single\ carrier/modulator\ oscillator
 12 12 0 14 #e0e0e0 #404040 0;
-#X obj 0 210 cnv 10 600 10 empty empty empty 20 12 0 14 #e0e0e0 #404040
+#X obj 0 280 cnv 10 600 10 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
-#X text 10 130 The second inlet takes an optional modulator audio signal
+#X text 10 200 The second inlet takes an optional modulator audio signal
 for FM., f 82;
-#X text 10 160 For this to work \, the synthesizer must have calcualted
+#X text 10 230 For this to work \, the synthesizer must have calcualted
 the carrier and modulator wavetables with the wanted harmonics., f
 82;
-#X obj 390 1060 inlet~;
-#X text 390 1030 Modulator Signal;
+#X obj 800 1230 inlet~;
+#X text 800 1200 Modulator Signal;
 #X text 10 40 \$1 must be the prefix to receive parameters \, e.g.
 "p-p1-car", f 82;
-#X floatatom 390 450 5 0 0 1 Frequency_Factor - - 0 0 1, f 5;
-#X floatatom 390 600 5 0 0 1 Hz - - 0 0 1, f 5;
-#X text 390 510 Detune;
-#X obj 390 540 r \$1-detune;
-#X text 390 360 Frequency Scaling;
-#X obj 290 1340 outlet~;
-#X obj 290 490 *;
-#X msg 390 1250 set \$1;
-#X obj 390 1220 r \$0-wavetable;
-#X text 390 1190 Selected Wavetable;
-#X msg 390 1280 p0-modulator-5;
-#X floatatom 290 670 5 0 0 1 Hz - - 0 0 1, f 5;
-#X obj 290 740 trigger f f;
-#X text 290 250 Frequency;
+#X floatatom 800 430 5 0 0 1 Frequency_Factor - - 0 0 1, f 5;
+#X floatatom 800 690 5 0 0 1 Hz - - 0 0 1, f 5;
+#X text 800 600 Detune;
+#X obj 800 630 r \$1-detune;
+#X text 800 340 Frequency Scaling;
+#X obj 700 1780 outlet~;
+#X obj 700 550 *;
+#X msg 800 1420 set \$1;
+#X obj 800 1390 r \$0-wavetable;
+#X text 800 1300 Selected Wavetable;
+#X msg 800 1450 p0-carrier-1;
+#X floatatom 700 840 5 0 0 1 Hz - - 0 0 1, f 5;
+#X obj 700 910 trigger f f;
 #X obj 620 20 loadbang;
 #X obj 620 80 expr ceil(float(128) / 12 / \$3);
 #X floatatom 620 110 5 0 0 1 Octaves/Wavetable - - 0 0 1, f 5;
 #X obj 620 50 bng 20 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 1;
-#X obj 320 770 ftom;
-#X obj 320 860 symbol \$2;
-#X obj 320 830 trigger b f, f 14;
-#X obj 320 890 pack s f, f 14;
-#X obj 320 949 s \$0-wavetable;
-#X text 300 720 ---- Select wavetable ----;
-#X text 300 330 ---- Calculate frequency ----;
-#X text 300 1000 ---- Generate audio signal ----;
+#X obj 730 940 ftom;
+#X obj 730 1030 symbol \$2;
+#X obj 730 1000 trigger b f, f 14;
+#X obj 730 1060 pack s f, f 14;
+#X obj 730 1119 s \$0-wavetable;
+#X text 710 890 ---- Select wavetable ----;
+#X text 710 310 ---- Calculate frequency ----;
+#X text 710 1170 ---- Generate audio signal ----;
 #X obj 620 141 value _\$0_octaves_per_wavetable;
-#X obj 390 390 r \$1-frequency;
-#X obj 390 420 ./utils/declick;
-#X obj 390 570 ./utils/declick;
-#X obj 320 800 expr max(1 \, ceil($f1 / 12 / _\$0_octaves_per_wavetable))
+#X obj 800 370 r \$1-frequency;
+#X obj 800 400 ./utils/declick;
+#X obj 800 660 ./utils/declick;
+#X obj 730 970 expr max(1 \, ceil($f1 / 12 / _\$0_octaves_per_wavetable))
 ;
-#X msg 320 920 symbol \$1-\$2;
+#X msg 730 1090 symbol \$1-\$2;
 #X text 10 60 \$2 must be the prefix of the wavetable arrays \, e.g.
 "p1-carrier", f 82;
-#X obj 290 640 +;
-#X text 10 110 The first inlet takes the frequency., f 82;
-#X obj 290 1090 +~;
-#X obj 500 1100 r \$0-wavetable;
-#X obj 500 1130 expr size("$s1") - 3;
-#X obj 290 1170 *~;
-#X obj 290 1199 +~ 1;
-#X connect 1 0 19 0;
-#X connect 2 0 48 0;
-#X connect 3 0 18 0;
-#X connect 10 0 48 1;
-#X connect 13 0 19 1;
-#X connect 14 0 46 1;
-#X connect 16 0 42 0;
-#X connect 19 0 46 0;
-#X connect 20 0 3 0;
-#X connect 20 0 23 0;
-#X connect 21 0 20 0;
-#X connect 24 0 25 0;
-#X connect 25 0 2 0;
-#X connect 25 1 31 0;
-#X connect 27 0 30 0;
-#X connect 28 0 29 0;
-#X connect 29 0 39 0;
-#X connect 30 0 28 0;
-#X connect 31 0 43 0;
-#X connect 32 0 34 0;
-#X connect 33 0 32 0;
-#X connect 33 1 34 1;
-#X connect 34 0 44 0;
-#X connect 40 0 41 0;
-#X connect 41 0 13 0;
-#X connect 42 0 14 0;
-#X connect 43 0 33 0;
-#X connect 44 0 35 0;
-#X connect 46 0 24 0;
-#X connect 48 0 51 0;
+#X obj 700 810 +;
+#X text 10 180 The first inlet takes the frequency., f 82;
+#X obj 700 1260 +~;
+#X obj 800 1330 r \$0-wavetable;
+#X obj 800 1360 expr size("$s1") - 3;
+#X obj 700 1391 *~;
+#X obj 700 1420 +~ 1;
+#X text 10 110 \$4 Prefix to receive modwheel configuration values
+\, e.g. "p-mw-car)", f 82;
+#X text 10 130 \$5 Prefix to receive LFO 1 configuration values \,
+e.g. "p-lfo1-car", f 82;
+#X text 10 80 \$3 must be the number of wavetables (e.g. 11 for 1/octave)
+\, starting with one, f 82;
+#X text 10 150 \$6 Prefix to receive LFO 2 configuration values \,
+e.g. "p-lfo2-car", f 82;
+#X floatatom 800 490 5 0 0 1 - - - 0 0 1, f 5;
+#X floatatom 800 750 5 0 0 1 - - - 0 0 1, f 5;
+#X obj 800 520 trigger b f;
+#X obj 800 780 trigger b f;
+#X floatatom 800 1590 5 0 0 1 Amplitude - - 0 0 1, f 5;
+#X obj 800 1560 ./utils/declick;
+#X floatatom 800 1650 5 0 0 1 - - - 0 0 1, f 5;
+#X obj 700 1730 *~;
+#X text 800 1500 Volume;
+#X obj 800 1530 r \$1-volume;
+#X obj 800 460 ./apply-modulation \$4 \$5 \$6 frequency;
+#X obj 800 720 ./apply-modulation \$4 \$5 \$6 detune;
+#X obj 800 1620 ./apply-modulation \$4 \$5 \$6 volume;
+#X connect 1 0 18 0;
+#X connect 2 0 46 0;
+#X connect 3 0 62 0;
+#X connect 9 0 46 1;
+#X connect 12 0 65 0;
+#X connect 13 0 66 0;
+#X connect 15 0 40 0;
+#X connect 18 0 44 0;
+#X connect 19 0 3 0;
+#X connect 19 0 22 0;
+#X connect 20 0 19 0;
+#X connect 23 0 24 0;
+#X connect 24 0 2 0;
+#X connect 24 1 29 0;
+#X connect 25 0 28 0;
+#X connect 26 0 27 0;
+#X connect 27 0 37 0;
+#X connect 28 0 26 0;
+#X connect 29 0 41 0;
+#X connect 30 0 32 0;
+#X connect 31 0 30 0;
+#X connect 31 1 32 1;
+#X connect 32 0 42 0;
+#X connect 38 0 39 0;
+#X connect 39 0 12 0;
+#X connect 40 0 13 0;
+#X connect 41 0 31 0;
+#X connect 42 0 33 0;
+#X connect 44 0 23 0;
+#X connect 46 0 49 0;
+#X connect 47 0 48 0;
+#X connect 48 0 49 1;
 #X connect 49 0 50 0;
-#X connect 50 0 51 1;
-#X connect 51 0 52 0;
-#X connect 52 0 3 0;
+#X connect 50 0 3 0;
+#X connect 55 0 57 0;
+#X connect 56 0 58 0;
+#X connect 57 0 18 0;
+#X connect 57 1 18 1;
+#X connect 58 0 44 0;
+#X connect 58 1 44 1;
+#X connect 59 0 67 0;
+#X connect 60 0 59 0;
+#X connect 61 0 62 1;
+#X connect 62 0 17 0;
+#X connect 64 0 60 0;
+#X connect 65 0 55 0;
+#X connect 66 0 56 0;
+#X connect 67 0 61 0;
