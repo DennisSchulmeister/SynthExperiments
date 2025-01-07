@@ -19,8 +19,8 @@ Overview, Screenshots and Demos
 <table>
     <tr>
         <td>
-            <a href="Csound/Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad(Default%20Sound).png?raw=true">
-                <img src="Csound/Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad(Default%20Sound).png?raw=true" width="300">
+            <a href="Csound/Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png?raw=true">
+                <img src="Csound/Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png?raw=true" width="300">
             </a>
         </td>
         <td>
