@@ -15,17 +15,17 @@ That alone would only be half-way special. But this patch is really an exercise
 in applying clean code principles to Puredata and complexity of some of its
 implementations:
 
- * Custom built voice allocator that handles re-triggering, sustain and sustenuto.
+ * Custom built **voice allocator** that handles re-triggering, sustain and sustenuto.
 
- * Envelopes with an unlimited number of breakpoints (20 in practice due to the
+ * **Envelopes** with an unlimited number of breakpoints (20 in practice due to the
    limited width of the UI editor).
 
- * Rather complex UI including the aforementioned graphical envelope editor.
-   Draw envelopes by dragging the envelops lines on a canvas.
+ * Rather **complex UI** including the aforementioned graphical envelope editor.
+   Draw envelopes by dragging lines on a canvas.
 
- * Preset management to save and restore configuration values from local files.
+ * **Preset management** to save and restore configuration values from local files.
 
- * Variable wavetable sizes to adjust sound quality vs. quickness during sound
+ * **Variable wavetable sizes** to adjust sound quality vs. quickness during sound
    design, as the recalculation of the wave tables is rather costly.
 
 The sound can be hit and miss but at least basic analogue pads, as demoed in
