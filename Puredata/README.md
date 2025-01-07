@@ -107,7 +107,7 @@ Instruments
   objects to handle sustain pedal (MIDI CC 64).
 
 - **Unicorn Wave:** Wavetable synthesizer using band-limited wavetables (one per octave,
-  similar principle as in the Korg DW-8000). Really a unicorn regarding clean-code principles
+  similar is principle as the Korg DW-8000). Really a unicorn regarding clean-code principles
   and complexity in PD. Custom voice allocators and envelopes making full use of structures
   in PD. But the UI is **very** CPU intensive.
 

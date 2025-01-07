@@ -5,8 +5,8 @@ Unicorn Wave
 
 <a href="Demos/String%20Section%20(Default%20Sound).mp3?raw=true">Sound Demo: String Section (Default Sound)</a>
 
-This is by all means a true Unicorn. 🦄 At its hear a wavetable synthesizer
-using band-limited wavetables (one per octave, similar principle as in the
+This is by all means a true unicorn. 🦄 At its heart a wavetable synthesizer
+using band-limited wavetables (one per octave, similar in principle as the
 Korg DW-8000) combined with frequency modulation, additive synthesizes (up
 to 16 harmonics for carrier and modulator) and a but subtractive synthesis
 (some basic filters).
