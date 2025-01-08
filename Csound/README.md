@@ -60,8 +60,9 @@ Instruments
   unison modes inspired by 1980s analogue synthesizers like the Roland Jupiter.
 
 - **Schoko FM4:** A 4-operator FM synth inspired by Yamaha 1980s hardware (e.g., DX9).
-  It implements 4-operator algorithms with a sound profile similar to the originals,
-  while maintaining manageable complexity. Looks and sounds like chocolate. 🍫
+  It allows to recreate all 4-operator algorithms with a sound profile similar to
+  the originals, while maintaining manageable complexity. Looks and sounds like
+  chocolate. 🍫
 
 * __Tuning Fork:__ A minimal synth producing a pure sine wave. Serves as a test bed
   for `Csound` on Android and MIDI message handling.

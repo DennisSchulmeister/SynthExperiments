@@ -23,5 +23,3 @@ can tell):
 Here only the core idea is recreated to see, if it is feasible with Puredata
 at all or not. Considering that a lot of oscillators have to be effectively
 run in parallel for this kind of synthesis.
-
-_Screenshots, Demos etc. to come, once the synth has been built._

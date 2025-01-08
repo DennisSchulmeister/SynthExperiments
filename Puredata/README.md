@@ -114,9 +114,9 @@ Instruments
 - **Mini Clavier**: Experimental implementation of the Synclavier FM algorithm, using an
   oscillator bank for the carrier and a single sine for the modulator.
 
-- **FM4:** A 4-operator FM synth inspired by Yamaha 1980s hardware (e.g., DX9). It implements
-  4-operator algorithms with a sound profile similar to the originals, while maintaining manageable
-  complexity.
+- **FM4:** A 4-operator FM synth inspired by Yamaha 1980s hardware (e.g., DX9).
+  It allows to recreate all 4-operator algorithms with a sound profile similar to
+  the originals, while maintaining manageable complexity.
 
 Utilities
 ---------

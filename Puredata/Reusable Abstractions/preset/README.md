@@ -27,15 +27,15 @@ First you need to make sure that your patch uses plain `[receive]` or `[r]`
 objects to control its parameters. Usually you use them in combination with
 some UI elements that act as the corresponding sender, like so:
 
-__Some parameters controlled via a `[r]` object:__
+_Some parameters controlled via a `[r]` object:_
 
 ![](Screenshots/Parameters.png?raw=true)
 
-__Corresponding UI patch to set the parameter:__
+_Corresponding UI patch to set the parameter:_
 
 ![](Screenshots/UI%20Patch.png?raw=true)
 
-__Properties of the slider object, note the "send symbol" field:__
+_Properties of the slider object, note the "send symbol" field:_
 
 ![](Screenshots/Slider%20Properties.png?raw=true)
 

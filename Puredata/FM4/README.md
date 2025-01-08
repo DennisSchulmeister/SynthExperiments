@@ -9,14 +9,18 @@ This is a simple 4-op FM synthesizer similar to the Yamaha DX9 (the small brothe
 of the DX7) and the other 4-op FM synthesizers of the 1980s. It is a more or less
 direct port of [../../Csound/Schoko%20FM4](Schoko FM4) built with Csound.
 
-Parameters and the sonic quality are comparable to the Yamaha FM synths due to
-careful listening tests made with a real DX7 Mk1. There are differences, however,
-as the DX7 DSP math is limited by what was feasible in the early 1980s -- using
-fixed-point math with limited resolution and some other clever tricks, that I didn't
-try to recreate here. There are already [Dexed](https://asb2m10.github.io/dexed/),
-[VDX7](https://github.com/chiaccona/VDX7) and others, that exactly do this.
-Besides, what's the point? Csound and Puredata are interpreted languages where
-emulating the exact math would be rather expensive, just to bring back all the
-artefacts that were necessary but unwanted at the time?
+The parameters and sonic characteristics are comparable to those of the Yamaha
+FM synthesizers, based on listening tests conducted with a genuine DX7 Mk1. However,
+there are notable differences. The DSP processing of the DX7 is constrained by the
+limitations of early 1980s technology, which relied on fixed-point math with limited
+resolution, along with several other techniques that were not replicated here.
+There are already existing emulators, such as [Dexed](https://asb2m10.github.io/dexed/),
+[VDX7](https://github.com/chiaccona/VDX7), and others, that precisely recreate
+these aspects. Furthermore, emulating the exact mathematical processes would be
+inefficient in interpreted environments like Csound and Puredata, as it would incur
+significant computational costs, only to reproduce artifacts that were inherent
+yet undesirable in the original hardware.
 
-_Screenshots, Demos etc. to come, once the synth has been built._
+_Listening Test with a real DX7_
+
+![DX7 Listening Test](../../Images/DX7%20Listening%20Test.jpg?raw=true)
