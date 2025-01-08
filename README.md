@@ -3,7 +3,7 @@ Future Archive of Experimental Software Synthesizers
 
 ----
 
-![Zukunftsarchiv](https://www.youtube.com/watch?v=7dO9Lm_CXz0&pp=ygURcGFzc2llcnNjaGVpbiBhMzg%3D)
+[Zukunftsarchiv](https://www.youtube.com/watch?v=7dO9Lm_CXz0&pp=ygURcGFzc2llcnNjaGVpbiBhMzg%3D)
 experimenteller Software-Synthesizer
 
 ----
