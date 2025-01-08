@@ -46,22 +46,12 @@ For more demos please see the [Main README file](../README.md).
         <td>
             <a href="https://samply.app/p/jM1I6JruowcWRwDIbZ3r" target="_blank">Demos on Samply</a>
             <a href="Analog%20Bread%20and%20Butter/Demos/">Demos here on Github</a>
-            <iframe
-              src="https://samply.app/embed/jM1I6JruowcWRwDIbZ3r"
-              frameborder="0"
-              allowtransparency="true"
-              style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"
-            ></iframe>
+            <iframe src="https://samply.app/embed/jM1I6JruowcWRwDIbZ3r" frameborder="0" allowtransparency="true" style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"></iframe>
         </td>
         <td>
             <a href="https://samply.app/p/KCnei0x2nOEXpUBnqafz" target="_blank">Demos on Samply</a>
             <a href="Schoko%20FM4/Demos/">Demos here on Github</a>
-            <iframe
-              src="https://samply.app/embed/KCnei0x2nOEXpUBnqafz"
-              frameborder="0"
-              allowtransparency="true"
-              style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"
-            ></iframe>
+            <iframe src="https://samply.app/embed/KCnei0x2nOEXpUBnqafz" frameborder="0" allowtransparency="true" style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"></iframe>
         </td>
         <td>
             <a href="Tuning%20Fork/Demos/">Demos here on Github</a>

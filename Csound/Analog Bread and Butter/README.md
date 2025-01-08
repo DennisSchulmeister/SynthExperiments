@@ -6,12 +6,7 @@ Analog Bread and Butter
 [Demos on Samply](https://samply.app/p/jM1I6JruowcWRwDIbZ3r)
 [Demos here on Github](Demos/)
 
-<iframe
-  src="https://samply.app/embed/jM1I6JruowcWRwDIbZ3r"
-  frameborder="0"
-  allowtransparency="true"
-  style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"
-></iframe>
+<iframe src="https://samply.app/embed/jM1I6JruowcWRwDIbZ3r" frameborder="0" allowtransparency="true" style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"></iframe>
 
 This is a very basic 2-oscillator subtractive synthesizer. It quickly emerged out
 of the [Beginnger Synth](https://cabbageaudio.com/docs/beginner_synth/) tutorial
