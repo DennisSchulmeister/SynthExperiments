@@ -3,7 +3,7 @@ Tuning Fork
 
 ![Screenshot](Screenshots/Tuning%20Fork.png?raw=true)
 
-[Sound Demo](Demos/Tuning%20Fork.mp3?raw=true)
+[Demos here on Github](Demos/)
 
 This is just a very, very basic MIDI synthesizer that plays a sine wave with
 fixed amplitude envelope when MIDI events are received. There is also a small

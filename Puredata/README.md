@@ -45,6 +45,15 @@ For more demos please see the [Main README file](../README.md).
         <td>Vanilla Sustain Pedal</td>
         <td>Wavetable Generator</td>
     </tr>
+    <tr>
+        <td>
+            <a href="Puredata/Tuning%20Fork/Demos/">Demos here on Github</a>
+        </td>
+        <td>
+            <a href="Puredata/Vanilla%20Sustain%20Pedal/Demos/">Demos here on Github</a>
+        </td>
+        <td></td>
+    </tr>
 </table>
 
 <table>
@@ -68,6 +77,20 @@ For more demos please see the [Main README file](../README.md).
         <td>Mini Clavier</td>
         <td>FM4</td>
     </tr>
+    <tr>
+        <td>
+            <a href="https://samply.app/p/yHQ1sIZ8EadgZIwAfyuz" target="_blank">Demos on Samply</a>
+            <a href="Unicorn%20Wave/Demos/">Demos here on Github</a>
+            <iframe
+              src="https://samply.app/embed/yHQ1sIZ8EadgZIwAfyuz"
+              frameborder="0"
+              allowtransparency="true"
+              style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"
+            ></iframe>
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
 </table>
 
 How to Use
@@ -89,7 +112,7 @@ however:
 
  * `main.pd`: Full version including a user interface built with PD (wraps `main1.pd`)
  * `main1.pd`: The synthesizer without UI but with preset management (wraps `main2.pd`)
- * `main2.pd`: The core synthesizer engine without UI and no preset management
+ * `main2.pd`: The core synthesizer engine without UI or preset management
 
 On Desktop you usually want to run `main.pd` but on headless devices (e.g.
 Raspberry Pi hidden in a custom case) running `main1.pd` may save CPU cycles.

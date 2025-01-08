@@ -39,6 +39,31 @@ Overview, Screenshots and Demos
         <td>Schoko FM4</td>
         <td>Tuning Fork</td>
     </tr>
+    <tr>
+        <td>
+            <a href="https://samply.app/p/jM1I6JruowcWRwDIbZ3r" target="_blank">Demos on Samply</a>
+            <a href="Csound/Analog%20Bread%20and%20Butter/Demos/">Demos here on Github</a>
+            <iframe
+              src="https://samply.app/embed/jM1I6JruowcWRwDIbZ3r"
+              frameborder="0"
+              allowtransparency="true"
+              style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"
+            ></iframe>
+        </td>
+        <td>
+            <a href="https://samply.app/p/KCnei0x2nOEXpUBnqafz" target="_blank">Demos on Samply</a>
+            <a href="Csound/Schoko%20FM4/Demos/">Demos here on Github</a>
+            <iframe
+              src="https://samply.app/embed/KCnei0x2nOEXpUBnqafz"
+              frameborder="0"
+              allowtransparency="true"
+              style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"
+            ></iframe>
+        </td>
+        <td>
+            <a href="Csound/Tuning%20Fork/Demos/">Demos here on Github</a>
+        </td>
+    </tr>
 </table>
 
 <table>
@@ -59,6 +84,20 @@ Overview, Screenshots and Demos
         <td>Unicorn Wave</td>
         <td>Mini Clavier</td>
         <td>FM4 (Puredata)</td>
+    </tr>
+    <tr>
+        <td>
+            <a href="https://samply.app/p/yHQ1sIZ8EadgZIwAfyuz" target="_blank">Demos on Samply</a>
+            <a href="Puredata/Unicorn%20Wave/Demos/">Demos here on Github</a>
+            <iframe
+              src="https://samply.app/embed/yHQ1sIZ8EadgZIwAfyuz"
+              frameborder="0"
+              allowtransparency="true"
+              style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"
+            ></iframe>
+        </td>
+        <td></td>
+        <td></td>
     </tr>
 </table>
 

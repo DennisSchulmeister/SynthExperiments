@@ -118,7 +118,7 @@
         nslider  $WIDGET, $NSLIDER,  bounds(580,  40,  75, 30), channel("OP4_Sustain_Level"),   text("Sustain"),       range(0, 99,  0, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(640,  40,  75, 30), channel("OP4_Release_Level"),   text("Release"),       range(0, 99,  0, 1, 1), active(0)
         
-        nslider  $WIDGET, $NSLIDER,  bounds(460,  80,  75, 30), channel("OP4_Attack_Rate"),     text("Rate"),          range(0, 99, 95, 1, 1)
+        nslider  $WIDGET, $NSLIDER,  bounds(460,  80,  75, 30), channel("OP4_Attack_Rate"),     text("Rate"),          range(0, 99, 90, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(520,  80,  75, 30), channel("OP4_Decay_Rate"),      text("Rate"),          range(0, 99, 29, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(580,  80,  75, 30), channel("OP4_Sustain_Rate"),    text("Rate"),          range(0, 99, 20, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(640,  80,  75, 30), channel("OP4_Release_Rate"),    text("Rate"),          range(0, 99, 50, 1, 1)
@@ -148,7 +148,7 @@
         nslider  $WIDGET, $NSLIDER,  bounds(580,  40,  75, 30), channel("OP3_Sustain_Level"),   text("Sustain"),       range(0, 99,  0, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(640,  40,  75, 30), channel("OP3_Release_Level"),   text("Release"),       range(0, 99,  0, 1, 1), active(0)
         
-        nslider  $WIDGET, $NSLIDER,  bounds(460,  80,  75, 30), channel("OP3_Attack_Rate"),     text("Rate"),          range(0, 99, 95, 1, 1)
+        nslider  $WIDGET, $NSLIDER,  bounds(460,  80,  75, 30), channel("OP3_Attack_Rate"),     text("Rate"),          range(0, 99, 90, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(520,  80,  75, 30), channel("OP3_Decay_Rate"),      text("Rate"),          range(0, 99, 20, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(580,  80,  75, 30), channel("OP3_Sustain_Rate"),    text("Rate"),          range(0, 99, 20, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(640,  80,  75, 30), channel("OP3_Release_Rate"),    text("Rate"),          range(0, 99, 50, 1, 1)
@@ -176,7 +176,7 @@
         nslider  $WIDGET, $NSLIDER,  bounds(580,  40,  75, 30), channel("OP2_Sustain_Level"),   text("Sustain"),       range(0, 99,  0, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(640,  40,  75, 30), channel("OP2_Release_Level"),   text("Release"),       range(0, 99,  0, 1, 1), active(0)
         
-        nslider  $WIDGET, $NSLIDER,  bounds(460,  80,  75, 30), channel("OP2_Attack_Rate"),     text("Rate"),          range(0, 99, 95, 1, 1)
+        nslider  $WIDGET, $NSLIDER,  bounds(460,  80,  75, 30), channel("OP2_Attack_Rate"),     text("Rate"),          range(0, 99, 90, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(520,  80,  75, 30), channel("OP2_Decay_Rate"),      text("Rate"),          range(0, 99, 50, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(580,  80,  75, 30), channel("OP2_Sustain_Rate"),    text("Rate"),          range(0, 99, 35, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(640,  80,  75, 30), channel("OP2_Release_Rate"),    text("Rate"),          range(0, 99, 78, 1, 1)
@@ -201,7 +201,7 @@
         nslider  $WIDGET, $NSLIDER,  bounds(580,  40,  75, 30), channel("OP1_Sustain_Level"),   text("Sustain"),       range(0, 99,  0, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(640,  40,  75, 30), channel("OP1_Release_Level"),   text("Release"),       range(0, 99,  0, 1, 1), active(0)
         
-        nslider  $WIDGET, $NSLIDER,  bounds(460,  80,  75, 30), channel("OP1_Attack_Rate"),     text("Rate"),          range(0, 99, 96, 1, 1)
+        nslider  $WIDGET, $NSLIDER,  bounds(460,  80,  75, 30), channel("OP1_Attack_Rate"),     text("Rate"),          range(0, 99, 82, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(520,  80,  75, 30), channel("OP1_Decay_Rate"),      text("Rate"),          range(0, 99, 25, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(580,  80,  75, 30), channel("OP1_Sustain_Rate"),    text("Rate"),          range(0, 99, 25, 1, 1)
         nslider  $WIDGET, $NSLIDER,  bounds(640,  80,  75, 30), channel("OP1_Release_Rate"),    text("Rate"),          range(0, 99, 67, 1, 1)

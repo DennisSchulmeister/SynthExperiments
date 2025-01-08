@@ -3,7 +3,15 @@ Schoko FM4
 
 <img src="Screenshots/Rhodes%201%20(Default%20Sound).png?raw=true" alt="Screenshot">
 
-<a href="Demos/Rhodes%201%20(Default%20Sound).mp3?raw=true">Sound Demo: String Section (Default Sound)</a>
+[Demos on Samply](https://samply.app/p/KCnei0x2nOEXpUBnqafz)
+[Demos here on Github](Demos/)
+
+<iframe
+  src="https://samply.app/embed/KCnei0x2nOEXpUBnqafz"
+  frameborder="0"
+  allowtransparency="true"
+  style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"
+></iframe>
 
 This is a simple 4-op FM synthesizer similar to the Yamaha DX9 (the small brother
 of the DX7) and the other 4-op FM synthesizers of the 1980s. This is the original

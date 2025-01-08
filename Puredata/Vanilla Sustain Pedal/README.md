@@ -3,7 +3,7 @@ Vanilla Sustain Pedal
 
 ![Screenshot](Screenshots/Main%20Patch.png?raw=true)
 
-![Sound Demo](Demos/Sustain%20Pedal.mp3?raw=true)
+[Demos here on Github](Demos/)
 
 This is the patch that led to the `[poly-sustain]` abstraction in the
 [Reusable Abstractions](../Reusable%20Abstractions) directory. It shows how
