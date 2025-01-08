@@ -80,8 +80,8 @@ For more demos please see the [Main README file](../README.md).
     <tr>
         <td>
             <a href="https://samply.app/p/yHQ1sIZ8EadgZIwAfyuz" target="_blank">Demos on Samply</a>
+            <br>
             <a href="Unicorn%20Wave/Demos/">Demos here on Github</a>
-            <iframe src="https://samply.app/embed/yHQ1sIZ8EadgZIwAfyuz" frameborder="0" allowtransparency="true" style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"></iframe>
         </td>
         <td></td>
         <td></td>

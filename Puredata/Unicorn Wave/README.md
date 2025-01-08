@@ -4,9 +4,8 @@ Unicorn Wave
 <img src="Screenshots/String%20Section%20(Default%20Sound).png?raw=true" alt="Screenshot">
 
 [Demos on Samply](https://samply.app/p/yHQ1sIZ8EadgZIwAfyuz)
-[Demos here on Github](Demos/)
 
-<iframe src="https://samply.app/embed/yHQ1sIZ8EadgZIwAfyuz" frameborder="0" allowtransparency="true" style="width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12)"></iframe>
+[Demos here on Github](Demos/)
 
 This is by all means a true unicorn. 🦄 At its heart a wavetable synthesizer
 using band-limited wavetables (one per octave, similar in principle as the
