@@ -170,7 +170,7 @@ ecosystem (as of 2025) for real-time audio usage. Apple has been best in class
 for low-latency audio even with the very first iPhone, achieving 7ms latency
 with no problem. Android, in the early years, had a very basic audio server
 that - if I dare say so - did everything wrong that could be done wrong, starting
-with a blocking push model (similar to ancient Open Sound System on Unix)
+with a blocking push model (similar to ancient Open Sound System on Unix) where
 applications call blocking functions to "push" blocks of audio to the hardware,
 rather than the hardware "pulling" new data when it is needed. The latter is
 a pre-condition for reliable low latency, no matter the type of system.
