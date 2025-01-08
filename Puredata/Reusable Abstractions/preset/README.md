@@ -60,6 +60,8 @@ Finally, at the same place where the `[preset-manager]` lives, add one
 1. The name of the `[preset-manager]` object
 1. The name of the send/receive channel for the parameter
 
+![](Screenshots/Preset%20Values.png?raw=true)
+
 That's it. With this in place, the `[preset-value]` objects will listen for
 parameter changes and keep them in their internal memory for the `[preset-manager]`
 to read them when a preset file is written. When a preset file is read, the
