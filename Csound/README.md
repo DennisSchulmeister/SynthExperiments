@@ -22,19 +22,16 @@ For more demos please see the [Main README file](../README.md).
             <a href="Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png?raw=true">
                 <img src="Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png?raw=true" width="300">
             </a>
-            <a href="Analog%20Bread%20and%20Butter/Demos/PWM%20Pad%20(Default%20Sound)%20I.mp3?raw=true">PWM Pad (Default Sound) I.mp3</a>
         </td>
         <td>
             <a href="Schoko%20FM4/Screenshots/Rhodes%201%20(Default%20Sound).png?raw=true">
                 <img src="Schoko%20FM4/Screenshots/Rhodes%201%20(Default%20Sound).png?raw=true" width="300">
             </a>
-            <a href="Csound/Schoko%20FM4/Demos/Rhodes%201%20(Default%20Sound).mp3?raw=true">Rhodes 1 (Default Sound).mp3</a>
         </td>
         <td>
             <a href="Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true">
                 <img src="Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true" width="300">
             </a>
-            <a href="Tuning%20Fork/Demos/Tuning%20Fork.mp3?raw=true">Tuning Fork.mp3</a>
         </td>
     </tr>
     <tr>
