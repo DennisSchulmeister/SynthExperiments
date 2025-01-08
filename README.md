@@ -138,7 +138,7 @@ just by moving the mouse cursor a few pixels. Other than that, if it doesn't stu
    support the [Jack Audio Server](https://jackaudio.org/) yet. But on Linux the
    ALSA backend works very well.
 
-  ![](Images/Cabbage%20Settings.png?raw=true)
+   ![](Images/Cabbage%20Settings.png?raw=true)
 
 1. Load a Csound file and click on the "play" button to run it.
 
