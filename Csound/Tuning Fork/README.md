@@ -6,6 +6,6 @@ Tuning Fork
 [Sound Demo](Demos/Tuning%20Fork.mp3?raw=true)
 
 This is just a very, very basic MIDI synthesizer that plays a sine wave with
-fixed amplitude envelope, when MIDI events are received. There is also a small
+fixed amplitude envelope when MIDI events are received. There is also a small
 UI to play the synthesizer on screen. It simply serves as a project template
-and test best for the Csound language bindings on Android.
+and test bed for the Csound language bindings on Android.
