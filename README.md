@@ -86,8 +86,6 @@ Overview, Screenshots and Demos
     </tr>
 </table>
 
-TODO: DEMOS
-
 Send me a link to your music if you are using one of these.
 
 Running on Your Hardware
