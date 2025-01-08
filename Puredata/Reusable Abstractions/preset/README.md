@@ -64,5 +64,5 @@ Finally, at the same place where the `[preset-manager]` lives, add one
 
 That's it. With this in place, the `[preset-value]` objects will listen for
 parameter changes and keep them in their internal memory for the `[preset-manager]`
-to read them when a preset file is written. When a preset file is read, the
-preset manager simply sends the read values to the corresponding channels.
+to read when a preset file is written. When a preset file is read, the preset
+manager simply sends the read values to the corresponding channels.

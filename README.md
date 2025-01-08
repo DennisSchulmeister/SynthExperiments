@@ -103,17 +103,17 @@ need one of those programs installed:
    which includes everything minus the UI and for embedding in a custom
    application you may use `main2.pd` which is the same minus preset management.
 
-Don't touch the mouse while your playing on your MIDI devices when the Puredata
+Don't touch the mouse while you're playing on your MIDI devices when the Puredata
 UI is visible. Complex user interfaces like for the `Unicorn Wave` synthesizer
-draw considerable CPU power, when made with Puredata. Oddly enough you may get
-audio drop-outs just by moving the mouse cursor a few pixels. Other than that,
-if it doesn't stutter (your CPU can handle the workload), it should run stable.
+draw considerable CPU power in Puredata. Oddly enough you may get audio drop-outs
+just by moving the mouse cursor a few pixels. Other than that, if it doesn't stutter
+(your CPU can handle the workload), it should run stable.
 
 ### For Csound follow these steps:
 
 1. Start Cabbage and -- when running for the first time -- go to __Edit → Settings__,
-   to configure your audio hardware. Unfortunately it seems, that Cabbage doesn't
-   support the [Jack Audio Server](https://jackaudio.org/), yet. But on Linux the
+   to configure your audio hardware. Unfortunately it seems that Cabbage doesn't
+   support the [Jack Audio Server](https://jackaudio.org/) yet. But on Linux the
    ALSA backend works very well.
 
   ![](Images/Cabbage%20Settings.png?raw=true)
@@ -123,7 +123,8 @@ if it doesn't stutter (your CPU can handle the workload), it should run stable.
    ![](Images/Cabbage%20Play%20Button.png?raw=true)
 
    While running the button turns into a "stop" button. The other buttons
-   next to the file name allow to open the UI window and the UI editor.
+   next to the file name allow to open the UI window and the UI editor (don't
+   use the last one, it tends to destroy the source code).
 
    ![](Images/Cabbage%20Stop%20Button.png?raw=true)
 
@@ -131,7 +132,7 @@ if it doesn't stutter (your CPU can handle the workload), it should run stable.
    via the stop button. Otherwise both will play at the same time, responding
    to all MIDI events.
 
-   Note, that when you close a file, that patch might still be active in
+   Note, that when you close a file, the patch might still be active in
    background. To be sure, go to __View → Show Cabbage Patcher__ to see which
    patches are active. Here you can remove unneeded instances via the right-click
    context menu of their nodes.
@@ -149,7 +150,7 @@ if it doesn't stutter (your CPU can handle the workload), it should run stable.
    of the `.csd` file. Always keep those two together!
 
    On Linux, Mac, Unix, … you need to manually set the executable flag for the
-   executable file (`chmod +r`).
+   executable file (`chmod +x`).
 
 Project Background
 ------------------
@@ -183,7 +184,7 @@ for mobile devices? This is, what I want to find out.
 Copyright
 ---------
 
-© 2024 Dennis Schulmeister-Zimolong (github@windows3.de)
+© Dennis Schulmeister-Zimolong (github@windows3.de)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
