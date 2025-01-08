@@ -3,7 +3,8 @@ Analog Bread and Butter
 
 <img src="Screenshots/PWM%20Pad%20(Default%20Sound).png?raw=true" alt="Screenshot">
 
-<a href="Demos/PWM%20Pad%20(Default%20Sound).mp3?raw=true">Sound Demo: PWM Pad (Default Sound)</a>
+<a href="Demos/PWM%20Pad%20(Default%20Sound)%20I.mp3?raw=true">Sound Demo: PWM Pad (Default Sound) I</a>
+<a href="Demos/PWM%20Pad%20(Default%20Sound)%20II.mp3?raw=true">Sound Demo: PWM Pad (Default Sound) II</a>
 
 This is a very basic 2-oscillator subtractive synthesizer. It quickly emerged out
 of the [Beginnger Synth](https://cabbageaudio.com/docs/beginner_synth/) tutorial
