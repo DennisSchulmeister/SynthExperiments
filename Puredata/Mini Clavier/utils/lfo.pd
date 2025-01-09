@@ -1,0 +1,58 @@
+#N canvas 0 49 1920 1009 12;
+#X obj 0 135 cnv 15 400 50 empty empty empty 20 12 0 14 #f5f5f5 #404040
+0;
+#X obj 0 80 cnv 15 400 40 empty empty empty 20 12 0 14 #f5f5f5 #404040
+0;
+#X obj 0 30 cnv 15 400 40 empty empty empty 20 12 0 14 #f5f5f5 #404040
+0;
+#X obj -30 -30 preset_hub k12 1 %hidden%;
+#X obj 0 0 cnv 15 400 30 empty empty Low\ Frequency\ Oscillator 10
+12 0 14 #e0e0e0 #404040 0;
+#X obj 0 120 cnv 15 400 15 empty empty Outlets 9 5 0 12 #e0e0e0 #404040
+0;
+#X text 10 40 Creates a continous cosine control signal., f 55;
+#X obj 0 70 cnv 15 400 15 empty empty Inlets 10 6 0 12 #e0e0e0 #404040
+0;
+#X text 10 90 1 - Frequency in Hertz;
+#X obj 600 230 inlet;
+#X obj 600 310 moses 1e-05;
+#X obj 600 400 metro;
+#X obj 600 519 cos;
+#X obj 600 650 outlet;
+#X msg 600 340 stop;
+#X obj 700 340 expr 1000 / \\$f1;
+#X obj 700 370 trigger b f f;
+#X floatatom 600 280 5 0 0 1 Frequency_Hz - - 0 0 1, f 5;
+#X floatatom 600 430 5 0 0 1 ms - - 0 0 1, f 5;
+#X text 10 140 1 - Cosine signal [ 0 … 1 ], f 55;
+#X text 10 160 2 - Cosine signal [-1 … 1 ], f 55;
+#X msg 600 460 0 \, 6.28319 \$1;
+#X text 710 460 2pi;
+#X obj 600 620 hsl 128 15 -1 1 0 0 empty empty -1\ …\ 1 10 -8 0 10
+#fcfcfc #000000 #000000 311 1 0 1;
+#X obj 780 550 + 1;
+#X obj 780 580 * 0.5;
+#X obj 780 650 outlet;
+#X obj 780 620 hsl 128 15 0 1 0 0 empty empty 0\ …\ 1 10 -8 0 10
+#fcfcfc #000000 #000000 311 1 0 1;
+#X obj 600 490 line 0 5;
+#X text 710 490 5 ms grain size;
+#X connect 9 0 17 0;
+#X connect 10 0 14 0;
+#X connect 10 1 15 0;
+#X connect 11 0 18 0;
+#X connect 12 0 23 0;
+#X connect 12 0 24 0;
+#X connect 14 0 11 0;
+#X connect 15 0 16 0;
+#X connect 16 0 11 0;
+#X connect 16 1 11 1;
+#X connect 16 2 18 0;
+#X connect 17 0 10 0;
+#X connect 18 0 21 0;
+#X connect 21 0 28 0;
+#X connect 23 0 13 0;
+#X connect 24 0 25 0;
+#X connect 25 0 27 0;
+#X connect 27 0 26 0;
+#X connect 28 0 12 0;

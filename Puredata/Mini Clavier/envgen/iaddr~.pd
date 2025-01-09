@@ -1,0 +1,127 @@
+#N canvas 0 49 1920 1009 12;
+#X obj -30 -30 preset_hub k12 1 %hidden%;
+#X obj 500 190 outlet~;
+#X obj 500 100 inlet;
+#X obj 500 160 ./envgen~;
+#X obj 600 190 outlet;
+#X text 40 570 [release(, f 51;
+#X text 40 550 [attack(, f 51;
+#X text 10 640 1 - Envelope output, f 55;
+#X text 10 660 2 - Bang on finish of an envelope, f 55;
+#X text 10 690 The second outlet sends a bang \, when the start or
+end envelope has finished. This is meant to be able to disable DSP
+processing when a note has stopped playing., f 55;
+#X obj 0 0 cnv 15 400 30 empty empty IADDR\ Envelope\ Generator 10
+12 0 14 #e0e0e0 #404040 0;
+#X obj 0 610 cnv 15 400 15 empty empty Outlets 10 5 0 12 #e0e0e0 #404040
+0;
+#X text 10 40 This is a wrapper around the [envgen~] object that provides
+are more traditional ADSR-style envelope generator -- albeait similar
+to how the DX7 did \, where the following breakpoints exist for each
+of which a level and time in seconds can be set:, f 55;
+#X text 10 130 - Initial level + time, f 55;
+#X text 10 150 - Attack level + time, f 55;
+#X text 10 170 - Decay 1 level + time, f 55;
+#X text 10 190 - Decay 2 level + time, f 55;
+#X text 10 210 - Release level + time, f 55;
+#X obj 0 240 cnv 15 400 15 empty empty Parameters 10 5 0 12 #e0e0e0
+#404040 0;
+#X obj 0 490 cnv 15 400 15 empty empty Inlets 10 5 0 12 #e0e0e0 #404040
+0;
+#X text 10 520 1 - Messages to trigger the envelope:, f 55;
+#X text 10 270 \$1 - Prefix for receive objects that receive the breakpoint
+values. The following receive objects will be created:, f 55;
+#X text 20 330 \$1-initial-level;
+#X text 170 330 \$1-initial-time;
+#X text 20 350 \$1-attack-level;
+#X text 20 370 \$1-decay1-level;
+#X text 20 390 \$1-decay2-level;
+#X text 20 410 \$1-release-level;
+#X text 170 350 \$1-attack-time;
+#X text 170 370 \$1-decay1-time;
+#X text 170 390 \$1-decay2-time;
+#X text 170 410 \$1-release-time;
+#X text 10 440 In your main patch simply create UI elements that can
+send to these objects., f 55;
+#X obj 530 130 r \$0-breakpoints;
+#X text 500 70 ==== Wrapped [envgen~] ====;
+#X obj 900 100 r \$1-initial-level;
+#X floatatom 900 130 5 0 0 0 - - - 0 0 1, f 5;
+#X floatatom 1050 130 5 0 0 0 - - - 0 0 1, f 5;
+#X obj 1050 100 r \$1-initial-time;
+#X floatatom 1200 130 5 0 0 0 - - - 0 0 1, f 5;
+#X floatatom 1350 130 5 0 0 0 - - - 0 0 1, f 5;
+#X obj 1200 100 r \$1-attack-level;
+#X obj 1350 100 r \$1-attack-time;
+#X floatatom 1500 130 5 0 0 0 - - - 0 0 1, f 5;
+#X floatatom 1650 130 5 0 0 0 - - - 0 0 1, f 5;
+#X obj 1500 100 r \$1-decay1-level;
+#X obj 1650 100 r \$1-decay1-time;
+#X floatatom 1800 130 5 0 0 0 - - - 0 0 1, f 5;
+#X floatatom 1950 130 5 0 0 0 - - - 0 0 1, f 5;
+#X obj 1800 100 r \$1-decay2-level;
+#X obj 1950 100 r \$1-decay2-time;
+#X floatatom 900 530 5 0 0 0 - - - 0 0 1, f 5;
+#X floatatom 1050 530 5 0 0 0 - - - 0 0 1, f 5;
+#X obj 900 500 r \$1-release-level;
+#X obj 1050 500 r \$1-release-time;
+#X text 900 70 ==== Attack Phase Parameters ====;
+#X text 900 470 ==== Release Phase Parameters ====;
+#X obj 900 590 pack f f;
+#X obj 900 649 s \$0-breakpoints;
+#X obj 1050 560 trigger b f;
+#X obj 900 200 pack f f f f f f f f;
+#X msg 900 620 set release \$1 \$2;
+#X obj 900 260 s \$0-breakpoints;
+#X msg 900 230 set attack \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8;
+#X obj 1050 160 trigger b f;
+#X obj 1200 160 trigger b f;
+#X obj 1350 160 trigger b f;
+#X obj 1500 160 trigger b f;
+#X obj 1650 160 trigger b f;
+#X obj 1800 160 trigger b f;
+#X obj 1950 160 trigger b f;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 1 4 0;
+#X connect 33 0 3 0;
+#X connect 35 0 36 0;
+#X connect 36 0 60 0;
+#X connect 37 0 64 0;
+#X connect 38 0 37 0;
+#X connect 39 0 65 0;
+#X connect 40 0 66 0;
+#X connect 41 0 39 0;
+#X connect 42 0 40 0;
+#X connect 43 0 67 0;
+#X connect 44 0 68 0;
+#X connect 45 0 43 0;
+#X connect 46 0 44 0;
+#X connect 47 0 69 0;
+#X connect 48 0 70 0;
+#X connect 49 0 47 0;
+#X connect 50 0 48 0;
+#X connect 51 0 57 0;
+#X connect 52 0 59 0;
+#X connect 53 0 51 0;
+#X connect 54 0 52 0;
+#X connect 57 0 61 0;
+#X connect 59 0 57 0;
+#X connect 59 1 57 1;
+#X connect 60 0 63 0;
+#X connect 61 0 58 0;
+#X connect 63 0 62 0;
+#X connect 64 0 60 0;
+#X connect 64 1 60 1;
+#X connect 65 0 60 0;
+#X connect 65 1 60 2;
+#X connect 66 0 60 0;
+#X connect 66 1 60 3;
+#X connect 67 0 60 0;
+#X connect 67 1 60 4;
+#X connect 68 0 60 0;
+#X connect 68 1 60 5;
+#X connect 69 0 60 0;
+#X connect 69 1 60 6;
+#X connect 70 0 60 0;
+#X connect 70 1 60 7;
