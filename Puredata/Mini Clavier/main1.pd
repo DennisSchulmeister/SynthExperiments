@@ -42,44 +42,6 @@
 the GUI (to save CPU cycles or where the GUI cannot be used anyway).
 Technically it wraps the synth enginge (main2.pd) and adds a mechanism
 to save and load presets., f 68;
-#X obj 1400 980 ./preset/preset-value pm float p-p1-car-1-volume;
-#X obj 1000 1010 ./preset/preset-value pm float p-p1-car-2-ratio;
-#X obj 1000 1040 ./preset/preset-value pm float p-p1-car-3-ratio;
-#X obj 1000 1070 ./preset/preset-value pm float p-p1-car-4-ratio;
-#X obj 1000 1100 ./preset/preset-value pm float p-p1-car-5-ratio;
-#X obj 1000 1130 ./preset/preset-value pm float p-p1-car-6-ratio;
-#X obj 1000 1160 ./preset/preset-value pm float p-p1-car-7-ratio;
-#X obj 1000 1190 ./preset/preset-value pm float p-p1-car-8-ratio;
-#X obj 1000 1220 ./preset/preset-value pm float p-p1-car-9-ratio;
-#X obj 1000 1250 ./preset/preset-value pm float p-p1-car-10-ratio;
-#X obj 1000 1280 ./preset/preset-value pm float p-p1-car-11-ratio;
-#X obj 1000 1310 ./preset/preset-value pm float p-p1-car-12-ratio;
-#X obj 1000 1340 ./preset/preset-value pm float p-p1-car-13-ratio;
-#X obj 1000 1370 ./preset/preset-value pm float p-p1-car-14-ratio;
-#X obj 1000 1400 ./preset/preset-value pm float p-p1-car-15-ratio;
-#X obj 1000 1430 ./preset/preset-value pm float p-p1-car-16-ratio;
-#X obj 1400 1010 ./preset/preset-value pm float p-p1-car-2-volume;
-#X obj 1400 1040 ./preset/preset-value pm float p-p1-car-3-volume;
-#X obj 1400 1070 ./preset/preset-value pm float p-p1-car-4-volume;
-#X obj 1400 1100 ./preset/preset-value pm float p-p1-car-5-volume;
-#X obj 1400 1130 ./preset/preset-value pm float p-p1-car-6-volume;
-#X obj 1400 1160 ./preset/preset-value pm float p-p1-car-7-volume;
-#X obj 1400 1190 ./preset/preset-value pm float p-p1-car-8-volume;
-#X obj 1400 1220 ./preset/preset-value pm float p-p1-car-9-volume;
-#X obj 1400 1250 ./preset/preset-value pm float p-p1-car-10-volume
-;
-#X obj 1400 1280 ./preset/preset-value pm float p-p1-car-11-volume
-;
-#X obj 1400 1310 ./preset/preset-value pm float p-p1-car-12-volume
-;
-#X obj 1400 1340 ./preset/preset-value pm float p-p1-car-13-volume
-;
-#X obj 1400 1370 ./preset/preset-value pm float p-p1-car-14-volume
-;
-#X obj 1400 1400 ./preset/preset-value pm float p-p1-car-15-volume
-;
-#X obj 1400 1430 ./preset/preset-value pm float p-p1-car-16-volume
-;
 #X obj 500 460 ./preset/preset-value pm float p-lfo1-p1-car-volume
 ;
 #X obj 500 490 ./preset/preset-value pm float p-lfo1-p1-car-frequency
@@ -102,54 +64,10 @@ to save and load presets., f 68;
 #X obj 500 930 ./preset/preset-value pm float p-mw-p1-mod-volume;
 #X obj 500 960 ./preset/preset-value pm float p-mw-p1-mod-frequency
 ;
-#X obj 1000 980 ./preset/preset-value pm float p-p1-car-1-ratio;
-#X obj 1000 720 ./preset/preset-value pm float p-p1-mod-1-ratio;
-#X obj 1400 720 ./preset/preset-value pm float p-p1-mod-1-volume;
-#X text 1000 530 ---- Partial 1: Modulator ----;
-#X text 1000 790 ---- Partial 1: Carrier ----;
-#X obj 1000 590 ./preset/preset-value pm float p-p1-mod-attack-level
-;
-#X obj 1400 590 ./preset/preset-value pm float p-p1-mod-attack-time
-;
-#X obj 1000 560 ./preset/preset-value pm float p-p1-mod-initial-level
-;
-#X obj 1400 560 ./preset/preset-value pm float p-p1-mod-initial-time
-;
-#X obj 1000 620 ./preset/preset-value pm float p-p1-mod-decay1-level
-;
-#X obj 1000 650 ./preset/preset-value pm float p-p1-mod-decay2-level
-;
-#X obj 1400 620 ./preset/preset-value pm float p-p1-mod-decay1-time
-;
-#X obj 1400 650 ./preset/preset-value pm float p-p1-mod-decay2-time
-;
-#X obj 1000 820 ./preset/preset-value pm float p-p1-car-initial-level
-;
-#X obj 1000 850 ./preset/preset-value pm float p-p1-car-attack-level
-;
-#X obj 1000 880 ./preset/preset-value pm float p-p1-car-decay1-level
-;
-#X obj 1000 910 ./preset/preset-value pm float p-p1-car-decay2-level
-;
-#X obj 1400 820 ./preset/preset-value pm float p-p1-car-initial-time
-;
-#X obj 1400 850 ./preset/preset-value pm float p-p1-car-attack-time
-;
-#X obj 1400 880 ./preset/preset-value pm float p-p1-car-decay1-time
-;
-#X obj 1400 910 ./preset/preset-value pm float p-p1-car-decay2-time
-;
-#X obj 1000 430 ./preset/preset-value pm float p-p1-transpose;
-#X obj 1000 460 ./preset/preset-value pm float p-p1-detune;
-#X text 1000 400 ---- Partial 1: Tuning ----;
-#X obj 1000 680 ./preset/preset-value pm float p-p1-mod-release-level
-;
-#X obj 1400 680 ./preset/preset-value pm float p-p1-mod-release-time
-;
-#X obj 1000 940 ./preset/preset-value pm float p-p1-car-release-level
-;
-#X obj 1400 940 ./preset/preset-value pm float p-p1-car-release-time
-;
+#X text 1000 400 ---- Partials ----;
+#X obj 1000 430 ./partial-parameters p1;
+#X obj 1000 460 ./partial-parameters p2;
+#X obj 1000 490 ./partial-parameters p3;
 #X connect 4 0 5 0;
 #X connect 5 0 26 0;
 #X connect 6 0 7 0;
