@@ -1,0 +1,14 @@
+#N canvas 0 49 1920 1009 12;
+#X obj -30 -30 preset_hub k12 1 %hidden%;
+#X text 10 10 Sub-Process for the multi-process tone generator. Handles
+the actual tone generation in a separate [pd~] process.;
+#X text 10 60 Arguments:, f 57;
+#X obj 500 200 r play-voice;
+#X text 10 90 \$1 - Starting voice number: e.g. 0 \, 8 \, 16 \, ...
+, f 57;
+#X text 10 110 \$2 - How many voice instances: e.g. 8, f 57;
+#X obj 500 230 ./clone-voice \$1 \$2;
+#X obj 500 260 dac~;
+#X connect 3 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 0 7 1;

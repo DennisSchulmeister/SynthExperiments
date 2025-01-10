@@ -80,3 +80,6 @@ of a `[r]` object, where all parameter values are sent to. This `[r]` object sim
 must be connected with the `[pd~]` object to forward all value changes to the
 sub-processes (because sub-processes cannot use `[send]` and `[receive]` to exchange
 data).
+
+Additionally, once a sub-process has finished starting, send a bang to the global
+receive "pd-ready" to ask for all preset parameters to be forwarded to the process.

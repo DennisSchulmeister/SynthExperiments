@@ -2,7 +2,6 @@
 #X obj -30 -30 preset_hub k12 1 %hidden%;
 #X obj 400 200 inlet;
 #X obj 440 260 unpack f;
-#X text 10 70 Parameters:, f 68;
 #X obj 100 200 loadbang;
 #X obj 100 230 bng 20 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000 1;
@@ -25,14 +24,15 @@ must be hard-coded in [clone] and cannot be set with dollar-variables.
 Thus we cannot refactor this patch into a general purpose utility object.
 ;
 #X obj 400 350 clone -s \$1 voice \$2;
-#X connect 1 0 9 0;
-#X connect 2 0 16 0;
-#X connect 4 0 5 0;
-#X connect 5 0 15 0;
-#X connect 7 0 6 0;
-#X connect 8 0 18 0;
-#X connect 9 0 8 0;
-#X connect 9 1 2 0;
-#X connect 15 0 7 0;
-#X connect 16 0 8 1;
-#X connect 18 0 11 0;
+#X text 10 70 Arguments:, f 68;
+#X connect 1 0 8 0;
+#X connect 2 0 15 0;
+#X connect 3 0 4 0;
+#X connect 4 0 14 0;
+#X connect 6 0 5 0;
+#X connect 7 0 17 0;
+#X connect 8 0 7 0;
+#X connect 8 1 2 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 1;
+#X connect 17 0 10 0;
