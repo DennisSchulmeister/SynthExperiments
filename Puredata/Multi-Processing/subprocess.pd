@@ -1,0 +1,34 @@
+#N canvas 0 49 1920 1009 12;
+#X obj -30 -30 preset_hub k12 1 %hidden%;
+#X text 10 10 Multi-Processing Example: Subprocess, f 69;
+#X obj 100 100 loadbang;
+#X text 290 130 NOTE: print output is not sent to the parent process
+;
+#X obj 100 160 stdout -f;
+#X obj 100 550 clone voice \$1;
+#X obj 100 580 dac~;
+#X obj 100 300 r in-voice;
+#X obj 170 460 r \$2;
+#X obj 100 410 unpack f f f, f 19;
+#X obj 100 501 pack f f f, f 19;
+#X text 190 300 <--- Voice to be played;
+#X text 10 30 Parameters: \$1 how many voices \, \$2 receive for frequency
+ratio, f 69;
+#X text 250 460 <--- receive with transpose factor;
+#X obj 130 460 + 0;
+#X obj 100 330 trigger a a;
+#X obj 130 360 stdout -f;
+#X msg 100 130 Subprocess started;
+#X connect 2 0 17 0;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 7 0 15 0;
+#X connect 8 0 14 1;
+#X connect 9 0 10 0;
+#X connect 9 1 14 0;
+#X connect 9 2 10 2;
+#X connect 10 0 5 0;
+#X connect 14 0 10 1;
+#X connect 15 0 9 0;
+#X connect 15 1 16 0;
+#X connect 17 0 4 0;

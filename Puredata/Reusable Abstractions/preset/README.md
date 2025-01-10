@@ -1,6 +1,10 @@
 Preset Management
 =================
 
+1. [Working Examples](#working-examples)
+1. [Usage](#usage)
+1. [Multi-Processing](#multi-processing)
+
 Unlike some Csound frontends Puredata unfortunately lacks a native mechanism
 to save and load "preset" configurations for a patch, e.g. with pre-defined
 sounds for a synthesizer or custom effect programs for an effects box. The
@@ -66,3 +70,13 @@ That's it. With this in place, the `[preset-value]` objects will listen for
 parameter changes and keep them in their internal memory for the `[preset-manager]`
 to read when a preset file is written. When a preset file is read, the preset
 manager simply sends the read values to the corresponding channels.
+
+Multi-Processing
+----------------
+
+If you are using `[pd~]` to start multiple processes, you may use `[preset-value1]`
+instead of `[preset-value]`. It takes an additional first parameter with the name
+of a `[r]` object, where all parameter values are sent to. This `[r]` object simply
+must be connected with the `[pd~]` object to forward all value changes to the
+sub-processes (because sub-processes cannot use `[send]` and `[receive]` to exchange
+data).

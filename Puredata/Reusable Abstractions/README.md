@@ -14,6 +14,9 @@ as possible (as far as this even a thing in Puredata).
  * `envgen`: ([README](./envgen/README.md)) Envelope generator with unlimited
    breakpoints for attack and release
 
+ * `pd~`: ([README](./pd~/README.md)) Utilities to simplify working with multiple
+   processes and Puredata's `[pd~]` object
+
  * `preset`: ([README](./preset/README.md)) Simple mechanism to save and load
    parameters from preset files. Can also be used to save parameters in memory
    when the same user interface widgets are used to control different parts of

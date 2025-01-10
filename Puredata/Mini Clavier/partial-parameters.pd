@@ -5,95 +5,95 @@
 #X text 100 200 ---- Tuning ----;
 #X text 100 360 ---- Modulator ----;
 #X text 1000 200 ---- Carrier ----;
-#X obj 100 230 ./preset/preset-value pm float p-\$1-enabled;
-#X obj 100 260 ./preset/preset-value pm float p-\$1-transpose;
-#X obj 100 290 ./preset/preset-value pm float p-\$1-detune;
-#X obj 100 390 ./preset/preset-value pm float p-\$1-mod-initial-level
+#X obj 100 230 ./preset/preset-value1 tg pm float p-\$1-enabled;
+#X obj 100 260 ./preset/preset-value1 tg pm float p-\$1-transpose;
+#X obj 100 290 ./preset/preset-value1 tg pm float p-\$1-detune;
+#X obj 100 390 ./preset/preset-value1 tg pm float p-\$1-mod-initial-level
 ;
-#X obj 100 420 ./preset/preset-value pm float p-\$1-mod-attack-level
+#X obj 100 420 ./preset/preset-value1 tg pm float p-\$1-mod-attack-level
 ;
-#X obj 100 450 ./preset/preset-value pm float p-\$1-mod-decay1-level
+#X obj 100 450 ./preset/preset-value1 tg pm float p-\$1-mod-decay1-level
 ;
-#X obj 100 480 ./preset/preset-value pm float p-\$1-mod-decay2-level
+#X obj 100 480 ./preset/preset-value1 tg pm float p-\$1-mod-decay2-level
 ;
-#X obj 100 510 ./preset/preset-value pm float p-\$1-mod-release-level
+#X obj 100 510 ./preset/preset-value1 tg pm float p-\$1-mod-release-level
 ;
-#X obj 100 650 ./preset/preset-value pm float p-\$1-mod-1-ratio;
-#X obj 500 650 ./preset/preset-value pm float p-\$1-mod-1-volume;
-#X obj 500 510 ./preset/preset-value pm float p-\$1-mod-release-time
+#X obj 100 650 ./preset/preset-value1 tg pm float p-\$1-mod-1-ratio;
+#X obj 500 650 ./preset/preset-value1 tg pm float p-\$1-mod-1-volume;
+#X obj 500 510 ./preset/preset-value1 tg pm float p-\$1-mod-release-time
 ;
-#X obj 500 480 ./preset/preset-value pm float p-\$1-mod-decay2-time
+#X obj 500 480 ./preset/preset-value1 tg pm float p-\$1-mod-decay2-time
 ;
-#X obj 500 450 ./preset/preset-value pm float p-\$1-mod-decay1-time
+#X obj 500 450 ./preset/preset-value1 tg pm float p-\$1-mod-decay1-time
 ;
-#X obj 500 420 ./preset/preset-value pm float p-\$1-mod-attack-time
+#X obj 500 420 ./preset/preset-value1 tg pm float p-\$1-mod-attack-time
 ;
-#X obj 500 390 ./preset/preset-value pm float p-\$1-mod-initial-time
+#X obj 500 390 ./preset/preset-value1 tg pm float p-\$1-mod-initial-time
 ;
 #X text 10 70 \$1 Partial Number: "p1" \, "p2" \, ..., f 55;
-#X obj 1000 230 ./preset/preset-value pm float p-\$1-car-initial-level
+#X obj 1000 230 ./preset/preset-value1 tg pm float p-\$1-car-initial-level
 ;
-#X obj 1000 260 ./preset/preset-value pm float p-\$1-car-attack-level
+#X obj 1000 260 ./preset/preset-value1 tg pm float p-\$1-car-attack-level
 ;
-#X obj 1000 290 ./preset/preset-value pm float p-\$1-car-decay1-level
+#X obj 1000 290 ./preset/preset-value1 tg pm float p-\$1-car-decay1-level
 ;
-#X obj 1000 320 ./preset/preset-value pm float p-\$1-car-decay2-level
+#X obj 1000 320 ./preset/preset-value1 tg pm float p-\$1-car-decay2-level
 ;
-#X obj 1000 350 ./preset/preset-value pm float p-\$1-car-release-level
+#X obj 1000 350 ./preset/preset-value1 tg pm float p-\$1-car-release-level
 ;
-#X obj 1000 490 ./preset/preset-value pm float p-\$1-car-1-ratio;
-#X obj 1000 520 ./preset/preset-value pm float p-\$1-car-2-ratio;
-#X obj 1000 550 ./preset/preset-value pm float p-\$1-car-3-ratio;
-#X obj 1000 580 ./preset/preset-value pm float p-\$1-car-4-ratio;
-#X obj 1000 610 ./preset/preset-value pm float p-\$1-car-5-ratio;
-#X obj 1000 640 ./preset/preset-value pm float p-\$1-car-6-ratio;
-#X obj 1000 670 ./preset/preset-value pm float p-\$1-car-7-ratio;
-#X obj 1000 700 ./preset/preset-value pm float p-\$1-car-8-ratio;
-#X obj 1000 730 ./preset/preset-value pm float p-\$1-car-9-ratio;
-#X obj 1000 760 ./preset/preset-value pm float p-\$1-car-10-ratio;
-#X obj 1000 790 ./preset/preset-value pm float p-\$1-car-11-ratio;
-#X obj 1000 820 ./preset/preset-value pm float p-\$1-car-12-ratio;
-#X obj 1000 850 ./preset/preset-value pm float p-\$1-car-13-ratio;
-#X obj 1000 880 ./preset/preset-value pm float p-\$1-car-14-ratio;
-#X obj 1000 910 ./preset/preset-value pm float p-\$1-car-15-ratio;
-#X obj 1000 940 ./preset/preset-value pm float p-\$1-car-16-ratio;
-#X obj 1400 940 ./preset/preset-value pm float p-\$1-car-16-volume
+#X obj 1000 490 ./preset/preset-value1 tg pm float p-\$1-car-1-ratio;
+#X obj 1000 520 ./preset/preset-value1 tg pm float p-\$1-car-2-ratio;
+#X obj 1000 550 ./preset/preset-value1 tg pm float p-\$1-car-3-ratio;
+#X obj 1000 580 ./preset/preset-value1 tg pm float p-\$1-car-4-ratio;
+#X obj 1000 610 ./preset/preset-value1 tg pm float p-\$1-car-5-ratio;
+#X obj 1000 640 ./preset/preset-value1 tg pm float p-\$1-car-6-ratio;
+#X obj 1000 670 ./preset/preset-value1 tg pm float p-\$1-car-7-ratio;
+#X obj 1000 700 ./preset/preset-value1 tg pm float p-\$1-car-8-ratio;
+#X obj 1000 730 ./preset/preset-value1 tg pm float p-\$1-car-9-ratio;
+#X obj 1000 760 ./preset/preset-value1 tg pm float p-\$1-car-10-ratio;
+#X obj 1000 790 ./preset/preset-value1 tg pm float p-\$1-car-11-ratio;
+#X obj 1000 820 ./preset/preset-value1 tg pm float p-\$1-car-12-ratio;
+#X obj 1000 850 ./preset/preset-value1 tg pm float p-\$1-car-13-ratio;
+#X obj 1000 880 ./preset/preset-value1 tg pm float p-\$1-car-14-ratio;
+#X obj 1000 910 ./preset/preset-value1 tg pm float p-\$1-car-15-ratio;
+#X obj 1000 940 ./preset/preset-value1 tg pm float p-\$1-car-16-ratio;
+#X obj 1400 940 ./preset/preset-value1 tg pm float p-\$1-car-16-volume
 ;
-#X obj 1400 910 ./preset/preset-value pm float p-\$1-car-15-volume
+#X obj 1400 910 ./preset/preset-value1 tg pm float p-\$1-car-15-volume
 ;
-#X obj 1400 880 ./preset/preset-value pm float p-\$1-car-14-volume
+#X obj 1400 880 ./preset/preset-value1 tg pm float p-\$1-car-14-volume
 ;
-#X obj 1400 850 ./preset/preset-value pm float p-\$1-car-13-volume
+#X obj 1400 850 ./preset/preset-value1 tg pm float p-\$1-car-13-volume
 ;
-#X obj 1400 820 ./preset/preset-value pm float p-\$1-car-12-volume
+#X obj 1400 820 ./preset/preset-value1 tg pm float p-\$1-car-12-volume
 ;
-#X obj 1400 790 ./preset/preset-value pm float p-\$1-car-11-volume
+#X obj 1400 790 ./preset/preset-value1 tg pm float p-\$1-car-11-volume
 ;
-#X obj 1400 760 ./preset/preset-value pm float p-\$1-car-10-volume
+#X obj 1400 760 ./preset/preset-value1 tg pm float p-\$1-car-10-volume
 ;
-#X obj 1400 730 ./preset/preset-value pm float p-\$1-car-9-volume;
-#X obj 1400 700 ./preset/preset-value pm float p-\$1-car-8-volume;
-#X obj 1400 670 ./preset/preset-value pm float p-\$1-car-7-volume;
-#X obj 1400 640 ./preset/preset-value pm float p-\$1-car-6-volume;
-#X obj 1400 610 ./preset/preset-value pm float p-\$1-car-5-volume;
-#X obj 1400 580 ./preset/preset-value pm float p-\$1-car-4-volume;
-#X obj 1400 550 ./preset/preset-value pm float p-\$1-car-3-volume;
-#X obj 1400 520 ./preset/preset-value pm float p-\$1-car-2-volume;
-#X obj 1400 490 ./preset/preset-value pm float p-\$1-car-1-volume;
-#X obj 1400 350 ./preset/preset-value pm float p-\$1-car-release-time
+#X obj 1400 730 ./preset/preset-value1 tg pm float p-\$1-car-9-volume;
+#X obj 1400 700 ./preset/preset-value1 tg pm float p-\$1-car-8-volume;
+#X obj 1400 670 ./preset/preset-value1 tg pm float p-\$1-car-7-volume;
+#X obj 1400 640 ./preset/preset-value1 tg pm float p-\$1-car-6-volume;
+#X obj 1400 610 ./preset/preset-value1 tg pm float p-\$1-car-5-volume;
+#X obj 1400 580 ./preset/preset-value1 tg pm float p-\$1-car-4-volume;
+#X obj 1400 550 ./preset/preset-value1 tg pm float p-\$1-car-3-volume;
+#X obj 1400 520 ./preset/preset-value1 tg pm float p-\$1-car-2-volume;
+#X obj 1400 490 ./preset/preset-value1 tg pm float p-\$1-car-1-volume;
+#X obj 1400 350 ./preset/preset-value1 tg pm float p-\$1-car-release-time
 ;
-#X obj 1400 320 ./preset/preset-value pm float p-\$1-car-decay2-time
+#X obj 1400 320 ./preset/preset-value1 tg pm float p-\$1-car-decay2-time
 ;
-#X obj 1400 290 ./preset/preset-value pm float p-\$1-car-decay1-time
+#X obj 1400 290 ./preset/preset-value1 tg pm float p-\$1-car-decay1-time
 ;
-#X obj 1400 260 ./preset/preset-value pm float p-\$1-car-attack-time
+#X obj 1400 260 ./preset/preset-value1 tg pm float p-\$1-car-attack-time
 ;
-#X obj 1400 230 ./preset/preset-value pm float p-\$1-car-initial-time
+#X obj 1400 230 ./preset/preset-value1 tg pm float p-\$1-car-initial-time
 ;
-#X obj 100 580 ./preset/preset-value pm float p-\$1-mod-penv-range
+#X obj 100 580 ./preset/preset-value1 tg pm float p-\$1-mod-penv-range
 ;
-#X obj 500 580 ./preset/preset-value pm float p-\$1-mod-penv-time;
-#X obj 1000 420 ./preset/preset-value pm float p-\$1-car-penv-range
+#X obj 500 580 ./preset/preset-value1 tg pm float p-\$1-mod-penv-time;
+#X obj 1000 420 ./preset/preset-value1 tg pm float p-\$1-car-penv-range
 ;
-#X obj 1400 420 ./preset/preset-value pm float p-\$1-car-penv-time
+#X obj 1400 420 ./preset/preset-value1 tg pm float p-\$1-car-penv-time
 ;
