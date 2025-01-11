@@ -18,11 +18,14 @@ This directory contains two small wrapper to mitigate those limitations.
    to be able to pass arguments. Instead of directly running your patch with `[pd~]`,
    run this instead and do the following:
 
-     1. Wait, until PD_READY appears at the first outlet of `[pd~]`.
+     1. Wait, until PD_STARTED appears at the first outlet of `[pd~]`.
 
      2. Then send an `init` message to `[pd~]` with the relative path of the
         actual patch (relative to `wrapper.pd`!) and all its arguments. e.g.
         `[../my-sub-process 123 abc]`.
+
+     3. After that PD_INITIALIZED will appear at the first outlet of `[pd~]`.
+        Now you can send messages to the sub-process e.g. to set parameters.
 
  * `[forward]`: Receive values with `[r …]` and forward them to a sub-process.
     Simply create object object of this for any value where you want, that

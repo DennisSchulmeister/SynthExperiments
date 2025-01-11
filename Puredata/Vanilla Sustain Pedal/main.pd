@@ -1,16 +1,16 @@
-#N canvas 0 49 1920 1009 12;
+#N canvas 0 49 1920 999 12;
 #X obj -30 -30 preset_hub k12 1 %hidden%;
 #X obj 500 130 notein 1;
-#X floatatom 500 200 5 0 0 1 Voice - - 0 0 1, f 5;
-#X floatatom 590 200 5 0 0 1 Note - - 0 0 1, f 5;
-#X floatatom 670 200 5 0 0 1 Velocity - - 0 0 1, f 5;
+#X floatatom 500 200 5 0 0 1 Voice - - 0;
+#X floatatom 590 200 5 0 0 1 Note - - 0;
+#X floatatom 670 200 5 0 0 1 Velocity - - 0;
 #X obj 500 728 dac~;
 #X obj 500 570 pack f f f;
 #X obj 500 160 poly 16 1;
 #X obj 500 670 clone -s 1 voice 16;
 #X obj 500 700 *~ 0.2;
 #X obj 1050 450 ctlin 64;
-#X floatatom 1050 479 5 0 0 0 - - - 0 0 1, f 5;
+#X floatatom 1050 479 5 0 0 0 - - - 0;
 #X text 1000 300 --- Sustain Pedal ---;
 #X obj 1000 600 bag, f 22;
 #X obj 1000 420 spigot;
@@ -39,27 +39,22 @@
 #X text 720 420 (or sustain pedal not pressed);
 #X text 1140 360 (note off);
 #X text 800 130 <--- MIDI Input Channel;
-#X text 10 10 More or less easy handling of a sustain pedal in PD Vanilla===========================================================
-Note that this has some severe limitations due to the lack of functionality
-in PD Vanilla's [poly] object: - No sustenuto pedal (to hold already
-playing notes only) - No retriggering of notes (double notes are
-played twice) - Stopping the wrong notes when polyphony is exceeded
-(because the sustain pedal releases a voice that has been stolen and
-repurposed for a new note while the pedal was held down). But it
-works with PD Vanilla and is reasonably fast. NOTE: The voice patch
-has been designed to ignore MIDI note number 0 \, because when the
-sustain pedal is released we don't know the MIDI note number anymore.
-Otherwise we could encode the MIDI note number in the saved value e.g.
-with the formula (voice number + midi note * 1000) and then restore
-it when the sustain pedal is released. Unfortunately \, retriggering
-and sustenuto are not that easy to implement.;
 #X obj 650 420 loadbang;
 #X msg 650 449 0;
 #X obj 1040 390 < 0.0001;
 #X obj 1050 540 trigger b b;
 #X msg 1110 570 0;
-#X text 1170 570 (1 = put voice number in bag \, 0 = release voices)
-;
+#X text 1170 570 (1 = put voice number in bag \, 0 = release voices);
+#X text 10 10 More or less easy handling of a sustain pedal in PD Vanilla;
+#X text 10 30 ===========================================================;
+#X text 12 61 Note that this has some severe limitations due to the lack of functionality in PD Vanilla's [poly] object:;
+#X text 12 104 - No sustenuto pedal (to hold already playing notes only);
+#X text 11 122 - No retriggering of notes (double notes are played twice);
+#X text 11 139 - Stopping the wrong notes when polyphony is exceeded;
+#X text 23 163 (because the sustain pedal releases a voice that has been stolen and repurposed for a new note while the pedal was held down).;
+#X text 8 224 But it works with PD Vanilla and is reasonably fast.;
+#X text 8 250 NOTE: The voice patch has been designed to ignore MIDI note number 0 \, because when the sustain pedal is released we don't know the MIDI note number anymore. Otherwise we could encode the MIDI note number in the saved value e.g. with the formula (voice number + midi note * 1000) and then restore it when the sustain pedal is released.;
+#X text 8 352 Unfortunately \, retriggering and sustenuto are not that easy to implement.;
 #X connect 1 0 7 0;
 #X connect 1 1 7 1;
 #X connect 2 0 15 0;
@@ -76,9 +71,9 @@ and sustenuto are not that easy to implement.;
 #X connect 11 0 21 0;
 #X connect 13 0 31 0;
 #X connect 14 0 13 0;
-#X connect 19 0 43 0;
+#X connect 19 0 42 0;
 #X connect 20 0 14 0;
-#X connect 21 0 44 0;
+#X connect 21 0 43 0;
 #X connect 21 1 13 1;
 #X connect 22 0 13 0;
 #X connect 25 0 26 0;
@@ -91,9 +86,9 @@ and sustenuto are not that easy to implement.;
 #X connect 32 0 27 1;
 #X connect 33 0 32 1;
 #X connect 34 0 33 0;
-#X connect 41 0 42 0;
-#X connect 42 0 33 0;
-#X connect 43 0 14 1;
-#X connect 44 0 22 0;
-#X connect 44 1 45 0;
-#X connect 45 0 13 1;
+#X connect 40 0 41 0;
+#X connect 41 0 33 0;
+#X connect 42 0 14 1;
+#X connect 43 0 22 0;
+#X connect 43 1 44 0;
+#X connect 44 0 13 1;

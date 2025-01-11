@@ -22,22 +22,22 @@ See its documentation for usage details., f 68;
 #X text 700 100 ---- Define preset parameter ----;
 #X text 700 190 ---- Forward value changes to the sub-processes ----
 ;
-#X obj 900 340 r pd-ready;
 #X obj 740 310 list prepend set;
 #X obj 740 340 list trim 1;
-#X msg 700 370 a b c d e;
+#X msg 700 370 p-lfo1-p1-car-volume 0.2;
 #X obj 700 399 s \$1;
 #X obj 740 280 list prepend \$4;
-#X text 980 340 Resend \, when subprocess becomes available;
+#X text 1030 340 Resend \, when subprocess becomes available;
 #X obj 700 250 trigger b a;
 #X text 10 180 Once a sub-process has finished starting \, send a bang
 to the global receive "pd-ready" to ask for all preset parameters to
 be forwarded to the process., f 68;
-#X connect 11 0 21 0;
-#X connect 14 0 17 0;
+#X obj 900 340 r pd-initialized;
+#X connect 11 0 20 0;
+#X connect 14 0 15 0;
 #X connect 15 0 16 0;
 #X connect 16 0 17 0;
-#X connect 17 0 18 0;
-#X connect 19 0 15 0;
-#X connect 21 0 17 0;
-#X connect 21 1 19 0;
+#X connect 18 0 14 0;
+#X connect 20 0 16 0;
+#X connect 20 1 18 0;
+#X connect 22 0 16 0;
