@@ -98,8 +98,10 @@ need one of those programs installed:
 
  * __Puredata Patches:__ [PD-L2Ork](http://l2ork.music.vt.edu/main/) –
    the Puredata version built for the Linux Laptop Orchestra.
-   [Purr Data](https://www.purrdata.net/) should also work but I am not using
-   it since it tends to crash on Fedora Linux.
+
+    * __PD-L2Ork:__ Works best for all patches.
+    * __PD Vanilla:__ Works with limitations (see [Puredata/README.md](Puredata/README.md)).
+    * __Plugdata:__ Should work in theory, but crashes.
 
  * __Csound Instruments:__ [Csound](https://csound.com/) and the [Cabbage](https://cabbageaudio.com/)
    frontend.

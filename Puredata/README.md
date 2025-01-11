@@ -88,9 +88,16 @@ How to Use
 All patches have been built with [PD-L2Ork](http://l2ork.music.vt.edu/main/) –
 the Puredata version built for the Linux Laptop Orchestra. Only objects from
 [PD Vanilla](https://puredata.info/downloads/vanilla) are used, so the patches
-should work with that, too. But some UI elements will be misaligned since PD
-Vanilla places some elements differently and the overall look and UI performance
-will be worse.
+usually work with that, too. But only without the UI because unfortunately there
+are many incompatibilities between those two regarding the UI objects.
+
+ * __PD-L2Ork:__ Works best for all patches.
+ * __PD Vanilla:__ Works with limitations:
+    * No GUI due to incompatibilities (start `main1.pd`, instead)
+    * Multi-Processing causes more audio drop-outs
+    * Sometimes I forget that PD Vanilla replaces $0 in message boxes with 0.
+      Very annoying that the PD Vanilla developers are so stubborn about this!
+ * __Plugdata:__ Should work in theory, but crashes with the large projects.
 
 Main, Main1, Main2
 ------------------
