@@ -1,0 +1,15 @@
+#N canvas 0 49 1920 1009 12;
+#X obj -30 -30 preset_hub k12 1 %hidden%;
+#X text 10 20 Forward a message from the parent to the sub-process.
+, f 56;
+#X obj 500 159 list trim;
+#X text 10 50 Arguments:, f 56;
+#X text 10 100 \$2 Receive symbol for the parameter to be forwarded
+, f 56;
+#X text 10 80 \$1 Receive symbol connected to [pd~], f 56;
+#X obj 500 100 r \$2;
+#X obj 500 130 list prepend \$2;
+#X obj 500 190 s \$1;
+#X connect 2 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;

@@ -70,16 +70,3 @@ That's it. With this in place, the `[preset-value]` objects will listen for
 parameter changes and keep them in their internal memory for the `[preset-manager]`
 to read when a preset file is written. When a preset file is read, the preset
 manager simply sends the read values to the corresponding channels.
-
-Multi-Processing
-----------------
-
-If you are using `[pd~]` to start multiple processes, you may use `[preset-value1]`
-instead of `[preset-value]`. It takes an additional first parameter with the name
-of a `[r]` object, where all parameter values are sent to. This `[r]` object simply
-must be connected with the `[pd~]` object to forward all value changes to the
-sub-processes (because sub-processes cannot use `[send]` and `[receive]` to exchange
-data).
-
-Additionally, once a sub-process has finished starting, send a bang to the global
-receive "pd-ready" to ask for all preset parameters to be forwarded to the process.

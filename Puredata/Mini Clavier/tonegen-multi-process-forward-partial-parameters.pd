@@ -1,0 +1,129 @@
+#N canvas 0 49 1920 1009 12;
+#X obj -30 -30 preset_hub k12 1 %hidden%;
+#X text 10 10 Forward partial parameters to the sub-processes, f 56
+;
+#X text 10 40 Arguments:, f 56;
+#X text 10 70 \$1 Receive symbol connected to [pd~], f 56;
+#X text 10 90 \$2 Partial Number: "p1" \, "p2" \, ..., f 56;
+#X text 200 200 ---- Tuning ----;
+#X text 200 360 ---- Modulator ----;
+#X text 1100 200 ---- Carrier ----;
+#X obj 200 230 ./pd~/forward-to \$1 p-\$2-enabled;
+#X obj 200 260 ./pd~/forward-to \$1 p-\$2-transpose;
+#X obj 200 290 ./pd~/forward-to \$1 p-\$2-detune;
+#X obj 200 390 ./pd~/forward-to \$1 p-\$2-mod-initial-level
+;
+#X obj 200 420 ./pd~/forward-to \$1 p-\$2-mod-attack-level
+;
+#X obj 200 450 ./pd~/forward-to \$1 p-\$2-mod-decay1-level
+;
+#X obj 200 480 ./pd~/forward-to \$1 p-\$2-mod-decay2-level
+;
+#X obj 200 510 ./pd~/forward-to \$1 p-\$2-mod-release-level
+;
+#X obj 200 650 ./pd~/forward-to \$1 p-\$2-mod-1-ratio
+;
+#X obj 620 650 ./pd~/forward-to \$1 p-\$2-mod-1-volume
+;
+#X obj 620 510 ./pd~/forward-to \$1 p-\$2-mod-release-time
+;
+#X obj 620 480 ./pd~/forward-to \$1 p-\$2-mod-decay2-time
+;
+#X obj 620 450 ./pd~/forward-to \$1 p-\$2-mod-decay1-time
+;
+#X obj 620 420 ./pd~/forward-to \$1 p-\$2-mod-attack-time
+;
+#X obj 620 390 ./pd~/forward-to \$1 p-\$2-mod-initial-time
+;
+#X obj 1100 230 ./pd~/forward-to \$1 p-\$2-car-initial-level
+;
+#X obj 1100 260 ./pd~/forward-to \$1 p-\$2-car-attack-level
+;
+#X obj 1100 290 ./pd~/forward-to \$1 p-\$2-car-decay1-level
+;
+#X obj 1100 320 ./pd~/forward-to \$1 p-\$2-car-decay2-level
+;
+#X obj 1100 350 ./pd~/forward-to \$1 p-\$2-car-release-level
+;
+#X obj 1100 490 ./pd~/forward-to \$1 p-\$2-car-1-ratio
+;
+#X obj 1100 520 ./pd~/forward-to \$1 p-\$2-car-2-ratio
+;
+#X obj 1100 550 ./pd~/forward-to \$1 p-\$2-car-3-ratio
+;
+#X obj 1100 580 ./pd~/forward-to \$1 p-\$2-car-4-ratio
+;
+#X obj 1100 610 ./pd~/forward-to \$1 p-\$2-car-5-ratio
+;
+#X obj 1100 640 ./pd~/forward-to \$1 p-\$2-car-6-ratio
+;
+#X obj 1100 670 ./pd~/forward-to \$1 p-\$2-car-7-ratio
+;
+#X obj 1100 700 ./pd~/forward-to \$1 p-\$2-car-8-ratio
+;
+#X obj 1100 730 ./pd~/forward-to \$1 p-\$2-car-9-ratio
+;
+#X obj 1100 760 ./pd~/forward-to \$1 p-\$2-car-10-ratio
+;
+#X obj 1100 790 ./pd~/forward-to \$1 p-\$2-car-11-ratio
+;
+#X obj 1100 820 ./pd~/forward-to \$1 p-\$2-car-12-ratio
+;
+#X obj 1100 850 ./pd~/forward-to \$1 p-\$2-car-13-ratio
+;
+#X obj 1100 880 ./pd~/forward-to \$1 p-\$2-car-14-ratio
+;
+#X obj 1100 910 ./pd~/forward-to \$1 p-\$2-car-15-ratio
+;
+#X obj 1100 940 ./pd~/forward-to \$1 p-\$2-car-16-ratio
+;
+#X obj 1500 940 ./pd~/forward-to \$1 p-\$2-car-16-volume
+;
+#X obj 1500 910 ./pd~/forward-to \$1 p-\$2-car-15-volume
+;
+#X obj 1500 880 ./pd~/forward-to \$1 p-\$2-car-14-volume
+;
+#X obj 1500 850 ./pd~/forward-to \$1 p-\$2-car-13-volume
+;
+#X obj 1500 820 ./pd~/forward-to \$1 p-\$2-car-12-volume
+;
+#X obj 1500 790 ./pd~/forward-to \$1 p-\$2-car-11-volume
+;
+#X obj 1500 760 ./pd~/forward-to \$1 p-\$2-car-10-volume
+;
+#X obj 1500 730 ./pd~/forward-to \$1 p-\$2-car-9-volume
+;
+#X obj 1500 700 ./pd~/forward-to \$1 p-\$2-car-8-volume
+;
+#X obj 1500 670 ./pd~/forward-to \$1 p-\$2-car-7-volume
+;
+#X obj 1500 640 ./pd~/forward-to \$1 p-\$2-car-6-volume
+;
+#X obj 1500 610 ./pd~/forward-to \$1 p-\$2-car-5-volume
+;
+#X obj 1500 580 ./pd~/forward-to \$1 p-\$2-car-4-volume
+;
+#X obj 1500 550 ./pd~/forward-to \$1 p-\$2-car-3-volume
+;
+#X obj 1500 520 ./pd~/forward-to \$1 p-\$2-car-2-volume
+;
+#X obj 1500 490 ./pd~/forward-to \$1 p-\$2-car-1-volume
+;
+#X obj 1500 350 ./pd~/forward-to \$1 p-\$2-car-release-time
+;
+#X obj 1500 320 ./pd~/forward-to \$1 p-\$2-car-decay2-time
+;
+#X obj 1500 290 ./pd~/forward-to \$1 p-\$2-car-decay1-time
+;
+#X obj 1500 260 ./pd~/forward-to \$1 p-\$2-car-attack-time
+;
+#X obj 1500 230 ./pd~/forward-to \$1 p-\$2-car-initial-time
+;
+#X obj 200 580 ./pd~/forward-to \$1 p-\$2-mod-penv-range
+;
+#X obj 620 580 ./pd~/forward-to \$1 p-\$2-mod-penv-time
+;
+#X obj 1100 420 ./pd~/forward-to \$1 p-\$2-car-penv-range
+;
+#X obj 1500 420 ./pd~/forward-to \$1 p-\$2-car-penv-time
+;
