@@ -51,8 +51,8 @@
 #X obj 580 1210 unpack f f f;
 #X obj 640 1241 +;
 #X obj 530 1150 trigger b l b;
-#X obj 640 1240 s \$0-finished-delay;
-#X text 680 1240 Only last value needed;
+#X obj 680 1240 s \$0-finished-delay;
+#X text 820 1240 Only last value needed;
 #X obj 500 210 trigger a a;
 #X obj 530 250 s \$0-echo-outlet;
 #X obj 1100 1370 r \$0-echo-outlet;
