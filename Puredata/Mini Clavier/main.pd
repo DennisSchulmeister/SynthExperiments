@@ -229,7 +229,7 @@ f 5;
 #X obj 920 330 hsl 128 20 0 20 0 0 p-lfo1-frequency empty Frequency
 -2 -8 0 10 #e6d2e6 #786e78 #000000 3175 1 0 1;
 #X obj 920 420 hsl 128 20 0 20 0 0 p-lfo2-frequency empty Frequency
--2 -8 0 10 #e6d2e6 #786e78 #000000 317 1 0 1;
+-2 -8 0 10 #e6d2e6 #786e78 #000000 2200 1 0 1;
 #X connect 7 0 1 0;
 #X connect 7 0 17 0;
 #X connect 8 0 7 0;
@@ -246,4 +246,4 @@ f 5;
 #X obj 840 350 ./partial-ui 2;
 #X obj 10 950 ./partial-ui 3;
 #X obj 840 950 ./partial-ui 4;
-#X text 1670 80 TODO: Multi-processing Partials 2-4;
+#X text 1670 80 TODO: LFO distorts volume etc.;

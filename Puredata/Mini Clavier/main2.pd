@@ -654,7 +654,7 @@ p-lfo1-p1-car-frequency 0 \; p-lfo1-p1-mod-volume 0 \; p-lfo1-p1-mod-frequency
 #X text 1040 210 ./tonegen-multi-process;
 #X text 1230 190 <-- 1 Process \, 8 Note Polyphony;
 #X text 1230 210 <-- 4 Processes \, 32 Note Polyphony;
-#X obj 800 190 ./tonegen-single-process;
+#X obj 800 190 ./tonegen-multi-process;
 #X connect 1 0 2 0;
 #X connect 1 1 2 1;
 #X connect 2 0 4 0;
