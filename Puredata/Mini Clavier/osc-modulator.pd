@@ -1,17 +1,17 @@
 #N canvas 0 49 1920 1009 12;
 #X obj -30 -30 preset_hub k12 1 %hidden%;
 #X text 10 10 A simplified oscillator for the modulator, f 49;
-#X obj 400 630 *;
-#X obj 400 720 *~;
-#X obj 400 940 *~;
-#X obj 400 1000 outlet~;
-#X obj 440 880 r \$0-velocity;
+#X obj 400 640 *;
+#X obj 400 730 *~;
+#X obj 400 950 *~;
+#X obj 400 1010 outlet~;
+#X obj 440 890 r \$0-velocity;
 #X obj 100 200 loadbang;
 #X obj 100 229 samplerate~;
 #X obj 100 260 / 2;
 #X obj 100 320 value _\$0_maxf;
-#X obj 400 660 expr if($f1 <= _\$0_maxf \, \\$f1 \, 0);
-#X obj 400 690 osc~;
+#X obj 400 670 expr if($f1 <= _\$0_maxf \, \\$f1 \, 0);
+#X obj 400 700 osc~;
 #X text 10 40 Parameters:, f 49;
 #X obj 400 200 inlet;
 #X floatatom 400 260 5 0 0 1 Note - - 0 0 1, f 5;
@@ -28,35 +28,35 @@
 #X msg 1020 440 attack;
 #X obj 950 410 moses 0.0001;
 #X floatatom 400 470 5 0 0 1 Frequency_Hz - - 0 0 1, f 5;
-#X obj 440 770 r \$0-aenv;
+#X obj 440 780 r \$0-aenv;
 #X obj 950 470 s \$0-aenv;
-#X obj 400 830 *~;
+#X obj 400 840 *~;
 #X text 100 170 ==== Initialization ====;
 #X floatatom 100 290 5 0 0 0 - - - 0 0 1, f 5;
 #X text 10 90 \$2 Oscillator type (mod \, car \, ...), f 49;
-#X obj 440 910 ./apply-modulation p-mw-\$1-\$2 p-lfo1-\$1-\$2 p-lfo2-\$1-\$2
+#X obj 440 920 ./apply-modulation p-mw-\$1-\$2 p-lfo1-\$1-\$2 p-lfo2-\$1-\$2
 volume, f 65;
 #X obj 760 320 r in-pitchbend;
 #X floatatom 760 350 5 0 0 1 Pitchbend - - 0 0 1, f 5;
 #X obj 760 380 trigger b f;
 #X obj 400 410 expr \\$f1 + \\$f2 + ($f3 * .01) + \\$f4;
-#X obj 440 800 ./envgen/iaddr~ p-\$1-\$2;
-#X obj 400 580 ./apply-modulation p-mw-\$1-\$2 p-lfo1-\$1-\$2 p-lfo2-\$1-\$2
+#X obj 440 810 ./envgen/iaddr~ p-\$1-\$2;
+#X obj 400 570 ./apply-modulation p-mw-\$1-\$2 p-lfo1-\$1-\$2 p-lfo2-\$1-\$2
 frequency, f 71;
 #X obj 440 320 r p-\$1-transpose;
 #X obj 590 320 r p-\$1-detune;
 #X obj 400 290 ./pitch-env p-\$1-\$2;
 #X text 10 70 \$1 Partial number (p1 \, p2 \, ...), f 49;
-#X obj 490 630 r p-\$1-\$2-1-ratio;
-#X obj 490 720 r p-\$1-\$2-1-volume;
+#X obj 490 640 r p-\$1-\$2-1-ratio;
+#X obj 490 730 r p-\$1-\$2-1-volume;
 #X obj 1000 290 r p-\$1-enabled;
 #X obj 950 380 *;
 #X obj 1000 350 trigger b f;
-#X obj 400 970 hip~ 1;
-#X floatatom 440 630 5 0 0 0 - - - 0 0 1, f 5;
-#X floatatom 440 720 5 0 0 0 - - - 0 0 1, f 5;
+#X obj 400 980 hip~ 1;
+#X floatatom 440 640 5 0 0 0 - - - 0 0 1, f 5;
+#X floatatom 440 730 5 0 0 0 - - - 0 0 1, f 5;
 #X obj 1000 320 tgl 20 0 empty empty Enabled 25 7 0 10 #fcfcfc #000000
-#000000 1 1 1;
+#000000 0 1 1;
 #X obj 400 500 ./utils/declick;
 #X connect 2 0 11 0;
 #X connect 3 0 31 0;

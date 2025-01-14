@@ -459,7 +459,7 @@ and sends the resulting values to everybody who wants to receive them.
 #X obj 500 220 ./utils/lfo;
 #X obj 1000 220 ./utils/lfo;
 #X text 500 80 ==== LFO 1 ====;
-#X obj 700 100 r p-mw-lfo1;
+#X obj 710 110 r p-mw-lfo1;
 #X obj 500 330 *;
 #X obj 1000 330 *;
 #X text 1000 80 ==== LFO 2 ====;
@@ -467,41 +467,43 @@ and sends the resulting values to everybody who wants to receive them.
 #X floatatom 500 140 5 0 0 1 Hz - - 0 0 1, f 5;
 #X floatatom 1000 140 5 0 0 1 Hz - - 0 0 1, f 5;
 #X obj 1000 110 r p-lfo2-frequency;
-#X obj 700 159 moses 1;
-#X msg 700 219 1;
+#X obj 710 169 moses 1;
+#X msg 710 229 1;
 #X obj 200 110 r in-modulation;
 #X floatatom 200 140 5 0 0 1 Mod.Wheel_Position - - 0 0 1, f 5;
 #X obj 300 200 value \$0-mod-wheel;
-#X floatatom 700 130 5 0 0 1 M.W._LFO1 - - 0 0 1, f 5;
-#X obj 760 189 bang;
-#X obj 760 219 value \$0-mod-wheel;
-#X floatatom 700 250 5 0 0 1 LFO1_Amplitude - - 0 0 1, f 5;
+#X floatatom 710 140 5 0 0 1 M.W._LFO1 - - 0 0 1, f 5;
+#X obj 770 199 bang;
+#X obj 770 229 value \$0-mod-wheel;
+#X floatatom 710 260 5 0 0 1 LFO1_Amplitude - - 0 0 1, f 5;
 #X text 200 80 ==== Modulation Wheel ====;
-#X obj 1200 159 moses 1;
-#X msg 1200 219 1;
-#X floatatom 1200 129 5 0 0 1 M.W._LFO2 - - 0 0 1, f 5;
-#X obj 1260 189 bang;
-#X obj 1260 219 value \$0-mod-wheel;
-#X floatatom 1200 250 5 0 0 1 LFO2_Amplitude - - 0 0 1, f 5;
-#X obj 1200 100 r p-mw-lfo2;
+#X obj 1210 169 moses 1;
+#X msg 1210 229 1;
+#X floatatom 1210 139 5 0 0 1 M.W._LFO2 - - 0 0 1, f 5;
+#X obj 1270 199 bang;
+#X obj 1270 229 value \$0-mod-wheel;
+#X floatatom 1210 260 5 0 0 1 LFO2_Amplitude - - 0 0 1, f 5;
+#X obj 1210 110 r p-mw-lfo2;
 #X obj 500 390 hsl 170 20 0 127 0 0 empty empty empty -2 -10 0 12 #fcfcfc
-#000000 #000000 0 1 0 1;
+#000000 #000000 49 1 0 1;
 #X obj 1000 390 hsl 170 20 0 127 0 0 empty empty empty -2 -10 0 12
-#fcfcfc #000000 #000000 126 1 0 1;
+#fcfcfc #000000 #000000 59 1 0 1;
 #X obj 200 170 trigger b f;
 #X obj 200 200 s \$0-update;
-#X obj 800 100 r \$0-update;
-#X obj 1300 100 r \$0-update;
+#X obj 810 110 r \$0-update;
+#X obj 1310 110 r \$0-update;
 #X obj 500 420 s lfo1;
 #X obj 1000 420 s lfo2;
+#X obj 500 168 expr if($f1 > 0 \, \\$f1 \, 0.01);
+#X obj 1000 170 expr if($f1 > 0 \, \\$f1 \, 0.01);
 #X connect 1 0 5 0;
 #X connect 2 0 6 0;
 #X connect 4 0 17 0;
 #X connect 5 0 29 0;
 #X connect 6 0 30 0;
 #X connect 8 0 9 0;
-#X connect 9 0 1 0;
-#X connect 10 0 2 0;
+#X connect 9 0 37 0;
+#X connect 10 0 38 0;
 #X connect 11 0 10 0;
 #X connect 12 0 13 0;
 #X connect 12 1 18 0;
@@ -526,8 +528,10 @@ and sends the resulting values to everybody who wants to receive them.
 #X connect 31 1 16 0;
 #X connect 33 0 17 0;
 #X connect 34 0 24 0;
+#X connect 37 0 1 0;
+#X connect 38 0 2 0;
 #X restore 800 160 pd lfo;
-#N canvas 0 49 1920 1009 init-parameters 0;
+#N canvas 0 49 1920 1009 init-parameters 1;
 #X text 10 10 Initialize synth parameters with default values;
 #X obj 100 180 inlet;
 #X obj 100 880 outlet;
@@ -538,24 +542,6 @@ and sends the resulting values to everybody who wants to receive them.
 \; p-rev-length 33 \; p-rev-crossover 3000 \; p-rev-hfdamping 0 \;
 p-rev-drywet 0.75 \; p-rev-enabled 1 \;;
 #X obj 100 210 trigger b b b b b b b;
-#X msg 360 240 \; p-lfo1-frequency 5 \; p-lfo1-p1-car-volume 0.05 \;
-p-lfo1-p1-car-frequency 0 \; p-lfo1-p1-mod-volume 0 \; p-lfo1-p1-mod-frequency
-0 \; p-lfo1-p2-car-volume 0 \; p-lfo1-p2-car-frequency 0 \; p-lfo1-p2-mod-volume
-0 \; p-lfo1-p2-mod-frequency 0 \; p-lfo1-p3-car-volume 0 \; p-lfo1-p3-car-frequency
-0 \; p-lfo1-p3-mod-volume 0 \; p-lfo1-p3-mod-frequency 0 \; p-lfo1-p4-car-volume
-0 \; p-lfo1-p4-car-frequency 0 \; p-lfo1-p4-mod-volume 0 \; p-lfo1-p4-mod-frequency
-0 \; \; p-lfo2-frequency 0.5 \; p-lfo2-p1-car-volume 0 \; p-lfo2-p1-car-frequency
-0 \; p-lfo2-p1-mod-volume 0 \; p-lfo2-p1-mod-frequency 0 \; p-lfo2-p2-car-volume
-0 \; p-lfo2-p2-car-frequency 0 \; p-lfo2-p2-mod-volume 0 \; p-lfo2-p2-mod-frequency
-0 \; p-lfo2-p3-car-volume 0 \; p-lfo2-p3-car-frequency 0 \; p-lfo2-p3-mod-volume
-0 \; p-lfo2-p3-mod-frequency 0 \; p-lfo2-p4-car-volume 0 \; p-lfo2-p4-car-frequency
-0 \; p-lfo2-p4-mod-volume 0 \; p-lfo2-p4-mod-frequency 0 \; \; p-mw-lfo1
-1 \; p-mw-lfo2 0 \; p-mw-p1-car-volume 0 \; p-mw-p1-car-frequency 0
-\; p-mw-p1-mod-volume 0 \; p-mw-p1-mod-frequency 0 \; p-mw-p2-car-volume
-0 \; p-mw-p2-car-frequency 0 \; p-mw-p2-mod-volume 0 \; p-mw-p2-mod-frequency
-0 \; p-mw-p3-car-volume 0 \; p-mw-p3-car-frequency 0 \; p-mw-p3-mod-volume
-0 \; p-mw-p3-mod-frequency 0 \; p-mw-p4-car-volume 0 \; p-mw-p4-car-frequency
-0 \; p-mw-p4-mod-volume 0 \; p-mw-p4-mod-frequency 0 \;;
 #X msg 640 240 \; p-p1-enabled 1 \; p-p1-volume 1 \; p-p1-transpose
 0 \; p-p1-detune 0 \; \; p-p1-car-penv-range -7 \; p-p1-car-penv-time
 50 \; \; p-p1-car-initial-level 0 \; p-p1-car-initial-time 0 \; p-p1-car-attack-level
@@ -640,21 +626,39 @@ p-lfo1-p1-car-frequency 0 \; p-lfo1-p1-mod-volume 0 \; p-lfo1-p1-mod-frequency
 1000 \; p-p4-mod-decay1-level 1 \; p-p4-mod-decay1-time 0 \; p-p4-mod-decay2-level
 1 \; p-p4-mod-decay2-time 0 \; p-p4-mod-release-level 0 \; p-p4-mod-release-time
 400 \; \; p-p4-mod-1-ratio 1 \; p-p4-mod-1-volume 1 \;;
+#X msg 360 240 \; p-lfo1-frequency 5 \; p-lfo1-p1-car-volume 0.5 \;
+p-lfo1-p1-car-frequency 0 \; p-lfo1-p1-mod-volume 0 \; p-lfo1-p1-mod-frequency
+0 \; p-lfo1-p2-car-volume 0 \; p-lfo1-p2-car-frequency 0 \; p-lfo1-p2-mod-volume
+0 \; p-lfo1-p2-mod-frequency 0 \; p-lfo1-p3-car-volume 0 \; p-lfo1-p3-car-frequency
+0 \; p-lfo1-p3-mod-volume 0 \; p-lfo1-p3-mod-frequency 0 \; p-lfo1-p4-car-volume
+0 \; p-lfo1-p4-car-frequency 0 \; p-lfo1-p4-mod-volume 0 \; p-lfo1-p4-mod-frequency
+0 \; \; p-lfo2-frequency 0.5 \; p-lfo2-p1-car-volume 0 \; p-lfo2-p1-car-frequency
+0 \; p-lfo2-p1-mod-volume 0 \; p-lfo2-p1-mod-frequency 0 \; p-lfo2-p2-car-volume
+0 \; p-lfo2-p2-car-frequency 0 \; p-lfo2-p2-mod-volume 0 \; p-lfo2-p2-mod-frequency
+0 \; p-lfo2-p3-car-volume 0 \; p-lfo2-p3-car-frequency 0 \; p-lfo2-p3-mod-volume
+0 \; p-lfo2-p3-mod-frequency 0 \; p-lfo2-p4-car-volume 0 \; p-lfo2-p4-car-frequency
+0 \; p-lfo2-p4-mod-volume 0 \; p-lfo2-p4-mod-frequency 0 \; \; p-mw-lfo1
+1 \; p-mw-lfo2 0 \; p-mw-p1-car-volume 0 \; p-mw-p1-car-frequency 0
+\; p-mw-p1-mod-volume 0 \; p-mw-p1-mod-frequency 0 \; p-mw-p2-car-volume
+0 \; p-mw-p2-car-frequency 0 \; p-mw-p2-mod-volume 0 \; p-mw-p2-mod-frequency
+0 \; p-mw-p3-car-volume 0 \; p-mw-p3-car-frequency 0 \; p-mw-p3-mod-volume
+0 \; p-mw-p3-mod-frequency 0 \; p-mw-p4-car-volume 0 \; p-mw-p4-car-frequency
+0 \; p-mw-p4-mod-volume 0 \; p-mw-p4-mod-frequency 0 \;;
 #X connect 1 0 4 0;
 #X connect 4 0 2 0;
 #X connect 4 1 3 0;
-#X connect 4 2 5 0;
-#X connect 4 3 6 0;
-#X connect 4 4 7 0;
-#X connect 4 5 8 0;
-#X connect 4 6 9 0;
+#X connect 4 2 9 0;
+#X connect 4 3 5 0;
+#X connect 4 4 6 0;
+#X connect 4 5 7 0;
+#X connect 4 6 8 0;
 #X restore 100 220 pd init-parameters;
 #X text 10 10 Mini Clavier Synthesizer (backend without the GUI);
 #X text 1040 190 ./tonegen-single-process;
 #X text 1040 210 ./tonegen-multi-process;
 #X text 1230 190 <-- 1 Process \, 8 Note Polyphony;
 #X text 1230 210 <-- 4 Processes \, 32 Note Polyphony;
-#X obj 800 190 ./tonegen-multi-process;
+#X obj 800 190 ./tonegen-single-process;
 #X connect 1 0 2 0;
 #X connect 1 1 2 1;
 #X connect 2 0 4 0;

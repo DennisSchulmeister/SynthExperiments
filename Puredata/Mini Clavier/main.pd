@@ -2,7 +2,7 @@
 #X obj -30 -30 preset_hub k12 1 %hidden%;
 #N canvas 0 49 1920 1009 global_parameters 0;
 #X obj 430 270 vsl 20 85 0 1 0 0 p-glb-volume empty empty 0 -11 0 12
-#f0aa64 #a54141 #000000 8400 1 0 1;
+#f0aa64 #a54141 #000000 2772 1 0 1;
 #X msg 410 180 set \$1;
 #X obj 840 270 vsl 20 85 0 1 0 0 in-expression empty empty 0 -11 0
 12 #4078b4 #a5cdf8 #000000 8400 1 0 1;
@@ -27,7 +27,7 @@
 #be0000 #000000 0 1 1;
 #X msg 780 530 set \$1;
 #X obj 750 270 vsl 20 85 0 1 0 0 in-modulation empty empty 0 -9 0 10
-#4078b4 #a5cdf8 #000000 0 1 0 1;
+#4078b4 #a5cdf8 #000000 8400 1 0 1;
 #X floatatom 750 370 5 0 1 3 Modulation - in-modulation 0 0 1, f 5
 ;
 #X msg 880 180 set \$1;
@@ -229,7 +229,7 @@ f 5;
 #X obj 920 330 hsl 128 20 0 20 0 0 p-lfo1-frequency empty Frequency
 -2 -8 0 10 #e6d2e6 #786e78 #000000 3175 1 0 1;
 #X obj 920 420 hsl 128 20 0 20 0 0 p-lfo2-frequency empty Frequency
--2 -8 0 10 #e6d2e6 #786e78 #000000 2200 1 0 1;
+-2 -8 0 10 #e6d2e6 #786e78 #000000 317 1 0 1;
 #X connect 7 0 1 0;
 #X connect 7 0 17 0;
 #X connect 8 0 7 0;
@@ -246,4 +246,3 @@ f 5;
 #X obj 840 350 ./partial-ui 2;
 #X obj 10 950 ./partial-ui 3;
 #X obj 840 950 ./partial-ui 4;
-#X text 1670 80 TODO: LFO distorts volume etc.;

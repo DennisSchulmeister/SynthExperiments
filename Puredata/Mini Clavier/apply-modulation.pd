@@ -1,14 +1,13 @@
 #N canvas 0 49 1920 1009 12;
 #X obj -30 -30 preset_hub k12 1 %hidden%;
 #X obj 300 280 inlet;
-#X obj 300 970 outlet;
+#X obj 260 1181 outlet;
 #X text 10 10 Apply modulation wheel and LFOs to a control signal===================================================
 Parameters: \$1 Prefix to receive modwheel configuration values
 \, e.g. "p-mw-car" \$2 Prefix to receive LFO 1 configuration values
 \, e.g. "p-lfo1-car"\$3 Prefix to receive LFO 2 configuration values
 \, e.g. "p-lfo2-car"\$4 Name of the modulated parameter \, e.g. "volume"
 Inlets: 1) Original signal \, 2) Modulated signal, f 69;
-#X obj 300 510 *;
 #X text 310 310 ---- Apply Modulation Wheel ----;
 #X obj 490 330 r \$1-\$4;
 #X obj 340 388 r in-modulation;
@@ -18,50 +17,59 @@
 #X obj 340 477 trigger b f;
 #X obj 490 388 trigger b f f, f 25;
 #X obj 660 448 == 0;
-#X floatatom 350 610 5 0 0 1 LFO1 - - 0 0 1, f 5;
-#X floatatom 450 610 5 0 0 1 Enable_LFO1 - - 0 0 1, f 5;
-#X text 310 560 ---- Apply LFO 1 ----;
-#X obj 450 580 r \$2-\$4;
-#X obj 350 580 r lfo1;
-#X obj 350 650 *;
-#X obj 350 680 trigger b f;
-#X obj 300 710 +;
-#X floatatom 350 810 5 0 0 1 LFO2 - - 0 0 1, f 5;
-#X floatatom 450 810 5 0 0 1 Enable_LFO2 - - 0 0 1, f 5;
-#X obj 350 850 *;
-#X obj 350 880 trigger b f;
-#X obj 300 910 +;
-#X text 310 760 ---- Apply LFO 2 ----;
-#X obj 350 780 r lfo2;
-#X obj 450 780 r \$3-\$4;
-#X floatatom 300 939 5 0 0 0 - - - 0 0 1, f 5;
-#X connect 1 0 4 0;
-#X connect 4 0 21 0;
-#X connect 6 0 9 0;
-#X connect 7 0 8 0;
-#X connect 8 0 10 0;
-#X connect 9 0 12 0;
-#X connect 10 0 11 0;
-#X connect 11 0 4 0;
-#X connect 11 1 4 1;
-#X connect 12 0 8 0;
-#X connect 12 1 10 1;
-#X connect 12 2 13 0;
-#X connect 13 0 11 0;
-#X connect 14 0 19 0;
-#X connect 15 0 19 1;
-#X connect 17 0 15 0;
-#X connect 18 0 14 0;
-#X connect 19 0 20 0;
-#X connect 20 0 21 0;
-#X connect 20 1 21 1;
-#X connect 21 0 26 0;
-#X connect 22 0 24 0;
-#X connect 23 0 24 1;
-#X connect 24 0 25 0;
-#X connect 25 0 26 0;
-#X connect 25 1 26 1;
-#X connect 26 0 30 0;
-#X connect 28 0 22 0;
-#X connect 29 0 23 0;
-#X connect 30 0 2 0;
+#X floatatom 340 640 5 0 0 1 LFO1 - - 0 0 1, f 5;
+#X floatatom 430 640 5 0 0 1 Enable_LFO1 - - 0 0 1, f 5;
+#X text 310 580 ---- Apply LFO 1 ----;
+#X obj 430 610 r \$2-\$4;
+#X obj 340 610 r lfo1;
+#X obj 340 670 *;
+#X floatatom 340 920 5 0 0 1 LFO2 - - 0 0 1, f 5;
+#X floatatom 440 920 5 0 0 1 Enable_LFO2 - - 0 0 1, f 5;
+#X obj 340 950 *;
+#X obj 340 980 trigger b f;
+#X text 290 860 ---- Apply LFO 2 ----;
+#X obj 340 890 r lfo2;
+#X obj 440 890 r \$3-\$4;
+#X floatatom 260 1150 5 0 0 0 - - - 0 0 1, f 5;
+#X obj 340 760 -, f 11;
+#X obj 340 1040 -, f 11;
+#X obj 340 730 1;
+#X obj 340 700 trigger b f;
+#X obj 300 510 * 1;
+#X obj 280 800 *;
+#X obj 340 1010 1;
+#X obj 260 1080 *;
+#X connect 1 0 31 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 9 0;
+#X connect 8 0 11 0;
+#X connect 9 0 10 0;
+#X connect 10 0 31 0;
+#X connect 10 1 31 1;
+#X connect 11 0 7 0;
+#X connect 11 1 9 1;
+#X connect 11 2 12 0;
+#X connect 12 0 10 0;
+#X connect 13 0 18 0;
+#X connect 14 0 18 1;
+#X connect 16 0 14 0;
+#X connect 17 0 13 0;
+#X connect 18 0 30 0;
+#X connect 19 0 21 0;
+#X connect 20 0 21 1;
+#X connect 21 0 22 0;
+#X connect 22 0 33 0;
+#X connect 22 1 28 1;
+#X connect 24 0 19 0;
+#X connect 25 0 20 0;
+#X connect 26 0 2 0;
+#X connect 27 0 32 0;
+#X connect 28 0 34 0;
+#X connect 29 0 27 0;
+#X connect 30 0 29 0;
+#X connect 30 1 27 1;
+#X connect 31 0 32 1;
+#X connect 32 0 34 1;
+#X connect 33 0 28 0;
+#X connect 34 0 26 0;

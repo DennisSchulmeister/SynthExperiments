@@ -29,14 +29,14 @@
 #X msg 600 460 0 \, 6.28319 \$1;
 #X text 710 460 2pi;
 #X obj 600 620 hsl 128 15 -1 1 0 0 empty empty -1\ …\ 1 10 -8 0 10
-#fcfcfc #000000 #000000 311 1 0 1;
+#fcfcfc #000000 #000000 7146 1 0 1;
 #X obj 780 550 + 1;
 #X obj 780 580 * 0.5;
 #X obj 780 650 outlet;
 #X obj 780 620 hsl 128 15 0 1 0 0 empty empty 0\ …\ 1 10 -8 0 10
-#fcfcfc #000000 #000000 311 1 0 1;
-#X obj 600 490 line 0 5;
-#X text 710 490 5 ms grain size;
+#fcfcfc #000000 #000000 7146 1 0 1;
+#X obj 600 490 line 0 2;
+#X text 710 490 2 ms grain size to reduce audible artifacts;
 #X connect 9 0 17 0;
 #X connect 10 0 14 0;
 #X connect 10 1 15 0;
