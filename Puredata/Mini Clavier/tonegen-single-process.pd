@@ -7,7 +7,7 @@
 #X obj 100 190 outlet~;
 #X text 10 10 Tone Generator: Single-Process Version (8 Notes Polyphony)
 ;
-#X obj 100 130 ./utils/poly-sustain 8;
+#X obj 100 130 ./utils/poly-sustain 8 1;
 #X connect 1 0 7 0;
 #X connect 2 0 7 1;
 #X connect 3 0 7 2;
