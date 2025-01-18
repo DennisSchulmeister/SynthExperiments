@@ -1,22 +1,22 @@
 #N canvas 0 49 1920 1009 12;
 #X obj -30 -30 preset_hub k12 1 %hidden%;
 #N canvas 0 49 1920 1009 ui 0;
-#X obj 190 90 cnv 15 960 510 empty empty empty 20 12 0 14 #e0eaf1 #404040
-0;
-#X obj 500 130 cnv 15 640 370 empty empty empty 20 12 0 14 #ffffff
+#X obj 400 200 cnv 15 960 510 empty empty empty 20 12 0 14 #e0eaf1
+#404040 0;
+#X obj 710 240 cnv 15 640 370 empty empty empty 20 12 0 14 #ffffff
 #404040 0;
 #N canvas 0 0 450 300 (subpatch) 0;
-#X array soundfile 51316 float 0 black black;
-#X coords 0 1 51315 -1 640 370 1;
-#X restore 500 130 graph;
-#X obj 200 100 bng 20 250 50 0 cmd-load-soundfile empty Load\ Soundfile
+#X array soundfile 100 float 0 black black;
+#X coords 0 1 99 -1 640 370 1;
+#X restore 710 240 graph;
+#X obj 410 210 bng 20 250 50 0 cmd-load-soundfile empty Load\ Soundfile
 25 7 0 13 #fcfcfc #000000 #000000 1;
-#X obj 200 260 bng 20 250 50 0 cmd-clear-all empty Clear\ All 25 7
+#X obj 410 370 bng 20 250 50 0 cmd-clear-all empty Clear\ All 25 7
 0 13 #fcfcfc #000000 #000000 1;
-#X obj 200 180 bng 20 250 50 0 cmd-analyze empty Anaylze 25 7 0 13
+#X obj 410 290 bng 20 250 50 0 cmd-analyze empty Anaylze 25 7 0 13
 #fcfcfc #000000 #000000 1;
-#X floatatom 350 340 5 0 0 1 ms - p-resynth-size-ms 0 0 1, f 5;
-#X floatatom 1050 100 10 0 0 1 Hz - p-resyth-base-frequency 0 0 0,
+#X floatatom 560 450 5 0 0 1 ms - p-resynth-size-ms 0 0 1, f 5;
+#X floatatom 1260 210 10 0 0 1 Hz - p-resyth-base-frequency 0 0 0,
 f 10;
 #N canvas 0 49 1920 1009 cmd-others 0;
 #X text 10 10 Handle other commands;
@@ -65,7 +65,7 @@ f 10;
 #X connect 22 0 10 0;
 #X connect 24 0 12 0;
 #X connect 25 0 26 0;
-#X restore 1400 260 pd cmd-others;
+#X restore 1500 380 pd cmd-others;
 #N canvas 0 49 1920 1009 cmd-analyze 0;
 #X text 10 10 Do the frequency analysis;
 #X obj 100 100 r cmd-analyze;
@@ -642,28 +642,30 @@ Sine;
 #X connect 5 0 3 0;
 #X restore 100 280 pd calc-frame-count;
 #X msg 140 180 \; cmd-clear-analysis-result bang;
+#X msg 100 370 \; resynth-global update bang;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
 #X connect 2 1 7 0;
 #X connect 3 0 6 0;
 #X connect 4 0 5 0;
+#X connect 5 0 8 0;
 #X connect 6 0 4 0;
-#X restore 1400 230 pd cmd-analyze;
-#X obj 200 200 bng 20 250 50 0 cmd-save-analysis empty Save\ Analysis
+#X restore 1500 350 pd cmd-analyze;
+#X obj 410 310 bng 20 250 50 0 cmd-save-analysis empty Save\ Analysis
 25 7 0 13 #fcfcfc #000000 #000000 1;
-#X obj 200 220 bng 20 250 50 0 cmd-load-analysis empty Load\ Analysis
+#X obj 410 330 bng 20 250 50 0 cmd-load-analysis empty Load\ Analysis
 25 7 0 13 #fcfcfc #000000 #000000 1;
-#X msg 10 280 set \$1;
-#X obj 1400 110 loadbang;
-#X obj 200 120 bng 20 250 50 0 cmd-play-soundfile empty Play\ Soundfile
+#X msg 220 390 set \$1;
+#X obj 1500 230 loadbang;
+#X obj 410 230 bng 20 250 50 0 cmd-play-soundfile empty Play\ Soundfile
 25 7 0 13 #fcfcfc #000000 #000000 1;
-#X obj 1400 610 dac~;
-#X msg 1010 40 set \$1;
-#X text 200 510 Speed:;
-#X floatatom 250 510 5 0 0 2 - - p-resynth-speed 0 0 1, f 5;
-#X msg 10 450 set \$1;
-#X obj 10 420 r p-resynth-speed;
-#X obj 10 250 r p-resynth-frame-ms;
+#X obj 1500 730 dac~;
+#X msg 1220 150 set \$1;
+#X text 410 620 Speed:;
+#X floatatom 460 620 5 0 0 2 - - p-resynth-speed 0 0 1, f 5;
+#X msg 220 560 set \$1;
+#X obj 220 530 r p-resynth-speed;
+#X obj 220 360 r p-resynth-frame-ms;
 #N canvas 0 49 1920 1009 cmd-clear 0;
 #X obj 700 100 r clear-soundfile;
 #X text 100 70 ==== Clear Data ====;
@@ -683,7 +685,7 @@ Sine;
 #X connect 4 0 6 0;
 #X connect 5 0 6 0;
 #X connect 5 0 7 0;
-#X restore 1400 200 pd cmd-clear;
+#X restore 1500 320 pd cmd-clear;
 #N canvas 0 49 1920 1009 resynth-global 0;
 #X text 10 10 Global buffer for the resynthesis sequencer. This one
 writes the result files and sets the global parameters. The other ones
@@ -691,7 +693,6 @@ control their respective oscillator.;
 #X obj 100 100 r resynth-global;
 #X obj 100 190 text define resynthesis;
 #X text 280 190 Sequence data (click to edit);
-#X obj 100 130 route clear read write add;
 #X msg 100 160 clear;
 #N canvas 0 49 1920 1009 read 0;
 #X obj 100 100 inlet;
@@ -717,15 +718,15 @@ is saved., f 72;
 #X obj 100 330 trigger b b;
 #X obj 140 420 text sequence resynthesis -w wait;
 #X obj 140 360 until;
-#X obj 100 790 text sequence resynthesis -w wait;
-#X obj 100 730 until;
-#X msg 100 760 step;
+#X obj 140 820 text sequence resynthesis -w wait;
+#X obj 140 760 until;
+#X msg 140 790 step;
 #X obj 900 130 r \$0-rs-message;
-#X obj 100 820 s \$0-rs-message;
-#X obj 230 820 s \$0-rs-stop-loop;
-#X obj 150 730 r \$0-rs-stop-loop;
-#X obj 100 700 trigger b b;
-#X msg 300 730 line 0;
+#X obj 140 850 s \$0-rs-message;
+#X obj 270 850 s \$0-rs-stop-loop;
+#X obj 190 760 r \$0-rs-stop-loop;
+#X obj 140 730 trigger b b;
+#X msg 340 760 line 0;
 #X msg 140 510 0;
 #X obj 140 539 text delete resynthesis;
 #X obj 140 450 trigger b a;
@@ -741,6 +742,9 @@ is saved., f 72;
 #X obj 1460 280 s p-resynth-loop-end-frame;
 #X obj 900 220 route seconds frames frequency frame-ms speed loop-start-frame
 loop-end-frame release-frame, f 94;
+#X text 110 900 ---- Update line counters ----;
+#X obj 100 700 trigger b b;
+#X msg 100 920 \; resynth-global update bang;
 #X connect 0 0 5 0;
 #X connect 3 0 4 0;
 #X connect 4 0 1 0;
@@ -768,7 +772,7 @@ loop-end-frame release-frame, f 94;
 #X connect 31 1 32 0;
 #X connect 34 0 19 1;
 #X connect 35 0 18 0;
-#X connect 36 0 27 0;
+#X connect 36 0 44 0;
 #X connect 36 1 37 0;
 #X connect 37 0 38 0;
 #X connect 39 0 11 0;
@@ -780,6 +784,8 @@ loop-end-frame release-frame, f 94;
 #X connect 42 5 40 0;
 #X connect 42 6 41 0;
 #X connect 42 7 12 0;
+#X connect 44 0 45 0;
+#X connect 44 1 27 0;
 #X restore 170 160 pd read;
 #N canvas 0 49 1920 1009 add 0;
 #X obj 100 100 inlet;
@@ -849,114 +855,222 @@ anaysis on each change.;
 #X connect 23 0 28 0;
 #X connect 24 0 29 0;
 #X restore 250 160 pd write;
-#X connect 1 0 4 0;
-#X connect 4 0 5 0;
-#X connect 4 1 6 0;
-#X connect 4 2 8 0;
-#X connect 4 3 7 0;
+#X obj 100 130 route clear read write add update;
+#N canvas 0 49 1920 1009 update_line_counters 0;
+#X obj 600 70 inlet;
+#X text 10 10 Loop through the sequence and find the lines for the
+loop points and where the release segment starts., f 68;
+#X obj 640 190 value _\$0_current_frame;
+#X obj 600 330 text sequence resynthesis -w wait;
+#X obj 1060 190 value loop_start_line;
+#X msg 860 160 -1;
+#X obj 600 130 trigger b b b;
+#X text 10 60 Sets the following global values:, f 68;
+#X text 10 90 - loop_start_line: Sequence line with loop start point
+, f 68;
+#X text 10 110 - relase_line: Sequence line with start of the relese
+segment, f 68;
+#X obj 860 190 value _\$0_current_line;
+#X text 10 140 Missing values will be initialized with -1, f 68;
+#X obj 1230 190 value release_line;
+#X obj 680 390 trigger b b;
+#X obj 720 420 expr _\$0_current_frame + 1;
+#X obj 720 449 value _\$0_current_frame;
+#X obj 680 480 expr _\$0_current_line + 1;
+#X obj 680 509 value _\$0_current_line;
+#X obj 640 360 trigger b b;
+#X obj 640 560 bang;
+#X obj 640 620 expr _\$0_current_frame == loop_start_frame, f 43;
+#X obj 600 590 trigger b b;
+#X obj 600 820 trigger b b;
+#X obj 640 680 bang;
+#X obj 640 709 value _\$0_current_line;
+#X obj 640 770 value loop_start_line;
+#X obj 640 910 bang;
+#X obj 640 939 value _\$0_current_line;
+#X obj 640 1000 value release_line;
+#X obj 640 880 moses 1;
+#X obj 640 650 moses 1;
+#X floatatom 640 740 5 0 0 1 loop_start_line - - 0 0 1, f 5;
+#X floatatom 640 970 5 0 0 1 release_line - - 0 0 1, f 5;
+#X obj 640 850 expr _\$0_current_frame == release_frame;
+#X obj 600 100 bng 20 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000 1;
+#X obj 1200 520 print line;
+#X obj 1200 460 print frame;
+#X obj 1200 610 print do_check;
+#X obj 1200 360 print stop_loop;
+#X obj 450 407 print;
+#X obj 600 300 until;
+#X obj 650 300 r \$0-stop-loop;
+#X obj 850 330 trigger b b;
+#X obj 850 360 s \$0-stop-loop;
+#X obj 600 240 trigger b b;
+#X msg 640 270 line 0;
+#X msg 640 160 -1;
+#X connect 0 0 34 0;
+#X connect 3 0 16 0;
+#X connect 3 0 39 0;
+#X connect 3 1 18 0;
+#X connect 3 2 42 0;
+#X connect 5 0 4 0;
+#X connect 5 0 10 0;
+#X connect 5 0 12 0;
+#X connect 6 0 44 0;
+#X connect 6 1 46 0;
+#X connect 6 2 5 0;
+#X connect 13 0 16 0;
+#X connect 13 1 14 0;
+#X connect 14 0 15 0;
+#X connect 14 0 36 0;
+#X connect 16 0 17 0;
+#X connect 16 0 35 0;
+#X connect 18 0 19 0;
+#X connect 18 1 13 0;
+#X connect 19 0 21 0;
+#X connect 19 0 37 0;
+#X connect 20 0 30 0;
+#X connect 21 0 22 0;
+#X connect 21 1 20 0;
+#X connect 22 1 33 0;
+#X connect 23 0 24 0;
+#X connect 24 0 31 0;
+#X connect 26 0 27 0;
+#X connect 27 0 32 0;
+#X connect 29 1 26 0;
+#X connect 30 1 23 0;
+#X connect 31 0 25 0;
+#X connect 32 0 28 0;
+#X connect 33 0 29 0;
+#X connect 34 0 6 0;
+#X connect 40 0 3 0;
+#X connect 41 0 40 1;
+#X connect 42 0 43 0;
+#X connect 42 0 38 0;
+#X connect 42 1 18 0;
+#X connect 44 0 40 0;
+#X connect 44 1 45 0;
+#X connect 45 0 3 0;
+#X connect 46 0 2 0;
+#X restore 420 160 pd update_line_counters;
+#X connect 1 0 8 0;
+#X connect 4 0 2 0;
 #X connect 5 0 2 0;
-#X connect 6 0 2 0;
-#X connect 8 0 2 0;
-#X restore 1400 290 pd resynth-global;
-#X obj 1400 490 mtof;
-#X obj 1550 490 / 127;
-#X floatatom 1400 520 6 0 0 1 Frequency - - 0 0 1, f 6;
-#X floatatom 1550 519 6 0 0 1 Velocity - - 0 0 1, f 6;
-#X floatatom 1400 460 5 0 0 0 - - - 0 0 1, f 5;
-#X obj 1400 430 notein 1;
-#X obj 1400 550 ./utils/poly-sustain 8 1;
-#X obj 1700 462 ctlin 64 1;
-#X obj 1400 580 clone oscillator 8;
-#X text 1400 400 ==== Mini Synthesizer for preview playing ====;
-#X text 1400 80 ==== GUI Handling ====;
-#X obj 1700 491 / 127;
-#X floatatom 1700 520 5 0 0 1 Sustain - - 0 0 1, f 5;
-#X floatatom 450 510 5 0 0 2 - - p-resynth-loop-start-frame 0 0 1,
+#X connect 7 0 2 0;
+#X connect 8 0 4 0;
+#X connect 8 1 5 0;
+#X connect 8 2 7 0;
+#X connect 8 3 6 0;
+#X connect 8 4 9 0;
+#X restore 1500 410 pd resynth-global;
+#X obj 1500 610 mtof;
+#X obj 1650 610 / 127;
+#X floatatom 1500 640 6 0 0 1 Frequency - - 0 0 1, f 6;
+#X floatatom 1650 639 6 0 0 1 Velocity - - 0 0 1, f 6;
+#X floatatom 1500 580 5 0 0 0 - - - 0 0 1, f 5;
+#X obj 1500 550 notein 1;
+#X obj 1500 670 ./utils/poly-sustain 8 1;
+#X obj 1800 582 ctlin 64 1;
+#X obj 1500 700 clone oscillator 8;
+#X text 1500 520 ==== Mini Synthesizer for preview playing ====;
+#X text 1500 200 ==== GUI Handling ====;
+#X obj 1800 611 / 127;
+#X floatatom 1800 640 5 0 0 1 Sustain - - 0 0 1, f 5;
+#X floatatom 660 620 5 0 0 2 - - p-resynth-loop-start-frame 0 0 1,
 f 5;
-#X floatatom 450 540 5 0 0 2 - - p-resynth-loop-end-frame 0 0 1, f
+#X floatatom 660 650 5 0 0 2 - - p-resynth-loop-end-frame 0 0 1, f
 5;
-#X text 630 100 Length:;
-#X floatatom 690 100 10 0 0 1 Seconds - - 0 0 0, f 10;
-#X floatatom 830 100 5 0 0 1 Frames - - 0 0 0, f 5;
-#X msg -50 550 set \$1;
-#X msg -50 630 set \$1;
-#X obj 1010 10 r i-resynth-base-frequency;
-#X msg 580 40 set \$1;
-#X obj 580 10 r i-resynth-length-seconds;
-#X msg 790 40 set \$1;
-#X obj 790 -20 r i-resynth-length-frames;
-#X obj 200 320 cnv 15 1 1 empty empty Analysis\ Parameters 0 0 0 14
+#X text 840 210 Length:;
+#X floatatom 900 210 10 0 0 1 Seconds - - 0 0 0, f 10;
+#X floatatom 1040 210 5 0 0 1 Frames - - 0 0 0, f 5;
+#X msg 140 670 set \$1;
+#X msg 140 760 set \$1;
+#X obj 1220 120 r i-resynth-base-frequency;
+#X msg 790 150 set \$1;
+#X obj 790 120 r i-resynth-length-seconds;
+#X msg 1000 150 set \$1;
+#X obj 1000 90 r i-resynth-length-frames;
+#X obj 410 430 cnv 15 1 1 empty empty Analysis\ Parameters 0 0 0 14
 #e0e0e0 #780a0a 0;
-#X obj 200 490 cnv 15 1 1 empty empty Playback\ Parameters 0 0 0 14
+#X obj 410 600 cnv 15 1 1 empty empty Playback\ Parameters 0 0 0 14
 #e0e0e0 #780a0a 0;
-#X obj 500 100 cnv 15 1 1 empty empty Information 0 7 0 14 #e0e0e0
+#X obj 710 210 cnv 15 1 1 empty empty Information 0 7 0 14 #e0e0e0
 #780a0a 0;
-#X text 940 100 Base frequency:;
-#X obj 1560 580 catch~ output;
-#X text 200 340 Snapshot Frame Size:;
-#X obj 1400 139 s cmd-clear-all;
-#X obj 200 140 bng 20 250 50 0 cmd-stop-soundfile empty Stop\ Playback
+#X text 1150 210 Base frequency:;
+#X obj 1660 700 catch~ output;
+#X text 410 450 Snapshot Frame Size:;
+#X obj 1500 259 s cmd-clear-all;
+#X obj 410 250 bng 20 250 50 0 cmd-stop-soundfile empty Stop\ Playback
 25 7 0 13 #fcfcfc #000000 #000000 1;
-#X obj 640 40 value seconds;
-#X obj 900 10 value frames;
-#X obj 1070 40 value frequency;
-#X obj 70 450 value speed;
-#X obj 70 280 value frame_ms;
-#X text 200 380 The analysis will detect the frequency and amplitude
+#X obj 850 150 value seconds;
+#X obj 1110 120 value frames;
+#X obj 1280 150 value frequency;
+#X obj 280 560 value speed;
+#X obj 280 390 value frame_ms;
+#X text 410 490 The analysis will detect the frequency and amplitude
 of 16 harmonics for every frame. You can preview the resynthesized
 sound via MIDI and load the anaylsis result into Mini Clavier., f
 40;
-#X floatatom 450 570 5 0 0 0 - - p-resynth-release-frame 0 0 1, f
+#X floatatom 660 680 5 0 0 0 - - p-resynth-release-frame 0 0 1, f
 5;
-#X text 360 510 Loop Start:;
-#X text 360 540 Loop End:;
-#X text 360 570 Release:;
-#X msg -50 710 set \$1;
-#X obj -50 680 r p-resynth-release-frame;
-#X obj -50 520 r p-resynth-loop-start-frame;
-#X obj -50 600 r p-resynth-loop-end-frame;
-#X obj 10 550 value loop_start_frame;
-#X obj 10 630 value loop_end_frame;
-#X obj 10 710 value release_frame;
-#X obj 190 680 r i-resynth-length-frames;
-#X msg 190 740 range 0 \$1;
-#X text 500 770 ==== Show frames in graph ====;
-#X obj 500 860 samplerate~;
-#X obj 500 800 r p-resynth-frame-ms;
-#X obj 500 890 expr \\$f1 / 1000 * \\$f2;
-#X obj 500 830 trigger b f;
-#X msg 500 924 \; soundfile xticks 0 \$1 1;
-#X obj 790 10 expr ceil($f1);
-#X obj 500 510 hsl 635 20 0 23.2726 0 0 p-resynth-loop-start-frame
-empty empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
-#X obj 500 540 hsl 635 20 0 23.2726 0 0 p-resynth-loop-end-frame empty
+#X text 570 620 Loop Start:;
+#X text 570 650 Loop End:;
+#X text 570 680 Release:;
+#X msg 140 840 set \$1;
+#X obj 140 810 r p-resynth-release-frame;
+#X obj 140 640 r p-resynth-loop-start-frame;
+#X obj 140 730 r p-resynth-loop-end-frame;
+#X obj 200 670 value loop_start_frame;
+#X obj 200 760 value loop_end_frame;
+#X obj 200 840 value release_frame;
+#X obj 400 790 r i-resynth-length-frames;
+#X msg 400 850 range 0 \$1;
+#X text 800 800 ==== Show frames in graph ====;
+#X obj 800 890 samplerate~;
+#X obj 800 830 r p-resynth-frame-ms;
+#X obj 800 920 expr \\$f1 / 1000 * \\$f2;
+#X obj 800 860 trigger b f;
+#X msg 800 954 \; soundfile xticks 0 \$1 1;
+#X obj 1000 120 expr ceil($f1);
+#X obj 710 620 hsl 635 20 0 1 0 0 p-resynth-loop-start-frame empty
 empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
-#X obj 500 570 hsl 635 20 0 23.2726 0 0 p-resynth-release-frame empty
-empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
+#X obj 710 650 hsl 635 20 0 1 0 0 p-resynth-loop-end-frame empty empty
+-2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
+#X obj 710 680 hsl 635 20 0 1 0 0 p-resynth-release-frame empty empty
+-2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
 #N canvas 0 49 1920 1009 round-frame-parameters 0;
-#X obj 200 100 r p-resynth-loop-start-frame;
-#X obj 200 219 expr round(loop_start_frame);
-#X obj 200 248 s p-resynth-loop-start-frame;
-#X obj 200 130 change;
-#X obj 200 160 bang;
-#X obj 200 190 delay 1000;
+#X obj 200 200 r p-resynth-loop-start-frame;
+#X obj 200 319 expr round(loop_start_frame);
+#X obj 240 380 s p-resynth-loop-start-frame;
+#X obj 200 230 change;
+#X obj 200 260 bang;
+#X obj 200 290 delay 1000;
 #X text 10 10 Round frame parameters to whole integers (waits a second
 after a change and then tries to change the value exactly once \, hopefully
-without causing an endless loop);
-#X obj 600 130 change;
-#X obj 600 160 bang;
-#X obj 600 190 delay 1000;
-#X obj 600 100 r p-resynth-loop-end-frame;
-#X obj 600 219 expr round(loop_end_frame);
-#X obj 600 248 s p-resynth-loop-end-frame;
-#X obj 1000 132 change;
-#X obj 1000 162 bang;
-#X obj 1000 192 delay 1000;
-#X obj 1000 100 r p-resynth-release-frame;
-#X obj 1000 221 expr round(release_frame);
-#X obj 1000 250 s p-resynth-release-frame;
+without causing an endless loop), f 65;
+#X obj 600 230 change;
+#X obj 600 260 bang;
+#X obj 600 290 delay 1000;
+#X obj 600 200 r p-resynth-loop-end-frame;
+#X obj 600 319 expr round(loop_end_frame);
+#X obj 640 380 s p-resynth-loop-end-frame;
+#X obj 1000 232 change;
+#X obj 1000 262 bang;
+#X obj 1000 292 delay 1000;
+#X obj 1000 200 r p-resynth-release-frame;
+#X obj 1000 321 expr round(release_frame);
+#X obj 1040 382 s p-resynth-release-frame;
+#X obj 200 350 trigger b f;
+#X obj 600 350 trigger b f;
+#X obj 1000 350 trigger b f;
+#X msg 200 410 \; resynth-global update bang;
+#X msg 600 410 \; resynth-global update bang;
+#X msg 1000 410 \; resynth-global update bang;
+#X text 10 70 Also makes the global resynthesizer sub-patch update
+the internal line counters after a frame number has been changed.,
+f 65;
 #X connect 0 0 3 0;
-#X connect 1 0 2 0;
+#X connect 1 0 19 0;
 #X connect 3 0 4 0;
 #X connect 4 0 5 0;
 #X connect 5 0 1 0;
@@ -964,14 +1078,20 @@ without causing an endless loop);
 #X connect 8 0 9 0;
 #X connect 9 0 11 0;
 #X connect 10 0 7 0;
-#X connect 11 0 12 0;
+#X connect 11 0 20 0;
 #X connect 13 0 14 0;
 #X connect 14 0 15 0;
 #X connect 15 0 17 0;
 #X connect 16 0 13 0;
-#X connect 17 0 18 0;
-#X restore 1400 320 pd round-frame-parameters;
-#X obj 190 710 expr max($f1 \, 1);
+#X connect 17 0 21 0;
+#X connect 19 0 22 0;
+#X connect 19 1 2 0;
+#X connect 20 0 23 0;
+#X connect 20 1 12 0;
+#X connect 21 0 24 0;
+#X connect 21 1 18 0;
+#X restore 1500 440 pd round-frame-parameters;
+#X obj 400 820 expr max($f1 \, 1);
 #X connect 12 0 6 0;
 #X connect 13 0 55 0;
 #X connect 16 0 7 0;
@@ -1026,11 +1146,11 @@ without causing an endless loop);
 #X connect 80 1 79 1;
 #X connect 82 0 47 0;
 #X connect 87 0 75 0;
-#X coords 0 -1 1 1 960 510 2 190 90;
+#X coords 0 -1 1 1 960 510 2 400 200;
 #X restore 100 100 pd ui;
 #N canvas 0 49 1920 1009 title 0;
 #X obj 200 100 cnv 15 960 30 empty empty Harmonic\ Reynthesis\ for\ Mini\ Clavier
 12 12 0 14 #842a2a #ffffff 0;
 #X coords 0 -1 1 1 960 30 2 200 100;
 #X restore 100 70 pd title;
-#X text 1100 70 TODO: Implement resynthesis in oscillator;
+#X text 1100 80 TODO: Implement resynthesis in oscillator;
