@@ -1,0 +1,30 @@
+#N canvas 0 49 1920 1009 12;
+#X obj -30 -30 preset_hub k12 1 %hidden%;
+#X msg 640 350 \$1 \$2;
+#X obj 640 320 pack f f;
+#X obj 640 260 trigger f b;
+#X obj 640 230 inlet;
+#X obj 680 290 value \$1;
+#X text 10 40 Arguments:, f 71;
+#X text 10 90 Inlets:, f 71;
+#X text 10 160 Outlets:, f 71;
+#X text 10 60 \$1 Value name with the length of the ramp in ms \, e.g.
+"frame_ms", f 71;
+#X text 10 10 Audio ramp to mitigate staircase effect of the synthesizes
+frames., f 71;
+#X text 10 130 2 - New target value, f 71;
+#X text 10 180 1 - Ramped sigal, f 71;
+#X text 10 110 1 - Audio signal (harmonic amplitude), f 71;
+#X obj 640 380 line~;
+#X obj 600 410 *~;
+#X obj 600 440 outlet~;
+#X obj 600 200 inlet~;
+#X connect 1 0 14 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 3 1 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 2 1;
+#X connect 14 0 15 1;
+#X connect 15 0 16 0;
+#X connect 17 0 15 0;
