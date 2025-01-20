@@ -15,8 +15,7 @@ this:
    [Manual Volume 2 - Sound Design Manual, p. 87ff](http://www.500sound.com/software/Volume%202%20-%20Sound%20Design.pdf)),
    which are modulated by a single sine wave. The Synclavier uses wavetable
    synthesis according to the manual and thus recomputes the waveform each time
-   a value is changed. Since the wavetable contains exactly one wave cycle, only
-   integer ratios are allowed.
+   a value is changed. Therefore, only integer ratios are allowed.
 
    In Mini Clavier the harmonics are synthesized in real-time and thus can have
    any ratio. But this is not used by the resynthesis program as I found the
@@ -24,38 +23,32 @@ this:
    using. Also Mini Clavier doesn't allow to change the harmonic phases.
 
  - Resynthesis creates multiple snapshots of a sound (called "timbre frames" on
-   the Synclavier) in equal intervals that are played back in sequence, when a
-   note is played.
-
-   On the Synclavier that sound file must be manually labelled to define the
-   start and end of each timbre frame. The timbre frames can be of different
-   lengths and do not have to be in direct succession. Gaps between the frames
-   are allowed. The Harmonic Resynthesized for Mini Clavier, however, simplifies
-   the process by automatically slicing the whole sound into equal-length frames.
+   the Synclavier) are played back in sequence, when a note is played.
 
  - Timbre frames are created in an offline process where the original sample is
    sliced up and FFT-analysed to determine the harmonic amplitudes of each frame.
    The result is an array of 16 amplitude levels--one for each harmonic--for
    each frame.
 
-   On the Synclavier, timbre frames require twice the polyphony, because two
+   On the Synclavier the sound file must be manually labelled to define the
+   start and end of each timbre frame. Harmonic Resynthesizes for Mini Clavier
+   simplifies this  by automatically slicing the sound into equal-length frames.
+
+-  On the Synclavier, timbre frames require twice the polyphony, because two
    synthesizer notes are needed to cross-fade from one frame to the next.
    Cross-fades can be linear or exponential and their start time and duration
    can be freely changed. Mini Clavier doesn't cross-fade but rather lets the
-   amplitude levels glide from the previous value to the next. Again, this is
-   less flexible but easier on the CPU and requires no manual editing.
+   amplitude levels glide from the previous value to the next.
 
  - Once a resynthesized sound is loaded back into Mini Clavier, it can be modified
    like any other sound, e.g. by applying frequency modulation or changing the
    (relative) amplitude of the harmonics.
 
-Es explained above, this is in no way an exact replica of what the Synclavier did.
-But the idea should still come close.
-
-So, how does it sound? To be honest, quite lo-fi and uninteresting. :-) Maybe
-I should take the time to reimplement the Synclavier algorithm properly. Judging
-from the example Sounds in the [Analysis Results/](Analysis%20Results/) directory,
-there are some severe limitations:
+As explained above, this is in no way an exact replica of what the Synclavier did.
+But the idea should still come close. So, how does it sound? To be honest, quite
+lo-fi and uninteresting. :-) Maybe I _should_ take the time to reimplement the
+Synclavier algorithm proper. Judging from the example Sounds in [Analysis Results/](Analysis%20Results/),
+the results are mixed:
 
  - The algorithm uses only 16 harmonics with integer ratios. The resynthesized sounds
    therefore lack many high frequencies and sound more dull and overall lo-fi. The
