@@ -6,8 +6,8 @@
 #X obj 710 240 cnv 15 640 370 empty empty empty 20 12 0 14 #ffffff
 #404040 0;
 #N canvas 0 0 450 300 (subpatch) 0;
-#X array soundfile 70393 float 0 black black;
-#X coords 0 1 70392 -1 640 370 1;
+#X array soundfile 100 float 0 black black;
+#X coords 0 1 99 -1 640 370 1;
 #X restore 710 240 graph;
 #X obj 410 210 bng 20 250 50 0 cmd-load-soundfile empty Load\ Soundfile
 25 7 0 13 #fcfcfc #000000 #000000 1;
@@ -1640,12 +1640,12 @@ sound via MIDI and load the anaylsis result into Mini Clavier., f
 #X obj -90 510 trigger b f;
 #X msg -90 604 \; soundfile xticks 0 \$1 1;
 #X obj 1000 120 expr ceil($f1);
-#X obj 710 620 hsl 635 20 0 17.1858 0 0 p-resynth-loop-start-frame
-empty empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
-#X obj 710 650 hsl 635 20 0 17.1858 0 0 p-resynth-loop-end-frame empty
+#X obj 710 620 hsl 635 20 0 1 0 0 p-resynth-loop-start-frame empty
 empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
-#X obj 710 680 hsl 635 20 0 17.1858 0 0 p-resynth-release-frame empty
-empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
+#X obj 710 650 hsl 635 20 0 1 0 0 p-resynth-loop-end-frame empty empty
+-2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
+#X obj 710 680 hsl 635 20 0 1 0 0 p-resynth-release-frame empty empty
+-2 -8 0 10 #fcfcfc #000000 #000000 0 1 0 1;
 #N canvas 0 49 1920 1009 round-frame-parameters 0;
 #X obj 200 200 r p-resynth-loop-start-frame;
 #X obj 200 319 expr round(loop_start_frame);
@@ -1904,7 +1904,7 @@ f 6;
 #X coords 0 -1 1 1 960 610 2 400 200;
 #X restore 100 100 pd ui;
 #N canvas 0 49 1920 1009 title 0;
-#X obj 200 100 cnv 15 960 30 empty empty Harmonic\ Reynthesis\ for\ Mini\ Clavier
+#X obj 200 100 cnv 15 960 30 empty empty Harmonic\ Resynthesis\ for\ Mini\ Clavier
 12 12 0 14 #842a2a #ffffff 0;
 #X coords 0 -1 1 1 960 30 2 200 100;
 #X restore 100 70 pd title;
