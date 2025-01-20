@@ -19,19 +19,13 @@ For more demos please see the [Main README file](../README.md).
 <table>
     <tr>
         <td>
-            <a href="Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png?raw=true">
-                <img src="Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png?raw=true" width="300">
-            </a>
+            <img src="Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png" width="300">
         </td>
         <td>
-            <a href="Schoko%20FM4/Screenshots/Rhodes%201%20(Default%20Sound).png?raw=true">
-                <img src="Schoko%20FM4/Screenshots/Rhodes%201%20(Default%20Sound).png?raw=true" width="300">
-            </a>
+            <img src="Schoko%20FM4/Screenshots/Rhodes%201%20(Default%20Sound).png" width="300">
         </td>
         <td>
-            <a href="Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true">
-                <img src="Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true" width="300">
-            </a>
+            <img src="Tuning%20Fork/Screenshots/Tuning%20Fork.png" width="300">
         </td>
     </tr>
     <tr>

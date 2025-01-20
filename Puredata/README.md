@@ -21,19 +21,13 @@ For more demos please see the [Main README file](../README.md).
 <table>
     <tr>
         <td>
-            <a href="Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true">
-                <img src="Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true" width="300">
-            </a>
+            <img src="Tuning%20Fork/Screenshots/Tuning%20Fork.png" width="300">
         </td>
         <td>
-            <a href="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png?raw=true">
-                <img src="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png?raw=true" width="300">
-            </a>
+            <img src="Vanilla%20Sustain%20Pedal/Screenshots/Main%20Patch.png" width="300">
         </td>
         <td>
-            <a href="Wave%20Table%20Generator/Screenshots/Main View.png?raw=true">
-                <img src="Wave%20Table%20Generator/Screenshots/Main View.png?raw=true" width="300">
-            </a>
+            <img src="Wave%20Table%20Generator/Screenshots/Main View.png" width="300">
         </td>
     </tr>
     <tr>
@@ -55,15 +49,13 @@ For more demos please see the [Main README file](../README.md).
 <table>
     <tr>
         <td>
-            <a href="Unicorn%20Wave/Screenshots/Default%20Sound.png?raw=true">
-                <img src="Unicorn%20Wave/Screenshots/String%20Section%20(Default%20Sound).png?raw=true" width="300">
-            </a>
+            <img src="Unicorn%20Wave/Screenshots/String%20Section%20(Default%20Sound).png" width="300">
         </td>
         <td>
-            <img src="Mini%20Clavier/Screenshots/Default%20Sound.png?raw=true" width="300">
+            <img src="Mini%20Clavier/Screenshots/Default%20Sound.png" width="300">
         </td>
         <td>
-            <img src="../Images/TODO.png?raw=true" width="300">
+            <img src="../Images/TODO.png" width="300">
         </td>
     </tr>
     <tr>
