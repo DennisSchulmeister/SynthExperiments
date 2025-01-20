@@ -1,0 +1,347 @@
+init release_time 100
+init release_level 0
+init decay2_time 0
+init decay2_level 1
+init decay1_time 0
+init decay1_level 1
+init attack_time 300
+init attack_level 1
+init initial_time 0
+init initial_level 0
+init release-frame 0
+init loop-end-frame 13
+init loop-start-frame 2
+init speed 1
+init frequency1 455.116
+init detune 1
+wait
+init seconds 1.59621
+init frames 17.1858
+init frequency 455.116
+init window-samples 4096
+init frame-ms 92.8798
+wait
+frame 0
+harmonic 1 1 0.116147
+harmonic 2 2 0.0141446
+harmonic 3 3 0.00722892
+harmonic 4 4 0.0231809
+harmonic 5 5 0.00312958
+harmonic 6 6 0.00237388
+harmonic 7 7 0.00649059
+harmonic 8 8 0.00240612
+harmonic 9 9 0.0029002
+harmonic 10 10 0.00310588
+harmonic 11 11 0.000266251
+harmonic 12 12 0.000205025
+harmonic 13 13 0
+harmonic 14 14 0
+harmonic 15 15 0
+harmonic 16 16 0
+wait
+frame 1
+harmonic 1 1 0.495011
+harmonic 2 2 0.0496106
+harmonic 3 3 0.154995
+harmonic 4 4 0.0760545
+harmonic 5 5 0.150081
+harmonic 6 6 0.0266932
+harmonic 7 7 0.0969425
+harmonic 8 8 0.0316056
+harmonic 9 9 0.098501
+harmonic 10 10 0.0523533
+harmonic 11 11 0.020185
+harmonic 12 12 0.0164898
+harmonic 13 13 0.0106648
+harmonic 14 14 0.0153534
+harmonic 15 15 0.00936167
+harmonic 16 16 0.00391883
+wait
+frame 2
+harmonic 1 1 0.612998
+harmonic 2 2 0.0625045
+harmonic 3 3 0.153337
+harmonic 4 4 0.0792265
+harmonic 5 5 0.17848
+harmonic 6 6 0.0218
+harmonic 7 7 0.156505
+harmonic 8 8 0.037851
+harmonic 9 9 0.123796
+harmonic 10 10 0.081473
+harmonic 11 11 0.0535751
+harmonic 12 12 0.0305965
+harmonic 13 13 0.025457
+harmonic 14 14 0.0278003
+harmonic 15 15 0.0201544
+harmonic 16 16 0.0130551
+wait
+frame 3
+harmonic 1 1 0.460449
+harmonic 2 2 0.0292459
+harmonic 3 3 0.175096
+harmonic 4 4 0.0650557
+harmonic 5 5 0.170666
+harmonic 6 6 0.0170537
+harmonic 7 7 0.141871
+harmonic 8 8 0.0268315
+harmonic 9 9 0.146938
+harmonic 10 10 0.0714685
+harmonic 11 11 0.0571498
+harmonic 12 12 0.0255776
+harmonic 13 13 0.0288512
+harmonic 14 14 0.0249574
+harmonic 15 15 0.0178499
+harmonic 16 16 0.0108212
+wait
+frame 4
+harmonic 1 1 0.860087
+harmonic 2 2 0.0400108
+harmonic 3 3 0.200538
+harmonic 4 4 0.0763633
+harmonic 5 5 0.171675
+harmonic 6 6 0.0174737
+harmonic 7 7 0.150121
+harmonic 8 8 0.0316903
+harmonic 9 9 0.147976
+harmonic 10 10 0.0725042
+harmonic 11 11 0.0532344
+harmonic 12 12 0.0271208
+harmonic 13 13 0.0328071
+harmonic 14 14 0.0210724
+harmonic 15 15 0.017457
+harmonic 16 16 0.00843668
+wait
+frame 5
+harmonic 1 1 0.820011
+harmonic 2 2 0.0705898
+harmonic 3 3 0.173151
+harmonic 4 4 0.0482593
+harmonic 5 5 0.191253
+harmonic 6 6 0.0191948
+harmonic 7 7 0.162712
+harmonic 8 8 0.0286156
+harmonic 9 9 0.129745
+harmonic 10 10 0.0782401
+harmonic 11 11 0.0432765
+harmonic 12 12 0.0301005
+harmonic 13 13 0.0309881
+harmonic 14 14 0.0194578
+harmonic 15 15 0.0203903
+harmonic 16 16 0.00723195
+wait
+frame 6
+harmonic 1 1 0.866673
+harmonic 2 2 0.0476089
+harmonic 3 3 0.252296
+harmonic 4 4 0.0457027
+harmonic 5 5 0.182603
+harmonic 6 6 0.0193139
+harmonic 7 7 0.162041
+harmonic 8 8 0.0349465
+harmonic 9 9 0.163158
+harmonic 10 10 0.083249
+harmonic 11 11 0.0442771
+harmonic 12 12 0.0341824
+harmonic 13 13 0.0278993
+harmonic 14 14 0.021384
+harmonic 15 15 0.0220843
+harmonic 16 16 0.0110136
+wait
+frame 7
+harmonic 1 1 0.770124
+harmonic 2 2 0.0588836
+harmonic 3 3 0.202047
+harmonic 4 4 0.0501271
+harmonic 5 5 0.172795
+harmonic 6 6 0.0192191
+harmonic 7 7 0.157152
+harmonic 8 8 0.033431
+harmonic 9 9 0.166151
+harmonic 10 10 0.0819292
+harmonic 11 11 0.0422643
+harmonic 12 12 0.0336254
+harmonic 13 13 0.034313
+harmonic 14 14 0.0245225
+harmonic 15 15 0.0214979
+harmonic 16 16 0.0142505
+wait
+frame 8
+harmonic 1 1 0.42503
+harmonic 2 2 0.0660558
+harmonic 3 3 0.230788
+harmonic 4 4 0.0483457
+harmonic 5 5 0.164601
+harmonic 6 6 0.0198094
+harmonic 7 7 0.157904
+harmonic 8 8 0.033255
+harmonic 9 9 0.16493
+harmonic 10 10 0.0830866
+harmonic 11 11 0.0471333
+harmonic 12 12 0.0322686
+harmonic 13 13 0.0357449
+harmonic 14 14 0.027943
+harmonic 15 15 0.0200089
+harmonic 16 16 0.0161492
+wait
+frame 9
+harmonic 1 1 0.764355
+harmonic 2 2 0.0432601
+harmonic 3 3 0.257265
+harmonic 4 4 0.0567505
+harmonic 5 5 0.169536
+harmonic 6 6 0.0187014
+harmonic 7 7 0.156717
+harmonic 8 8 0.0339656
+harmonic 9 9 0.132354
+harmonic 10 10 0.0866868
+harmonic 11 11 0.0532109
+harmonic 12 12 0.0294559
+harmonic 13 13 0.0328827
+harmonic 14 14 0.0241871
+harmonic 15 15 0.0201891
+harmonic 16 16 0.0193523
+wait
+frame 10
+harmonic 1 1 0.741479
+harmonic 2 2 0.0790174
+harmonic 3 3 0.194321
+harmonic 4 4 0.0439813
+harmonic 5 5 0.16945
+harmonic 6 6 0.0171325
+harmonic 7 7 0.152946
+harmonic 8 8 0.0298173
+harmonic 9 9 0.166382
+harmonic 10 10 0.0871502
+harmonic 11 11 0.04953
+harmonic 12 12 0.0278635
+harmonic 13 13 0.0302009
+harmonic 14 14 0.0241274
+harmonic 15 15 0.0186485
+harmonic 16 16 0.0208849
+wait
+frame 11
+harmonic 1 1 0.856618
+harmonic 2 2 0.0518429
+harmonic 3 3 0.296175
+harmonic 4 4 0.0583569
+harmonic 5 5 0.2024
+harmonic 6 6 0.022316
+harmonic 7 7 0.172873
+harmonic 8 8 0.0339835
+harmonic 9 9 0.18688
+harmonic 10 10 0.0922268
+harmonic 11 11 0.0537255
+harmonic 12 12 0.0296147
+harmonic 13 13 0.0292544
+harmonic 14 14 0.025231
+harmonic 15 15 0.01714
+harmonic 16 16 0.0224218
+wait
+frame 12
+harmonic 1 1 0.409878
+harmonic 2 2 0.0866443
+harmonic 3 3 0.218034
+harmonic 4 4 0.0600184
+harmonic 5 5 0.197278
+harmonic 6 6 0.0239305
+harmonic 7 7 0.186769
+harmonic 8 8 0.0312551
+harmonic 9 9 0.184958
+harmonic 10 10 0.0873034
+harmonic 11 11 0.0606407
+harmonic 12 12 0.0319736
+harmonic 13 13 0.0314363
+harmonic 14 14 0.025504
+harmonic 15 15 0.0160235
+harmonic 16 16 0.0252877
+wait
+frame 13
+harmonic 1 1 0.499957
+harmonic 2 2 0.0760048
+harmonic 3 3 0.26066
+harmonic 4 4 0.0562107
+harmonic 5 5 0.203411
+harmonic 6 6 0.022826
+harmonic 7 7 0.203282
+harmonic 8 8 0.0408877
+harmonic 9 9 0.187795
+harmonic 10 10 0.0913599
+harmonic 11 11 0.0612648
+harmonic 12 12 0.0338818
+harmonic 13 13 0.0381519
+harmonic 14 14 0.0261994
+harmonic 15 15 0.0187279
+harmonic 16 16 0.0266259
+wait
+frame 14
+harmonic 1 1 0.62813
+harmonic 2 2 0.0627932
+harmonic 3 3 0.290513
+harmonic 4 4 0.0643869
+harmonic 5 5 0.206522
+harmonic 6 6 0.0229264
+harmonic 7 7 0.194529
+harmonic 8 8 0.0286322
+harmonic 9 9 0.19687
+harmonic 10 10 0.0890076
+harmonic 11 11 0.0659756
+harmonic 12 12 0.0340787
+harmonic 13 13 0.0404864
+harmonic 14 14 0.0255381
+harmonic 15 15 0.025627
+harmonic 16 16 0.0267981
+wait
+frame 15
+harmonic 1 1 0.87384
+harmonic 2 2 0.0725563
+harmonic 3 3 0.210707
+harmonic 4 4 0.0390569
+harmonic 5 5 0.206578
+harmonic 6 6 0.0171614
+harmonic 7 7 0.188583
+harmonic 8 8 0.0267649
+harmonic 9 9 0.195194
+harmonic 10 10 0.0868965
+harmonic 11 11 0.0678768
+harmonic 12 12 0.0352175
+harmonic 13 13 0.0356863
+harmonic 14 14 0.0268531
+harmonic 15 15 0.0320538
+harmonic 16 16 0.0262963
+wait
+frame 16
+harmonic 1 1 1
+harmonic 2 2 0.079298
+harmonic 3 3 0.304048
+harmonic 4 4 0.0482243
+harmonic 5 5 0.203044
+harmonic 6 6 0.0190475
+harmonic 7 7 0.203727
+harmonic 8 8 0.0257359
+harmonic 9 9 0.199351
+harmonic 10 10 0.0848379
+harmonic 11 11 0.0670109
+harmonic 12 12 0.0371075
+harmonic 13 13 0.035917
+harmonic 14 14 0.0261161
+harmonic 15 15 0.0376546
+harmonic 16 16 0.0229228
+wait
+frame 17
+harmonic 1 1 0.00551719
+harmonic 2 2 0
+harmonic 3 3 0.0011215
+harmonic 4 4 0
+harmonic 5 5 0
+harmonic 6 6 0
+harmonic 7 7 0
+harmonic 8 8 0
+harmonic 9 9 0
+harmonic 10 10 0.000580818
+harmonic 11 11 0
+harmonic 12 12 0
+harmonic 13 13 0
+harmonic 14 14 0
+harmonic 15 15 0
+harmonic 16 16 0
+wait

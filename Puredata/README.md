@@ -60,7 +60,7 @@ For more demos please see the [Main README file](../README.md).
             </a>
         </td>
         <td>
-            <img src="../Images/TODO.png?raw=true" width="300">
+            <img src="Mini%20Clavier/Screenshots/Default%20Sound.png?raw=true" width="300">
         </td>
         <td>
             <img src="../Images/TODO.png?raw=true" width="300">
