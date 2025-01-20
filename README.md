@@ -64,7 +64,7 @@ Overview, Screenshots and Demos
             </a>
         </td>
         <td>
-            <img src="Images/TODO.png?raw=true" width="300">
+            <img src="Puredata/Mini%20Clavier/Screenshots/Default%20Sound.png?raw=true" width="300">
         </td>
         <td>
             <img src="Images/TODO.png?raw=true" width="300">
