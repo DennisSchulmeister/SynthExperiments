@@ -39,7 +39,7 @@ this:
    like any other sound, e.g. by applying frequency modulation or changing the
    (relative) amplitude of the harmonics.
 
-As explained above, this is in no way an exact replica of what the Synclavier did.
+As explained above, this is in no way an exact replica of what the Synclavier does.
 But the idea should still come close. So, how does it sound? To be honest, quite
 lo-fi and uninteresting. :-) Maybe I _should_ take the time to reimplement the
 Synclavier algorithm proper. Judging from the examples in [Analysis Results/](Analysis%20Results/),
@@ -69,5 +69,5 @@ the results are mixed:
    rewrite the whole thing in Csound or C/C++ first.
 
 On the pro-side the sound _is_ different from the original and can be further
-processed in Mini Clavier, e.g. with FM. No one will throw away they hardware
+processed in Mini Clavier, e.g. with FM. No one will throw away ther hardware
 samplers or VSTs for this, but once in a while a usable sound might appear.
