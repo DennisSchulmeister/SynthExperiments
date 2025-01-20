@@ -19,19 +19,13 @@ Overview, Screenshots and Demos
 <table>
     <tr>
         <td>
-            <a href="Csound/Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png?raw=true">
-                <img src="Csound/Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png?raw=true" width="300">
-            </a>
+            <img src="Csound/Analog%20Bread%20and%20Butter/Screenshots/PWM%20Pad%20(Default%20Sound).png" width="300">
         </td>
         <td>
-            <a href="Csound/Schoko%20FM4/Screenshots/Rhodes%201%20(Default%20Sound).png?raw=true">
-                <img src="Csound/Schoko%20FM4/Screenshots/Rhodes%201%20(Default%20Sound).png?raw=true" width="300">
-            </a>
+            <img src="Csound/Schoko%20FM4/Screenshots/Rhodes%201%20(Default%20Sound).png" width="300">
         </td>
         <td>
-            <a href="Csound/Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true">
-                <img src="Csound/Tuning%20Fork/Screenshots/Tuning%20Fork.png?raw=true" width="300">
-            </a>
+            <img src="Csound/Tuning%20Fork/Screenshots/Tuning%20Fork.png" width="300">
         </td>
     </tr>
     <tr>
@@ -59,15 +53,13 @@ Overview, Screenshots and Demos
 <table>
     <tr>
         <td>
-            <a href="Puredata/Unicorn%20Wave/Screenshots/Default%20Sound.png?raw=true">
-                <img src="Puredata/Unicorn%20Wave/Screenshots/String%20Section%20(Default%20Sound).png?raw=true" width="300">
-            </a>
+            <img src="Puredata/Unicorn%20Wave/Screenshots/String%20Section%20(Default%20Sound).png" width="300">
         </td>
         <td>
-            <img src="Puredata/Mini%20Clavier/Screenshots/Default%20Sound.png?raw=true" width="300">
+            <img src="Puredata/Mini%20Clavier/Screenshots/Default%20Sound.png" width="300">
         </td>
         <td>
-            <img src="Images/TODO.png?raw=true" width="300">
+            <img src="Images/TODO.png" width="300">
         </td>
     </tr>
     <tr>
@@ -111,7 +103,7 @@ need one of those programs installed:
 1. Start `PD L2Ork` and make sure it connects to your audio hardware (via the
    audio settings found in __Edit → Preferences__).
 
-   ![](Images/PD%20Audio%20Settings.png?raw=true)
+   ![](Images/PD%20Audio%20Settings.png)
 
 1. Make sure that the DSP switch is on (green switch in the screenshot above).
 
@@ -119,7 +111,7 @@ need one of those programs installed:
    recommended on Linux but also on Windows and Mac), you need to manually
    connect your MIDI devices or automate this with a script.
 
-   ![](Images/PD%20Connections.png?raw=true)
+   ![](Images/PD%20Connections.png)
 
 1. Last but not least in `PD L2Ork` load the patch you are interested it.
    Usually you want to run the `main.pd` file, which includes a full UI made
@@ -140,17 +132,17 @@ just by moving the mouse cursor a few pixels. Other than that, if it doesn't stu
    support the [Jack Audio Server](https://jackaudio.org/) yet. But on Linux the
    ALSA backend works very well.
 
-   ![](Images/Cabbage%20Settings.png?raw=true)
+   ![](Images/Cabbage%20Settings.png)
 
 1. Load a Csound file and click on the "play" button to run it.
 
-   ![](Images/Cabbage%20Play%20Button.png?raw=true)
+   ![](Images/Cabbage%20Play%20Button.png)
 
    While running the button turns into a "stop" button. The other buttons
    next to the file name allow to open the UI window and the UI editor (don't
    use the last one, it tends to destroy the source code).
 
-   ![](Images/Cabbage%20Stop%20Button.png?raw=true)
+   ![](Images/Cabbage%20Stop%20Button.png)
 
 1. When loading another patch you need to stop the previously running patch
    via the stop button. Otherwise both will play at the same time, responding
@@ -161,7 +153,7 @@ just by moving the mouse cursor a few pixels. Other than that, if it doesn't stu
    patches are active. Here you can remove unneeded instances via the right-click
    context menu of their nodes.
 
-   ![](Images/Cabbage%20Patcher.png?raw=true)
+   ![](Images/Cabbage%20Patcher.png)
 
 1. That's basically it. But you might want to export a standalone executable and
    run this instead, if you want to save and load preset files. Unfortunately this
