@@ -23,7 +23,10 @@ this:
    using. Also Mini Clavier doesn't allow to change the harmonic phases.
 
  - Resynthesis creates multiple snapshots of a sound (called "timbre frames" on
-   the Synclavier) are played back in sequence, when a note is played.
+   the Synclavier) which are played back in sequence, when a note is played.
+   The Synclavier cross-faded between each two frames quite flexibly. Mini Clavier
+   doesn't cross-fade but rather lets the amplitude levels glide from the one value
+   to the next, reducing the polyphony overhead.
 
  - Timbre frames are created in an offline process where the original sample is
    sliced up and FFT-analysed to determine the harmonic amplitudes of each frame.
@@ -33,12 +36,6 @@ this:
    On the Synclavier the sound file must be manually labelled to define the
    start and end of each timbre frame. Harmonic Resynthesizes for Mini Clavier
    simplifies this  by automatically slicing the sound into equal-length frames.
-
--  On the Synclavier, timbre frames require twice the polyphony, because two
-   synthesizer notes are needed to cross-fade from one frame to the next.
-   Cross-fades can be linear or exponential and their start time and duration
-   can be freely changed. Mini Clavier doesn't cross-fade but rather lets the
-   amplitude levels glide from the previous value to the next.
 
  - Once a resynthesized sound is loaded back into Mini Clavier, it can be modified
    like any other sound, e.g. by applying frequency modulation or changing the
