@@ -24,17 +24,15 @@ this:
 
  - Resynthesis creates multiple snapshots of a sound (called "timbre frames" on
    the Synclavier) which are played back in sequence, when a note is played.
-   The Synclavier cross-faded between each two frames quite flexibly. Mini Clavier
+   The Synclavier cross-fades between each two frames quite flexibly. Mini Clavier
    doesn't cross-fade but rather lets the amplitude levels glide from the one value
    to the next, reducing the polyphony overhead.
 
  - Timbre frames are created in an offline process where the original sample is
    sliced up and FFT-analysed to determine the harmonic amplitudes of each frame.
    The result is an array of 16 amplitude levels--one for each harmonic--for
-   each frame.
-
-   On the Synclavier the sound file must be manually labelled to define the
-   start and end of each timbre frame. Harmonic Resynthesizes for Mini Clavier
+   each frame. On the Synclavier the sound file must be manually labelled to define
+   the start and end of each timbre frame. Harmonic Resynthesizes for Mini Clavier
    simplifies this  by automatically slicing the sound into equal-length frames.
 
  - Once a resynthesized sound is loaded back into Mini Clavier, it can be modified
@@ -44,7 +42,7 @@ this:
 As explained above, this is in no way an exact replica of what the Synclavier did.
 But the idea should still come close. So, how does it sound? To be honest, quite
 lo-fi and uninteresting. :-) Maybe I _should_ take the time to reimplement the
-Synclavier algorithm proper. Judging from the example Sounds in [Analysis Results/](Analysis%20Results/),
+Synclavier algorithm proper. Judging from the examples in [Analysis Results/](Analysis%20Results/),
 the results are mixed:
 
  - The algorithm uses only 16 harmonics with integer ratios. The resynthesized sounds
@@ -67,8 +65,8 @@ the results are mixed:
 
  - The usable playing range for a resynthesized sound is quite narrow, given that
    is based on a single sample. Multi-sampling would be nice, but algorithmic coding
-   is not always easy in Puredata. So, if I ever rework this, I will probably rewrite
-   the whole thing in Csound or C/C++.
+   is not always easy in Puredata. So, if I am ever extending this, I will probably
+   rewrite the whole thing in Csound or C/C++ first.
 
 On the pro-side the sound _is_ different from the original and can be further
 processed in Mini Clavier, e.g. with FM. No one will throw away they hardware
