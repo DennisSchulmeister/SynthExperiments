@@ -9,6 +9,7 @@ experimenteller Software-Synthesizer
 ----
 
 1. [Overview, Screenshots and Demos](#overview-screenshots-and-demos)
+1. [Git Submodules and Dependencies](#git-submodules-and-dependencies)
 1. [Running on Your Hardware](#running-on-your-hardware)
 1. [Project Background](#project-background)
 1. [Copyright](#copyright)
@@ -79,6 +80,24 @@ Overview, Screenshots and Demos
 </table>
 
 Send me a link to your music if you are using one of these.
+
+Git Submodules and Dependencies
+-------------------------------
+
+This repository is using Git submodules to track dependencies for the included
+native applications. Here are a few useful commands from the [Git manual](https://git-scm.com/book/en/v2/Git-Tools-Submodules):
+
+* `git submodule update --init --recursive`: Initialize/update submodules (especially after cloning this repo)
+* `git pull` (inside submodule): Pull recent commits from a submodule (in fact, use it like a regular git repo)
+* `git checkout TAG` (inside submodule): Checkout tagged commit of a submodule (commit main repo afterwards!)
+* `git submodule add https://github.com/USER/REPO.git`: Add another submodule from a repo on GitHub
+
+Additionally, the Android Csound projects use the Csound Android SDK that can
+be downloaded from the [Csound download page](https://csound.com/download.html).
+To make things easier, an extracted copy of the SDK is included in the
+[Android/external](./Android/external) directory, which needs to be manually
+updated, if a more recent version is to be used. (Note, that the licenses of
+the Csound SDK and this project must be compatible).
 
 Running on Your Hardware
 ------------------------

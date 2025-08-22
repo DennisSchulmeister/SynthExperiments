@@ -1,6 +1,7 @@
 [submodule "Native/external/imgui"]
 	path = Native/external/imgui
 	url = https://github.com/ocornut/imgui.git
+	branch = docking
 [submodule "Native/external/imgui_toggle"]
 	path = Native/external/imgui_toggle
 	url = https://github.com/cmdwtf/imgui_toggle.git
