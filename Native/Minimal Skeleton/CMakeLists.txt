@@ -17,6 +17,6 @@ target_link_libraries(csound_skeleton PRIVATE Csound::Csound)
 if(WIN32)
     add_custom_command(TARGET csound_skeleton POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-	$<TARGET_FILE:Csound::Csound> $<TARGET_FILE_DIR:csound_example>
+        $<TARGET_FILE:Csound::Csound> $<TARGET_FILE_DIR:csound_example>
     )
 endif()
