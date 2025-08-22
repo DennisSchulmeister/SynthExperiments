@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
     result = csoundStart(csound);
     
     while (1) {
-    	result = csoundPerformKsmps(csound);
+        result = csoundPerformKsmps(csound);
         if (result != 0) break;
     }
     

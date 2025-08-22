@@ -44,9 +44,9 @@ if(Csound_FOUND)
     
     if(NOT TARGET Csound::Csound)
         add_library(Csound::Csound UNKNOWN IMPORTED)
-	set_target_properties(Csound::Csound PROPERTIES
-	    IMPORTED_LOCATION "${Csound_LIBRARY}"
-	    INTERFACE_INCLUDE_DIRECTORIES "${Csound_INCLUDE_DIR}"
-	)
+        set_target_properties(Csound::Csound PROPERTIES
+            IMPORTED_LOCATION "${Csound_LIBRARY}"
+            INTERFACE_INCLUDE_DIRECTORIES "${Csound_INCLUDE_DIR}"
+        )
     endif()
 endif()
