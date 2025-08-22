@@ -259,7 +259,8 @@
         ; --displays                Run display opcodes (but doesn't seem to work in Cabbage)
         ; --asciidisplay            Suppress graphics, use ASCII displays instead
         ; --postscriptdisplay       Suppress graphics, use PostScript displays instead
-        -n -d -+rtmidi=NULL -M0 --midi-key=4 --midi-velocity-amp=5 --displays --asciidisplay
+	-n -d -+rtmidi=NULL -M0 --midi-key=4 --midi-velocity-amp=5 --displays --asciidisplay
+	; Cabbage MIDI bug (hanging notes and ghost notes), workaround: -+rtmidi=portmidi -M1
     </CsOptions>
 
     <CsInstruments>

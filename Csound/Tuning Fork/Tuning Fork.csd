@@ -6,11 +6,11 @@
  * custom built Android app. Nothing special. Just Bing.
  */
 <Cabbage>
-        form caption("Tuning Fork") size(380, 145), guiMode("queue"), pluginId("fork"), colour(200, 210, 220)
-        button bounds(10, 10, 100, 30), channel("trigger"), latched(0), text("Bing!")
-        keyboard bounds(0, 50, 380, 95)
-    </Cabbage>
-    <CsoundSynthesizer>
+    form caption("Tuning Fork") size(380, 145), guiMode("queue"), pluginId("fork"), colour(200, 210, 220)
+    button bounds(10, 10, 100, 30), channel("trigger"), latched(0), text("Bing!")
+    keyboard bounds(0, 50, 380, 95)
+</Cabbage>
+<CsoundSynthesizer>
     <CsOptions>
         -n -d -+rtmidi=NULL -M0 --midi-key-cps=4 --midi-velocity-amp=5 --asciidisplay
     </CsOptions>
