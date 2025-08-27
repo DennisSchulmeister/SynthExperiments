@@ -1,7 +1,9 @@
 /*
  * libcsound example from the doxygen documentation
  */
-#include <csound/csound.h>
+#include <stdio.h>
+#include <csound.h>
+#include "config.h"
 
 const char *csd_text =
     "<CsoundSynthesizer>\n"
@@ -25,6 +27,8 @@ const char *csd_text =
     "</CsoundSynthesizer>\n";
 
 int main(int argc, char** argv) {
+    printf("Asset path: %s\n", ASSET_PATH);
+
     void *csound = csoundCreate(0);
     int result = csoundCompileCsdText(csound, csd_text);
 

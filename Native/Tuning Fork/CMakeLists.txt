@@ -1,24 +1,22 @@
 cmake_minimum_required(VERSION 3.10)
-project(csound-skeleton C)      # C++ = CXX
-
+project(tuning_fork CXX)
 
 # Include custom functions
 include("${CMAKE_CURRENT_SOURCE_DIR}/../cmake/CmakeFunctions.cmake")
 
 # Look for custom find modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
+find_package(Csound6_CXX REQUIRED)
 
-find_package(Csound6 REQUIRED)   # C++ = CsoundCXX
-
-add_executable(csound-skeleton
-    src/main.c
+add_executable(tuning-fork
+    src/main.cpp
 )
 
-target_link_libraries(csound-skeleton PRIVATE Csound::Csound6)
-install(TARGETS csound-skeleton DESTINATION ${CMAKE_INSTALL_BINDIR})
+target_link_libraries(tuning-fork PRIVATE Csound::Csound6_CXX)
+install(TARGETS tuning-fork DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 # Copy static assets next to the EXE
-add_custom_command(TARGET csound-skeleton POST_BUILD
+add_custom_command(TARGET tuning-fork POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory assets
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/assets assets
 )
@@ -33,6 +31,6 @@ include_directories(${CMAKE_BINARY_DIR})
 
 # On Windows copy the DLL next to the EXE
 if(WIN32)
-    zz_copy_runtime_libraries(csound-skeleton Csound::Csound6_CXX)
-    zz_install_runtime_libraries(csound-skeleton Csound::Csound6_CXX)
+    zz_copy_runtime_libraries(tuning-fork Csound::Csound6_CXX)
+    zz_install_runtime_libraries(tuning-fork Csound::Csound6_CXX)
 endif()

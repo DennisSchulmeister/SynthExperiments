@@ -1,0 +1,1 @@
+#define ASSET_PATH "@PROJECT_ASSETS_PATH@"
