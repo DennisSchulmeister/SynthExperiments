@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(csound-skeleton C)      # C++ = CXX
+project(csound-minimal-cpp CXX)
 
 # Include custom functions
 include("${CMAKE_CURRENT_SOURCE_DIR}/../cmake/CmakeFunctions.cmake")
@@ -7,27 +7,27 @@ include("${CMAKE_CURRENT_SOURCE_DIR}/../cmake/CmakeFunctions.cmake")
 # Look for custom find modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
 
-find_package(Csound6 REQUIRED)   # C++ = CsoundCXX
+find_package(Csound6_CXX REQUIRED)
 
 set(SOURCES
-    src/main.c
-    src/assets.c
+    src/main.cpp
+    src/assets.cpp
 )
 
 if(WIN32)
     message(STATUS "Compiling for Windows")
-    list(APPEND SOURCES src/os/windows.c)
+    list(APPEND SOURCES src/os/windows.cpp)
 elseif(APPLE)
     message(STATUS "Compiling for macOS")
-    list(APPEND SOURCES src/os/apple.c)
+    list(APPEND SOURCES src/os/apple.cpp)
 else()
     message(STATUS "Compiling for Unix")
-    list(APPEND SOURCES src/os/unix.c)
+    list(APPEND SOURCES src/os/unix.cpp)
 endif()
 
-add_executable(csound-skeleton ${SOURCES})
-target_link_libraries(csound-skeleton PRIVATE Csound::Csound6)
-install(TARGETS csound-skeleton DESTINATION ${CMAKE_INSTALL_BINDIR})
+add_executable(csound-minimal-cpp ${SOURCES})
+target_link_libraries(csound-minimal-cpp PRIVATE Csound::Csound6_CXX)
+install(TARGETS csound-minimal-cpp DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 # Copy static assets next to the EXE
 add_custom_target(copy_assets ALL
@@ -36,18 +36,18 @@ add_custom_target(copy_assets ALL
     COMMENT "Copying assets"
 )
 
-add_dependencies(csound-skeleton copy_assets)
+add_dependencies(csound-minimal-cpp copy_assets)
 
 set(CMAKE_INSTALL_DATADIR "share/${PROJECT_NAME}")
 set(PROJECT_ASSETS_PATH "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}")
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/assets/ DESTINATION ${PROJECT_ASSETS_PATH})
 
-# Generate config.h file
-configure_file(config.h.in ${CMAKE_BINARY_DIR}/config.h)
+# Generate config.hpp file
+configure_file(config.hpp.in ${CMAKE_BINARY_DIR}/config.hpp)
 include_directories(${CMAKE_BINARY_DIR})
 
 # On Windows copy the DLL next to the EXE
 if(WIN32)
-    zz_copy_runtime_libraries(csound-skeleton Csound::Csound6_CXX)
-    zz_install_runtime_libraries(csound-skeleton Csound::Csound6_CXX)
+    zz_copy_runtime_libraries(csound-minimal-cpp Csound::Csound6_CXX)
+    zz_install_runtime_libraries(csound-minimal-cpp Csound::Csound6_CXX)
 endif()

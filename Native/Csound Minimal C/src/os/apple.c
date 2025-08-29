@@ -8,8 +8,9 @@
  */
 #include "../os.h"
 
-#include <libgen.h>         // dirn ame
+#include <libgen.h>         // dirname
 #include <limits.h>         // PATH_MAX
+#include <mach-o/dyld.h>    // _NSGetExecutablePath
 #include <stdlib.h>         // realpath
 #include <string.h>         // strlen, strncat, strncpy
 #include <unistd.h>         // getcwd
@@ -32,11 +33,20 @@ void os_get_current_workdir(char* cwd, size_t len) {
 void os_get_executable_dir(char* dir, size_t len) {
     if (!dir || len == 0) return;
 
-    // On Linux we can simply resolve /proc/self/exe. On systems where
-    // this is not available (typically BSD) we fallback to the workdir.
+    // Try to get the executable path
+    char path[PATH_MAX];
+    uint32_t size = sizeof(path);
+    
+    if (_NSGetExecutablePath(path, &size) != 0) {
+        // Buffer too small or another error
+        os_get_current_workdir(dir, len);
+        return;
+    }
+
+    // Resolve any symlinks and canonicalize the path
     char resolved[PATH_MAX];
     
-    if (realpath("/proc/self/exe", resolved) == NULL) {
+    if (realpath(path, resolved) == NULL) {
         os_get_current_workdir(dir, len);
         return;
     }

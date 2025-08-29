@@ -8,7 +8,7 @@ echo
 echo
 echo
 
-./tuning-fork
+./csound-tuning-fork
 
 echo
 echo

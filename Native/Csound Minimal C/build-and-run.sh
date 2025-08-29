@@ -8,7 +8,7 @@ echo
 echo
 echo
 
-./csound-skeleton
+./csound-minimal-c
 
 echo
 echo

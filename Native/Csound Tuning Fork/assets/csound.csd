@@ -1,9 +1,9 @@
 /**
- * Tuning Fork - Minimal Csound synth to test with Android
- * =======================================================
+ * Tuning Fork - Minimal Csound synth to test API integration
+ * ==========================================================
  *
  * This is a very basic synth to test usage of the Csound library from within a
- * custom built native app. Nothing special. Just Bing.
+ * custom built app. Nothing special. Just Bing.
  */
 <CsoundSynthesizer>
     <CsOptions>
