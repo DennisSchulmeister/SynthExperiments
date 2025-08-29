@@ -1,46 +1,45 @@
-/*
- * libcsound example from the doxygen documentation
+/* Csound native app - Minimal skeleton
+ * (C) 2025 Dennis Schulmeister-Zimolong <dennis@windows3.de>
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
  */
-#include <stdio.h>
-#include <csound.h>
-#include "config.h"
+#include <stdio.h>      // perror
+#include <csound.h>     // Csound...
+#include <limits.h>     // PATH_MAX
 
-const char *csd_text =
-    "<CsoundSynthesizer>\n"
-    "<CsOptions>\n"
-    "    -odac\n"
-    "    --realtime\n"
-    "</CsOptions>\n"
-    "<CsInstruments>\n"
-    "sr = 22050\n"
-    "ksmps  = 256\n"
-    "nchnls = 2\n"
-    "0dbfs  = 1\n"
-    "    instr 1\n"
-    "        out(linen(oscili(p4, p5), 0.1, p3, 0.1))\n"
-    "    endin\n"
-    "</CsInstruments>\n"
-    "<CsScore>\n"
-    "    t 0 60\n"
-    "    i1 0 5 .75 440\n"
-    "</CsScore>\n"
-    "</CsoundSynthesizer>\n";
+#include "assets.h"     // assets_...
 
 int main(int argc, char** argv) {
-    printf("Asset path: %s\n", ASSET_PATH);
+    printf("Searching assets ...\n");
+    char csd_file[PATH_MAX];
 
-    void *csound = csoundCreate(0);
-    int result = csoundCompileCsdText(csound, csd_text);
+    assets_init();
 
-    result = csoundStart(csound);
-    
-    while (1) {
-        result = csoundPerformKsmps(csound);
-        if (result != 0) break;
+    if (!assets_get_path(csd_file, PATH_MAX, 2, "assets", "csound.csd")) {
+        perror("Cannot find file csound.csd");
+        return -1;
     }
-    
-    result = csoundCleanup(csound);
+
+    printf("Initializing Csound ...\n");
+    void *csound = csoundCreate(0);
+    if (csoundCompileCsd(csound, csd_file) != 0) goto csoundError;
+    if (csoundStart(csound)) goto csoundError;
+
+    printf("Starting Csound performance ...\n");
+    while (1) {
+        if (csoundPerformKsmps(csound) != 0) break;
+    }
+
+    printf("Cleaning up ...");
+    if (csoundCleanup(csound) != 0) goto csoundError;
     csoundReset(csound);
     csoundDestroy(csound);
-    return result;
+    return 0;
+
+    csoundError:
+        perror("Csound error");
+        return -1;
 }

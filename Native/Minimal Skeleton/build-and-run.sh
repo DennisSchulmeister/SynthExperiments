@@ -8,7 +8,7 @@ echo
 echo
 echo
 
-./csound_skeleton
+./csound-skeleton
 
 echo
 echo
