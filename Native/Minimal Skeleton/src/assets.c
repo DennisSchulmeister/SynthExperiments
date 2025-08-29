@@ -26,18 +26,18 @@ void assets_init() {
 /**
  * Get path of an asset file or return false, if not found.
  */
-bool assets_get_path(char* out, size_t len, size_t count, ...) {
+bool assets_get_path(char* out, size_t len, ...) {
     va_list args;
-    va_start(args, count);
+    va_start(args, len);
     bool result = true;
     
     char filename[len];
-    os_path_join_v(filename, len, count, args);
+    os_path_join_v(filename, len, args);
 
-    os_path_join(out, len, 2, executable_dir, filename);
+    os_path_join(out, len, executable_dir, filename, NULL);
     if (os_path_exists(out)) goto finish; 
 
-    os_path_join(out, len, 2, ASSET_PATH, filename);
+    os_path_join(out, len, ASSET_PATH, filename, NULL);
     if (os_path_exists(out)) goto finish; 
 
     result = false;

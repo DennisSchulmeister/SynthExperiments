@@ -50,15 +50,14 @@ void os_get_executable_dir(char* dir, size_t len) {
 /**
  * Join multiple path segments.
  */
-void os_path_join_v(char* out, size_t len, size_t count, va_list segments) {
+void os_path_join_a(char* out, size_t len, const char* segments[], size_t count) {
     if (!out || len == 0) return;
 
     out[0] = '\0';
-    const char* segment;
     size_t used = 0;
 
     for (size_t i = 0; i < count; i++) {
-        segment = va_arg(segments, const char*);
+        const char* segment = segments[i];
         if (segment[0] == '\0') continue;
 
         // Add slash if needed

@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 
     assets_init();
 
-    if (!assets_get_path(csd_file, PATH_MAX, 2, "assets", "csound.csd")) {
+    if (!assets_get_path(csd_file, PATH_MAX, "assets", "csound.csd", NULL)) {
         perror("Cannot find file csound.csd");
         return -1;
     }

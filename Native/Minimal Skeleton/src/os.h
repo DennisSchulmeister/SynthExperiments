@@ -11,6 +11,7 @@
 #include <stdarg.h>     // va_list, va_start, va_arg, va_end
 #include <stddef.h>     // size_t
 #include <stdbool.h>    // bool, true, false (before C23)
+#include <stdlib.h>     // calloc, free
 
 /**
  * Get the current work directory of the process. Returns an empty string
@@ -34,28 +35,60 @@ void os_get_executable_dir(char* dir, size_t len);
 
 /**
  * Join multiple path segments with the right directory separator.
+ * Version that accepts an array of strings.
+ * 
+ * @param out - Output buffer
+ * @param len - Output buffer size
+ * @param segments - Path segments to join
+ * @param count - Number of path segments to join
+ */
+void os_path_join_a(char* out, size_t len, const char* segments[], size_t count);
+
+/**
+ * Join multiple path segments with the right directory separator.
  * Version that accepts forarding variadic arguments of the caller.
  * 
  * @param out - Output buffer
  * @param len - Output buffer size
- * @param count - Number of path segments to join
- * @param segments - Path segments to join
+ * @param segments - Path segments to join (the last one must be NULL!)
  */
-void os_path_join_v(char* out, size_t len, size_t count, va_list segments);
+static void os_path_join_v(char* out, size_t len, va_list segments) {
+    va_list segments1;
+    va_copy(segments1, segments);
+
+    const char* segment = NULL;
+    size_t count = 0;
+
+    for (; segment = va_arg(segments, const char*); segment != NULL) {
+        count++;
+    }
+
+    const char** segments_a = calloc(sizeof(const char*), count);
+    size_t i = 0;
+    
+    for (; segment = va_arg(segments1, const char*); segment != NULL) {
+        segments_a[i++] = segment;
+    }
+
+    os_path_join_a(out, len, segments_a, count);
+    free(segments_a);
+    va_end(segments1);
+}
 
 /**
  * Join multiple path segments with the right directory separator.
- * Regular version with variadic arguments.
+ * Regular version with variadic arguments. Note that the last argument
+ * must always be NULL due to the way C handles variadic arguments.
+ * Otherwise the program will crash!
  * 
  * @param out - Output buffer
  * @param len - Output buffer size
- * @param count - Number of path segments to join
- * @param ... - Path segments to join
+ * @param ... - Path segments to join (the last one must be an empty string!)
  */
-static void os_path_join(char* out, size_t len, size_t count, ...) {
+static void os_path_join(char* out, size_t len, ...) {
     va_list segments;
-    va_start(segments, count);
-    os_path_join_v(out, len, count, segments);
+    va_start(segments, len);
+    os_path_join_v(out, len, segments);
     va_end(segments);
 }
 
