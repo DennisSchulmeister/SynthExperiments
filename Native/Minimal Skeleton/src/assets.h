@@ -28,7 +28,7 @@ void assets_init();
  *
  * @param out - Output buffer
  * @param len - Output buffer size
- * @param ... - Path segments (will be joined, the last one must be NULL)
+ * @param ... - Path segments (will be joined, the last one must be NULL!)
  * @returns true on success, false if the path cannot be found
  */
 bool assets_get_path(char* out, size_t len, ...);

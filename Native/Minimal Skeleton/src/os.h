@@ -83,7 +83,7 @@ static void os_path_join_v(char* out, size_t len, va_list segments) {
  * 
  * @param out - Output buffer
  * @param len - Output buffer size
- * @param ... - Path segments to join (the last one must be an empty string!)
+ * @param ... - Path segments to join (the last one must be NULL!)
  */
 static void os_path_join(char* out, size_t len, ...) {
     va_list segments;
