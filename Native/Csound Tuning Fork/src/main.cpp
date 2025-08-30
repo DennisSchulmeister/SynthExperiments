@@ -13,19 +13,18 @@
 
 #include "assets.hpp"                   // my::assets
 
-// TODO: SDL2
 // TODO: Dear ImGUI
+#include <imgui.h>
+#include <imgui_impl_sdl2.h>
+#include <imgui_impl_sdlrenderer2.h>
 #include <SDL.h>
-//
 
 int main(int argc, char** argv) {
-    // TEST if SDL2 is working
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) != 0) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0) {
         std::cerr << "SDL Error: " << SDL_GetError() << std::endl;
         return -1;
     }
-    //
-    
+      
     std::cout << "Searching assets..." << std::endl;
 
     auto csd_file = my::assets::get_path("assets/csound.csd");

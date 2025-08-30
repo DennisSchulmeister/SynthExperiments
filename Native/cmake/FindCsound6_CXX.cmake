@@ -10,7 +10,7 @@
 # Allow hinting via CSOUND6_CXX_DIR
 set(_CSOUND6_CXX_HINTS
     ${CSOUND6_CXX_DIR}
-    ENV CSOUND6_CXX_DIR
+    $ENV{CSOUND6_CXX_DIR}
     "C:/Program Files/Csound6_x64"
     "/usr"
     "/usr/local"

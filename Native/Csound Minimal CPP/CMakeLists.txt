@@ -3,11 +3,12 @@ project(csound-minimal-cpp CXX)
 
 # Include custom functions
 include("${CMAKE_CURRENT_SOURCE_DIR}/../cmake/CmakeFunctions.cmake")
-
-# Look for custom find modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
+
+# Find external libraries
 find_package(Csound6_CXX REQUIRED)
 
+# Build our application
 set(SOURCES
     src/main.cpp
     src/assets.cpp
@@ -28,14 +29,20 @@ if(UNIX)
     include(GNUInstallDirs)
 else()
     set(${CMAKE_INSTALL_LIBDIR} "lib")
-    set(${CMAKE_INSTALL_DATADIR} "share")
     set(${CMAKE_INSTALL_INCLUDEDIR} "include")
     set(${CMAKE_INSTALL_BINDIR} "bin")
 endif()
 
+set(CMAKE_INSTALL_DATADIR "share/${PROJECT_NAME}")
+set(PROJECT_ASSETS_PATH "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}")
+
 add_executable(csound-minimal-cpp ${SOURCES})
 target_link_libraries(csound-minimal-cpp PRIVATE Csound::Csound6_CXX)
 install(TARGETS csound-minimal-cpp DESTINATION ${CMAKE_INSTALL_BINDIR})
+
+# Generate config.hpp file
+configure_file(config.hpp.in ${CMAKE_BINARY_DIR}/config.hpp)
+include_directories(${CMAKE_BINARY_DIR})
 
 # Copy static assets next to the EXE
 add_custom_target(copy_assets ALL
@@ -45,14 +52,7 @@ add_custom_target(copy_assets ALL
 )
 
 add_dependencies(csound-minimal-cpp copy_assets)
-
-set(CMAKE_INSTALL_DATADIR "share/${PROJECT_NAME}")
-set(PROJECT_ASSETS_PATH "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}")
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/assets/ DESTINATION ${PROJECT_ASSETS_PATH})
-
-# Generate config.hpp file
-configure_file(config.hpp.in ${CMAKE_BINARY_DIR}/config.hpp)
-include_directories(${CMAKE_BINARY_DIR})
 
 # On Windows copy the DLL next to the EXE
 option(BUNDLE_LIBRARIES "Bundle external libraries with the program (recommended e.g. on Windows)" OFF)

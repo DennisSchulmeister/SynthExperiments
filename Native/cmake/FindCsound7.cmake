@@ -10,7 +10,7 @@
 # Allow hinting via CSOUND7_DIR
 set(_CSOUND7_HINTS
     ${CSOUND7_DIR}
-    ENV CSOUND7_DIR
+    $ENV{CSOUND7_DIR}
     "C:/Program Files/Csound7_x64"
     "/usr"
     "/usr/local"
