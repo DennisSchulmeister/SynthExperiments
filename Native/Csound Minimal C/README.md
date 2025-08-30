@@ -38,3 +38,14 @@ cmake --build .
 
 The executable will be in the `build` directory. To start over simply delete
 the directory.
+
+If you want to use the graphical configuration menu the last but one
+command changes to `ccmake ..` to edit the configuration and generate
+the build files (see `menuconfig.sh` script):
+
+```sh
+mkdir build
+cd build
+ccmake ..
+cmake --build .
+```

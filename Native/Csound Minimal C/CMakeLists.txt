@@ -6,7 +6,6 @@ include("${CMAKE_CURRENT_SOURCE_DIR}/../cmake/CmakeFunctions.cmake")
 
 # Look for custom find modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
-
 find_package(Csound6 REQUIRED)   # C++ = Csound6_CXX
 
 set(SOURCES
@@ -23,6 +22,15 @@ elseif(APPLE)
 else()
     message(STATUS "Compiling for Unix")
     list(APPEND SOURCES src/os/unix.c)
+endif()
+
+if(UNIX)
+    include(GNUInstallDirs)
+else()
+    set(${CMAKE_INSTALL_LIBDIR} "lib")
+    set(${CMAKE_INSTALL_DATADIR} "share")
+    set(${CMAKE_INSTALL_INCLUDEDIR} "include")
+    set(${CMAKE_INSTALL_BINDIR} "bin")
 endif()
 
 add_executable(csound-minimal-c ${SOURCES})
@@ -47,7 +55,8 @@ configure_file(config.h.in ${CMAKE_BINARY_DIR}/config.h)
 include_directories(${CMAKE_BINARY_DIR})
 
 # On Windows copy the DLL next to the EXE
-if(WIN32)
+option(BUNDLE_LIBRARIES "Bundle external libraries with the program (recommended e.g. on Windows)" OFF)
+if(BUNDLE_LIBRARIES)
     zz_copy_runtime_libraries(csound-minimal-c Csound::Csound6)
     zz_install_runtime_libraries(csound-minimal-c Csound::Csound6)
 endif()
