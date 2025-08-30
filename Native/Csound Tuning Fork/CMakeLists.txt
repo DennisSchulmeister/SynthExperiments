@@ -11,7 +11,7 @@ find_package(Csound6_CXX REQUIRED)
 # See: https://wiki.libsdl.org/SDL2/README-cmake
 find_package(SDL2 REQUIRED CONFIG REQUIRED COMPONENTS SDL2)
 find_package(SDL2 REQUIRED CONFIG COMPONENTS SDL2main)
-    
+
 set(SOURCES
     src/main.cpp
     src/assets.cpp
