@@ -7,7 +7,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
 
 # Find external libraries
 find_package(Csound6_CXX REQUIRED)
-find_package(DearImGui_SDL2 REQUIRED)
+find_package(ImGui_SDL2 REQUIRED)
+#find_package(ImGuiKnobs REQUIRED)
+#find_package(ImGuiToggle REQUIRED)
 
 # Build our application
 set(SOURCES
@@ -40,7 +42,9 @@ set(PROJECT_ASSETS_PATH "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}")
 add_executable(csound-tuning-fork ${SOURCES})
 install(TARGETS csound-tuning-fork DESTINATION ${CMAKE_INSTALL_BINDIR})
 target_link_libraries(csound-tuning-fork PRIVATE Csound::Csound6_CXX)
-target_link_libraries(csound-tuning-fork PRIVATE DearImGui_SDL2)
+target_link_libraries(csound-tuning-fork PRIVATE ImGui_SDL2)
+#target_link_libraries(csound-tuning-fork PRIVATE ImGuiKnobs)
+#target_link_libraries(csound-tuning-fork PRIVATE ImGuiToggle)
 
 # Generate config.hpp file
 configure_file(config.hpp.in ${CMAKE_BINARY_DIR}/config.hpp)
