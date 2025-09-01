@@ -8,6 +8,7 @@
  */
 #pragma once
 
+#include <stdexcept>    // std::runtime_error
 #include <imgui.h>      // ImGuiIO, ImVec4
 #include <string>       // std::string
 
@@ -24,52 +25,25 @@ struct ui_context {
 /**
  * Possible ways to continue the main loop.
  */
-enum class ui_result_value {
+enum class ui_result {
     /**
      * Keep On Running - The Spencer Davis Group (1965)
      */
     goon,
 
     /**
-     * Exit normally.
+     * Exit program.
      */
     exit,
-
-    /**
-     * Abort due to a fatal error.
-     */
-    abort
 };
 
 /**
- * Return type for UI functions to communicate back to the main loop
- * if the program shall continue to run, exit or abort.
+ * Fatal error that will abort the program.
  */
-struct ui_result {
-    /**
-     * Result value to signal the main loop how to continue.
-     */
-    ui_result_value value = ui_result_value::goon;
-
-    /**
-     * Optional (error) message to be printed on the console.
-     */
-    std::string message = "";
-};
-
-/**
- * Simplified return type for functions which can only succeed or fail.
- */
-struct ui_error {
-    /**
-     * A fatal error occured, abort program.
-     */
-    bool error = false;
-    
-    /**
-     * Error message to be printed on the console.
-     */
-    std::string message = "";
+class fatal_error : public std::runtime_error {
+public:
+    explicit fatal_error(const std::string& message)
+        : std::runtime_error(message) {}
 };
 
 } // namespace my::common

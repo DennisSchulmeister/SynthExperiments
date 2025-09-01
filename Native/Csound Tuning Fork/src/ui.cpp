@@ -23,26 +23,20 @@ CsoundPerformanceThread* performanceThread;
 /**
  * Set up ressources like Csound.
  */
-my::common::ui_error setup(my::common::ui_context ctx) {
+void setup(my::common::ui_context ctx) {
     std::cout << "Searching assets..." << std::endl;
 
     auto csd_file = my::assets::get_path("assets/csound.csd");
 
     if (!csd_file) {
-        return {
-            .error = true,
-            .message = "Cannot find file csound.csd"
-        };
+        throw my::common::fatal_error("Cannot find file csound.csd");
     }
     
     std::cout << "Initializing Csound..." << std::endl;
     csound = new Csound();
 
     if (csound->Compile(csd_file->c_str()) != 0) {
-        return {
-            .error = true,
-            .message = "Error while compiling the Csound code"
-        };
+        throw my::common::fatal_error("Error while compiling the Csound code");
     }
     
     std::cout << "Starting Csound performance..." << std::endl;
@@ -50,8 +44,6 @@ my::common::ui_error setup(my::common::ui_context ctx) {
     performanceThread->Play();
 
     // while (performanceThread->GetStatus() == 0);
-
-    return {};
 }
 
 /**
@@ -65,10 +57,9 @@ my::common::ui_result execute(my::common::ui_context ctx) {
 /**
  * Clean up ressources.
  */
-my::common::ui_error cleanup() {
+void cleanup() {
     delete performanceThread;
     delete csound;
-    return {};
 }
 
 } // namespace my::ui

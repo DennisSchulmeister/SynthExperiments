@@ -19,9 +19,9 @@ namespace my::ui {
  * after everything else has been set up.
  *
  * @param ctx - Shared user interface data
- * @returns Success or fatal error
+ * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::ui_error setup(my::common::ui_context ctx);
+void setup(my::common::ui_context ctx);
 
 /**
  * Perform user interface logic during the main loop. Compose your
@@ -30,6 +30,7 @@ my::common::ui_error setup(my::common::ui_context ctx);
  *
  * @param ctx - Shared user interface data
  * @returns How to continue the main loop
+ * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
 my::common::ui_result execute(my::common::ui_context ctx);
 
@@ -37,8 +38,8 @@ my::common::ui_result execute(my::common::ui_context ctx);
  * Clean up ressources owned by the user interface. Called immediately
  * after the main loop before everything else is cleaned up.
  *
- * @returns Success or fatal error
+ * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::ui_error cleanup();
+void cleanup();
 
 } // namespace my::ui

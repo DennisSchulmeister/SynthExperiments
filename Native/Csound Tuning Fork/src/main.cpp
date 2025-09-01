@@ -6,6 +6,7 @@
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  */
+#include <exception>                    // std::exception
 #include <imgui.h>                      // ImGui::, ImGuiIO, ImGuiStyle, ImVec4
 #include <iostream>                     // std::cout, std::cerr, std::endl
 
@@ -31,6 +32,16 @@
  * 9. Backend - Close Main Window
  */
 
+/**
+ * TODO: Explanation of the program flow above
+ */
 int main(int argc, char** argv) {
-    return 0;
+    try {
+        // TODD
+        
+        return 0;
+    } catch (const std::exception& e) {
+        std::cerr << "FATAL ERROR: " << e.what() << std::endl;
+        return -1;
+    }
 }

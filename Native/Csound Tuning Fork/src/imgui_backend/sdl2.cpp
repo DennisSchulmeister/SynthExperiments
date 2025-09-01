@@ -17,7 +17,7 @@ namespace my::imgui::backend {
 /**
  * Create the main window and initialize the ImGui backend.
  */
-my::common::ui_error create_main_window() {
+void create_main_window() {
     /*
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0) {
         std::cerr << "SDL Error: " << SDL_GetError() << std::endl;
@@ -26,15 +26,13 @@ my::common::ui_error create_main_window() {
     */
 
     // TODO
-    return {};
 }
 
 /**
  * Set up the graphics renderer.
  */
-my::common::ui_error setup_renderer(my::common::ui_context ctx) {
+void setup_renderer(my::common::ui_context ctx) {
     // TODO
-    return {};
 }
 
 /**
@@ -48,25 +46,22 @@ my::common::ui_result start_frame(my::common::ui_context ctx) {
 /**
  * Draw current frame on the screen.
  */
-my::common::ui_result end_frame(my::common::ui_context ctx) {
+void end_frame(my::common::ui_context ctx) {
     // TODO
-    return {};
 }
 
 /**
  * Destroy graphics renderer.
  */
-my::common::ui_error destroy_renderer() {
+void destroy_renderer() {
     // TODO
-    return {};
 }
 
 /**
- * Destroying the main window and all related ressources.
+ * Destroy the main window and all related ressources.
  */
-my::common::ui_error destroy_main_window() {
+void destroy_main_window() {
     // TODO
-    return {};
 }
 
 } // namespace my::imgui::backend

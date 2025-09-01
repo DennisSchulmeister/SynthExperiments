@@ -17,18 +17,18 @@ namespace my::imgui::backend {
  * Create the main window, set up required libraries (e.g. SDL) and
  * initialize the ImGui backend. Called at the very start of the program.
  * 
- * @returns Success or fatal error
+ * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::ui_error create_main_window();
+void create_main_window();
 
 /**
  * Finish initialization by setting up the graphics renderer. Called
  * after the main window and the ImGui context have been fully initialized.
  * 
  * @param ctx - Shared user interface data
- * @returns Success or fatal error
+ * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::ui_error setup_renderer(my::common::ui_context ctx);
+void setup_renderer(my::common::ui_context ctx);
 
 /**
  * Handle window and I/O events, pass the events to ImGui and prepare
@@ -37,6 +37,7 @@ my::common::ui_error setup_renderer(my::common::ui_context ctx);
  *
  * @param ctx - Shared user interface data
  * @returns How to continue the main loop
+ * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
 my::common::ui_result start_frame(my::common::ui_context ctx);
 
@@ -45,24 +46,24 @@ my::common::ui_result start_frame(my::common::ui_context ctx);
  * the main loop after `ImGui::Render()`.
  *
  * @param ctx - Shared user interface data
- * @returns How to continue the main loop
+ * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::ui_result end_frame(my::common::ui_context ctx);
+void end_frame(my::common::ui_context ctx);
 
 /**
  * Destroy graphics renderer during normal program shutdown. Called
  * after the main loop befor `ImGui::DestroyContext()`.
  *
- * @returns Success or fatal error
+ * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::ui_error destroy_renderer();
+void destroy_renderer();
 
 /**
  * Finish normal program shutdown by destroying the main window and all
  * related ressources. Called right after `ImGui::DestroyContext()`.
  *
- * @returns Success or fatal error
+ * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::ui_error destroy_main_window();
+void destroy_main_window();
 
 } // namespace my::imgui::backend
