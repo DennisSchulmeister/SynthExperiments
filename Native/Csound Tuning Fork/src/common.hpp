@@ -8,9 +8,10 @@
  */
 #pragma once
 
-#include <stdexcept>    // std::runtime_error
-#include <imgui.h>      // ImGuiIO, ImVec4
-#include <string>       // std::string
+#include <stdexcept>            // std::runtime_error
+#include <imgui.h>              // ImGuiIO, ImVec4
+#include <string>               // std::string
+#include <source_location>      // std::source_location
 
 namespace my::common {
 
@@ -25,25 +26,56 @@ struct ui_context {
 /**
  * Possible ways to continue the main loop.
  */
-enum class ui_result {
+enum class main_loop_action {
     /**
      * Keep On Running - The Spencer Davis Group (1965)
      */
-    goon,
+    keep_running,
 
     /**
      * Exit program.
      */
-    exit,
+    exit_program,
 };
 
 /**
- * Fatal error that will abort the program.
+ * Fatal error that will abort the program. Also captures the source
+ * location, where the error occured and includes it in the error
+ * message (C++20).
+ *
+ * Note that since C++23 we could also include a stack trace, but this
+ * requires debug symbols to work and linking to platform-dependend
+ * libraries for runtime support. Since we are not expecting too deep
+ * call stacks, let's keep it simple for now and omit the stack trace.
  */
 class fatal_error : public std::runtime_error {
 public:
-    explicit fatal_error(const std::string& message)
-        : std::runtime_error(message) {}
+    /**
+     * Constructor to create a new exception to be thrown.
+     *
+     * @param msg - Error message
+     * @param loc - Caller source position (automatically captured through the default value)
+     */
+    explicit fatal_error(
+        const std::string& msg,
+        const std::source_location loc = std::source_location::current()
+    )
+        : std::runtime_error(formatMessage(msg, loc)) {}
+
+private:
+    /**
+     * Format the exception message to include the source location.
+     *
+     * @param msg - Error message
+     * @param loc - Source position
+     * @returns Formatted exception message
+     */
+    static std::string formatMessage(const std::string& msg, const std::source_location& loc) {
+        return msg +
+               "\n  at " + loc.file_name() +
+               ":" + std::to_string(loc.line()) +
+               " in function " + loc.function_name();
+    }
 };
 
 } // namespace my::common

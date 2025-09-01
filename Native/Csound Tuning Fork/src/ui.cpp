@@ -49,9 +49,9 @@ void setup(my::common::ui_context ctx) {
 /**
  * Perform user interface logic.
  */
-my::common::ui_result execute(my::common::ui_context ctx) {
+my::common::main_loop_action execute(my::common::ui_context ctx) {
     // TODO
-    return {};
+    return my::common::main_loop_action::keep_running;
 }
 
 /**

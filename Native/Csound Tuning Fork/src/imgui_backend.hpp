@@ -39,7 +39,7 @@ void setup_renderer(my::common::ui_context ctx);
  * @returns How to continue the main loop
  * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::ui_result start_frame(my::common::ui_context ctx);
+my::common::main_loop_action start_frame(my::common::ui_context ctx);
 
 /**
  * Finish current frame and draw it on the screen. Called at the end of

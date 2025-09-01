@@ -38,7 +38,7 @@ void setup_renderer(my::common::ui_context ctx) {
 /**
  * Handle events and start a new frame.
  */
-my::common::ui_result start_frame(my::common::ui_context ctx) {
+my::common::main_loop_action start_frame(my::common::ui_context ctx) {
     // TODO
     return {};
 }

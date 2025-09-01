@@ -32,7 +32,7 @@ void setup(my::common::ui_context ctx);
  * @returns How to continue the main loop
  * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::ui_result execute(my::common::ui_context ctx);
+my::common::main_loop_action execute(my::common::ui_context ctx);
 
 /**
  * Clean up ressources owned by the user interface. Called immediately
