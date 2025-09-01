@@ -1,6 +1,6 @@
 /* Csound native app - Tuning Fork
  * (C) 2025 Dennis Schulmeister-Zimolong <dennis@windows3.de>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
@@ -31,6 +31,12 @@ enum class main_loop_action {
      * Keep On Running - The Spencer Davis Group (1965)
      */
     keep_running,
+
+    /**
+     * Keep running in background but don't process UI logic or render
+     * any graphics, because the main window is currently invisible.
+     */
+    remain_inactive,
 
     /**
      * Exit program.

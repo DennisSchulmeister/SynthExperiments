@@ -17,8 +17,8 @@
 
 namespace my::ui {
 
-Csound* csound;
-CsoundPerformanceThread* performanceThread;
+Csound* csound = nullptr;
+CsoundPerformanceThread* performanceThread = nullptr;
 
 /**
  * Set up ressources like Csound.

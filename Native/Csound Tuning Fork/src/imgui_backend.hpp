@@ -1,6 +1,6 @@
 /* Csound native app - Tuning Fork
  * (C) 2025 Dennis Schulmeister-Zimolong <dennis@windows3.de>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
@@ -16,15 +16,15 @@ namespace my::imgui::backend {
 /**
  * Create the main window, set up required libraries (e.g. SDL) and
  * initialize the ImGui backend. Called at the very start of the program.
- * 
+ *
  * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-void create_main_window();
+void create_main_window(const std::string& title, int width, int height);
 
 /**
  * Finish initialization by setting up the graphics renderer. Called
  * after the main window and the ImGui context have been fully initialized.
- * 
+ *
  * @param ctx - Shared user interface data
  * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
