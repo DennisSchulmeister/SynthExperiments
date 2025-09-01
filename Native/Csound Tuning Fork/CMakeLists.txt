@@ -13,8 +13,12 @@ find_package(ImGui_SDL2 REQUIRED)
 
 # Build our application
 set(SOURCES
-    src/main.cpp
     src/assets.cpp
+    src/main.cpp
+    src/ui.cpp
+
+    # Could be replaced for other platforms, if SDL shall be avoided
+    src/imgui_backend/sdl2.cpp
 )
 
 if(WIN32)

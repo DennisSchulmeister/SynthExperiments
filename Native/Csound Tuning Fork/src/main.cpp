@@ -6,49 +6,31 @@
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  */
-#include <csound/csound.hpp>            // Csound
-#include <csound/csPerfThread.hpp>      // CsoundPerformanceThread
-#include <filesystem>                   // std::filesystem
+#include <imgui.h>                      // ImGui::, ImGuiIO, ImGuiStyle, ImVec4
 #include <iostream>                     // std::cout, std::cerr, std::endl
 
-#include "assets.hpp"                   // my::assets
+#include "common.hpp"                   // my::common
+#include "imgui_backend.hpp"            // my::imgui::backend
+#include "ui.hpp"                       // my::ui
 
-// TODO: Dear ImGUI
-#include <imgui.h>
-#include <imgui_impl_sdl2.h>
-#include <imgui_impl_sdlrenderer2.h>
-#include <SDL.h>
+/* 1. Backend - Create Main Window
+ * 2. ImGui - Setup context (style, io, fonts)
+ * 3. Backend - Setup renderer
+ * 4. UI - Setup (e.g. Csound)
+ * 
+ * 5. Run main loop
+ *  a. Backend - Handle events and start new frame(io) (or signal end - enum return type)
+ *  b. ImGui::NewFrame()
+ *  c. UI - Run(io) (or signal end - same enum return type)
+ *  d. ImGui::Render()
+ *  e. Backend - Render(io, ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f))
+ * 
+ * 6. UI - Cleanup (e.g. Csound)
+ * 7. Backend - Destroy Renderer
+ * 8. ImGui::DestroyContext();
+ * 9. Backend - Close Main Window
+ */
 
 int main(int argc, char** argv) {
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0) {
-        std::cerr << "SDL Error: " << SDL_GetError() << std::endl;
-        return -1;
-    }
-      
-    std::cout << "Searching assets..." << std::endl;
-
-    auto csd_file = my::assets::get_path("assets/csound.csd");
-
-    if (!csd_file) {
-        std::cerr << "Cannot find file csound.csd" << std::endl;
-        return -1;
-    }
-    
-    std::cout << "Initializing Csound..." << std::endl;
-    Csound* csound = new Csound();
-
-    if (csound->Compile(csd_file->c_str()) != 0) {
-        std::cerr << "Csound error" << std::endl;
-        return -1;
-    }
-    
-    std::cout << "Starting Csound performance..." << std::endl;
-    CsoundPerformanceThread* performanceThread = new CsoundPerformanceThread(csound); 
-    performanceThread->Play();
-    while (performanceThread->GetStatus() == 0);
-
-    std::cout << "Cleaning up..." << std::endl;
-    delete performanceThread;
-    delete csound;
     return 0;
 }

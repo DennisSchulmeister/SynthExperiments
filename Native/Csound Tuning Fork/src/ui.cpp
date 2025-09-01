@@ -1,0 +1,74 @@
+/* Csound native app - Tuning Fork
+ * (C) 2025 Dennis Schulmeister-Zimolong <dennis@windows3.de>
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ */
+#include "ui.hpp"
+
+#include <csound/csound.hpp>            // Csound
+#include <csound/csPerfThread.hpp>      // CsoundPerformanceThread
+#include <filesystem>                   // std::filesystem
+#include <iostream>                     // std::cout, std::endl
+
+#include "assets.hpp"                   // my::assets
+
+namespace my::ui {
+
+Csound* csound;
+CsoundPerformanceThread* performanceThread;
+
+/**
+ * Set up ressources like Csound.
+ */
+my::common::ui_error setup(my::common::ui_context ctx) {
+    std::cout << "Searching assets..." << std::endl;
+
+    auto csd_file = my::assets::get_path("assets/csound.csd");
+
+    if (!csd_file) {
+        return {
+            .error = true,
+            .message = "Cannot find file csound.csd"
+        };
+    }
+    
+    std::cout << "Initializing Csound..." << std::endl;
+    csound = new Csound();
+
+    if (csound->Compile(csd_file->c_str()) != 0) {
+        return {
+            .error = true,
+            .message = "Error while compiling the Csound code"
+        };
+    }
+    
+    std::cout << "Starting Csound performance..." << std::endl;
+    performanceThread = new CsoundPerformanceThread(csound); 
+    performanceThread->Play();
+
+    // while (performanceThread->GetStatus() == 0);
+
+    return {};
+}
+
+/**
+ * Perform user interface logic.
+ */
+my::common::ui_result execute(my::common::ui_context ctx) {
+    // TODO
+    return {};
+}
+
+/**
+ * Clean up ressources.
+ */
+my::common::ui_error cleanup() {
+    delete performanceThread;
+    delete csound;
+    return {};
+}
+
+} // namespace my::ui
