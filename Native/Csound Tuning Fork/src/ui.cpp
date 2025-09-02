@@ -20,9 +20,9 @@ namespace my::ui {
 Csound* csound = nullptr;
 CsoundPerformanceThread* performanceThread = nullptr;
 
-void mainScreen(const my::common::ui_context& ctx, ImGuiViewport* viewport);
-void settingsScreen(const my::common::ui_context& ctx, ImGuiViewport* viewport);
-void logsScreen(const my::common::ui_context& ctx, ImGuiViewport* viewport);
+void mainScreen(const my::common::ui_context& ctx, ImVec2 content_size);
+void settingsScreen(const my::common::ui_context& ctx, ImVec2 content_size);
+void logsScreen(const my::common::ui_context& ctx, ImVec2 content_size);
 
 void startCsound();
 void stopCsound();
@@ -37,6 +37,7 @@ void setup(const my::common::ui_context& ctx) {
  * Perform user interface logic.
  */
 my::common::main_loop_action execute(const my::common::ui_context& ctx) {
+    // One single window without decoration covering the whole area
     ImGuiViewport* viewport = ImGui::GetMainViewport();
     ImGui::SetNextWindowPos(viewport->Pos);
     ImGui::SetNextWindowSize(viewport->Size);
@@ -50,49 +51,33 @@ my::common::main_loop_action execute(const my::common::ui_context& ctx) {
         ImGuiWindowFlags_NoBackground
     );
 
+    // Calculate content area size minus the status meaage at the bottom
+    ImGui::PushFont(ctx.font.status);
+    ImVec2 status_size = ImGui::CalcTextSize("ABC");
+    ImGui::PopFont();
+
+    ImVec2 item_spacing = ImGui::GetStyle().ItemSpacing;
+    ImVec2 content_size{viewport->Size.x, viewport->Size.y - status_size.y - item_spacing.y};
+
+    // Content pages
     if (ImGui::BeginTabBar("Main Tab Bar", ImGuiTabBarFlags_None)) {
         if (ImGui::BeginTabItem("Main")) {
-            mainScreen(ctx, viewport);
+            mainScreen(ctx, content_size);
             ImGui::EndTabItem();
         }
 
         if (ImGui::BeginTabItem("Settings")) {
-            settingsScreen(ctx, viewport);
+            settingsScreen(ctx, content_size);
             ImGui::EndTabItem();
         }
 
         if (ImGui::BeginTabItem("Logs")) {
-            logsScreen(ctx, viewport);
+            logsScreen(ctx, content_size);
             ImGui::EndTabItem();
         }
 
         ImGui::EndTabBar();
     }
-
-    ImGui::End();
-
-    return my::common::main_loop_action::keep_running;
-}
-
-/**
- * Main screen with the (very sophisticated) synthesizer controls.
- */
-void mainScreen(const my::common::ui_context& ctx, ImGuiViewport* viewport) {
-    ImVec2 window_size = viewport->Size;
-    ImVec2 item_spacing = ImGui::GetStyle().ItemSpacing;
-
-    // Big bold label
-    ImGui::PushFont(ctx.font.heading);
-
-    const char* title = "Tuning Fork";
-    ImVec4 title_color = ImVec4{0.13f, 0.6f, 0.82f, 1.0f};
-    ImVec2 title_size = ImGui::CalcTextSize(title);
-    ImGui::SetCursorPosX((window_size.x - title_size.x) * 0.5f);
-
-    ImGui::TextColored(title_color, "%s", title);
-    ImGui::PopFont();
-
-    float title_bottom = ImGui::GetCursorPosY();
 
     // Status message
     const char* status_text = "Csound stopped - Please restart it on the settings page!";
@@ -111,17 +96,39 @@ void mainScreen(const my::common::ui_context& ctx, ImGuiViewport* viewport) {
     }
 
     ImGui::PushFont(ctx.font.status);
-    ImVec2 status_size = ImGui::CalcTextSize(status_text);
-    ImGui::SetCursorPosY(window_size.y - status_size.y - item_spacing.y);
+    ImGui::SetCursorPosY(content_size.y);
     ImGui::TextColored(status_color, "%s", status_text);
+    ImGui::PopFont();
+
+    // End of window
+    ImGui::End();
+
+    return my::common::main_loop_action::keep_running;
+}
+
+/**
+ * Main screen with the (very sophisticated) synthesizer controls.
+ */
+void mainScreen(const my::common::ui_context& ctx, ImVec2 content_size) {
+    // Big label
+    ImGui::PushFont(ctx.font.heading);
+
+    const char* title = "Tuning Fork";
+    ImVec4 title_color = ImVec4{0.13f, 0.6f, 0.82f, 1.0f};
+    ImVec2 title_size = ImGui::CalcTextSize(title);
+    ImGui::SetCursorPosX((content_size.x - title_size.x) * 0.5f);
+
+    ImGui::TextColored(title_color, "%s", title);
+    float title_bottom = ImGui::GetCursorPosY();
+
     ImGui::PopFont();
 
     // Button to trigger the sound
     ImVec2 button_size{140, 40};
 
     ImGui::SetCursorPos(ImVec2{
-        (window_size.x - button_size.x) * 0.5f,
-        title_bottom + (window_size.y - button_size.y - title_bottom - item_spacing.y - status_size.y - item_spacing.y) * 0.5f
+        (content_size.x - button_size.x) * 0.5f,
+        title_bottom + (content_size.y - title_bottom - button_size.y) * 0.5f
     });
 
     if (ImGui::Button("Bing!", button_size) && csound != nullptr) {
@@ -134,7 +141,7 @@ void mainScreen(const my::common::ui_context& ctx, ImGuiViewport* viewport) {
 /**
  * Audio settings screen to configure and start/stop Csound.
  */
-void settingsScreen(const my::common::ui_context& ctx, ImGuiViewport* viewport) {
+void settingsScreen(const my::common::ui_context& ctx, ImVec2 content_size) {
     if (ImGui::Button("Restart Csound")) startCsound();
     ImGui::Text("TODO - Csound options");
 }
@@ -142,7 +149,7 @@ void settingsScreen(const my::common::ui_context& ctx, ImGuiViewport* viewport) 
 /**
  * Log screen to display the Csound console outputs.
  */
-void logsScreen(const my::common::ui_context& ctx, ImGuiViewport* viewport) {
+void logsScreen(const my::common::ui_context& ctx, ImVec2 content_size) {
     ImGui::Text("TODO - Csound logs");
 }
 
