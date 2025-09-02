@@ -24,7 +24,7 @@ my::common::ui_context imgui_setup_context(float dpi_scale) {
 
     my::common::ui_context ctx = {
         .io = ImGui::GetIO(),
-        .clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f),
+        .clear_color = ImVec4(1.0f, 1.0f, 1.0f, 1.00f),
         .dpi_scale = dpi_scale
     };
 
@@ -32,8 +32,8 @@ my::common::ui_context imgui_setup_context(float dpi_scale) {
     ctx.io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
     // Setup style and scaling
-    ImGui::StyleColorsDark();
-    //ImGui::StyleColorsLight();
+    //ImGui::StyleColorsDark();
+    ImGui::StyleColorsLight();
 
     ImGuiStyle& style = ImGui::GetStyle();
     style.ScaleAllSizes(dpi_scale);
@@ -42,7 +42,7 @@ my::common::ui_context imgui_setup_context(float dpi_scale) {
     ctx.io.ConfigDpiScaleViewports = true;      // [Experimental] Scale ImGui and Platform Windows when Monitor DPI changes.
 
     // Load Fonts
-    style.FontSizeBase = 14.0f;
+    style.FontSizeBase = 23.0f;
 
     ImFont* font = nullptr;
     auto font_file = my::assets::get_path("assets/OpenSans/OpenSans-VariableFont_wdth,wght.ttf");
@@ -88,7 +88,7 @@ my::common::ui_context imgui_setup_context(float dpi_scale) {
  */
 int main(int argc, char** argv) {
     try {
-        float dpi_scale = my::imgui::backend::create_main_window("Tuning Fork", 320, 240);
+        float dpi_scale = my::imgui::backend::create_main_window("Tuning Fork", 480, 240);
 
         auto ctx = imgui_setup_context(dpi_scale);
         my::imgui::backend::setup_renderer(ctx);

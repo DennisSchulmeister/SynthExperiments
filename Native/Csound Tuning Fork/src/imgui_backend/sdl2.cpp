@@ -110,12 +110,13 @@ my::common::main_loop_action start_frame(const my::common::ui_context& ctx) {
     }
 
     if (SDL_GetWindowFlags(window) & SDL_WINDOW_MINIMIZED) {
-        SDL_Delay(10);
+        SDL_Delay(500);
         return my::common::main_loop_action::remain_inactive;
     }
 
     ImGui_ImplSDLRenderer2_NewFrame();
     ImGui_ImplSDL2_NewFrame();
+    SDL_Delay(66); // ca. 15fps to save CPU cycles
 
     return result;
 }

@@ -20,11 +20,93 @@ namespace my::ui {
 Csound* csound = nullptr;
 CsoundPerformanceThread* performanceThread = nullptr;
 
+void mainScreen();
+void settingsScreen();
+void logsScreen();
+void startCsound();
+void stopCsound();
+
 /**
- * Set up ressources like Csound.
+ * Set up ressources.
  */
 void setup(const my::common::ui_context& ctx) {
-    std::cout << "Searching assets..." << std::endl;
+}
+
+/**
+ * Perform user interface logic.
+ */
+my::common::main_loop_action execute(const my::common::ui_context& ctx) {
+    ImGuiViewport* viewport = ImGui::GetMainViewport();
+    ImGui::SetNextWindowPos(viewport->Pos);
+    ImGui::SetNextWindowSize(viewport->Size);
+
+    ImGui::Begin("Main Window", nullptr,
+        ImGuiWindowFlags_NoDecoration |
+        ImGuiWindowFlags_NoMove |
+        ImGuiWindowFlags_NoResize |
+        ImGuiWindowFlags_NoSavedSettings |
+        ImGuiWindowFlags_NoBringToFrontOnFocus |
+        ImGuiWindowFlags_NoBackground
+    );
+
+    if (ImGui::BeginTabBar("Main Tab Bar", ImGuiTabBarFlags_None)) {
+        if (ImGui::BeginTabItem("Main")) {
+            mainScreen();
+            ImGui::EndTabItem();
+        }
+
+        if (ImGui::BeginTabItem("Settings")) {
+            settingsScreen();
+            ImGui::EndTabItem();
+        }
+
+        if (ImGui::BeginTabItem("Logs")) {
+            logsScreen();
+            ImGui::EndTabItem();
+        }
+
+        ImGui::EndTabBar();
+    }
+
+    ImGui::End();
+
+    // TODO
+    return my::common::main_loop_action::keep_running;
+}
+
+/**
+ * Main screen with the (veru sophisticated) synthesizer controls.
+ */
+void mainScreen() {
+    ImGui::Text("TODO - Main Screen");
+}
+
+/**
+ * Audio settings screen to configure and start/stop Csound.
+ */
+void settingsScreen() {
+    ImGui::Text("TODO - Csound options");
+}
+
+/**
+ * Log screen to display the Csound console outputs.
+ */
+void logsScreen() {
+    ImGui::Text("TODO - Csound logs");
+}
+
+/**
+ * Clean up ressources.
+ */
+void cleanup() {
+    stopCsound();
+}
+
+/**
+ * Restart the Csound engine.
+ */
+void startCsound() {
+    stopCsound();
 
     auto csd_file = my::assets::get_path("assets/csound.csd");
 
@@ -32,14 +114,12 @@ void setup(const my::common::ui_context& ctx) {
         throw my::common::fatal_error("Cannot find file csound.csd");
     }
 
-    std::cout << "Initializing Csound..." << std::endl;
     csound = new Csound();
 
     if (csound->Compile(csd_file->c_str()) != 0) {
         throw my::common::fatal_error("Error while compiling the Csound code");
     }
 
-    std::cout << "Starting Csound performance..." << std::endl;
     performanceThread = new CsoundPerformanceThread(csound);
     performanceThread->Play();
 
@@ -47,19 +127,21 @@ void setup(const my::common::ui_context& ctx) {
 }
 
 /**
- * Perform user interface logic.
+ * Stop Csound and free all its ressources.
  */
-my::common::main_loop_action execute(const my::common::ui_context& ctx) {
-    // TODO
-    return my::common::main_loop_action::keep_running;
-}
+void stopCsound() {
+    if (performanceThread != nullptr) {
+        performanceThread->Stop();
+        performanceThread->Join();
 
-/**
- * Clean up ressources.
- */
-void cleanup() {
-    delete performanceThread;
-    delete csound;
+        delete performanceThread;
+        performanceThread = nullptr;
+    }
+
+    if (csound != nullptr) {
+        delete csound;
+        csound = nullptr;
+    }
 }
 
 } // namespace my::ui
