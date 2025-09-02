@@ -18,3 +18,5 @@
 *.jpg binary
 *.dxf binary
 *.mpy binary
+
+*.ttf binary

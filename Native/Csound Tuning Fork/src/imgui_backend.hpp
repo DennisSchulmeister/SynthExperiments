@@ -17,9 +17,10 @@ namespace my::imgui::backend {
  * Create the main window, set up required libraries (e.g. SDL) and
  * initialize the ImGui backend. Called at the very start of the program.
  *
+ * @returns DPI scaling factor of the display (1.0 by default)
  * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-void create_main_window(const std::string& title, int width, int height);
+float create_main_window(const std::string& title, int width, int height);
 
 /**
  * Finish initialization by setting up the graphics renderer. Called
@@ -28,7 +29,7 @@ void create_main_window(const std::string& title, int width, int height);
  * @param ctx - Shared user interface data
  * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-void setup_renderer(my::common::ui_context ctx);
+void setup_renderer(const my::common::ui_context& ctx);
 
 /**
  * Handle window and I/O events, pass the events to ImGui and prepare
@@ -39,7 +40,7 @@ void setup_renderer(my::common::ui_context ctx);
  * @returns How to continue the main loop
  * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-my::common::main_loop_action start_frame(my::common::ui_context ctx);
+my::common::main_loop_action start_frame(const my::common::ui_context& ctx);
 
 /**
  * Finish current frame and draw it on the screen. Called at the end of
@@ -48,7 +49,7 @@ my::common::main_loop_action start_frame(my::common::ui_context ctx);
  * @param ctx - Shared user interface data
  * @throws Exception on fatal errors (e.g. my::common::fatal_error)
  */
-void end_frame(my::common::ui_context ctx);
+void end_frame(const my::common::ui_context& ctx);
 
 /**
  * Destroy graphics renderer during normal program shutdown. Called

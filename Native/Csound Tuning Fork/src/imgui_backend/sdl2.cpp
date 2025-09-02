@@ -21,6 +21,7 @@
 #endif
 
 namespace my::imgui::backend {
+
 SDL_Window* window = nullptr;
 SDL_Renderer* renderer = nullptr;
 
@@ -34,7 +35,7 @@ void throw_sdl_error() {
 /**
  * Create the main window and initialize the ImGui backend.
  */
-void create_main_window(const std::string& title, int width, int height) {
+float create_main_window(const std::string& title, int width, int height) {
     #ifdef _WIN32
         ::SetProcessDPIAware();
     #endif
@@ -47,14 +48,14 @@ void create_main_window(const std::string& title, int width, int height) {
         SDL_SetHint(SDL_HINT_IME_SHOW_UI, "1");
     #endif
 
-    float main_scale = ImGui_ImplSDL2_GetContentScaleForDisplay(0);
+    float dpi_scale = ImGui_ImplSDL2_GetContentScaleForDisplay(0);
 
     window = SDL_CreateWindow(
         /* title */ title.c_str(),
         /* x     */ SDL_WINDOWPOS_CENTERED,
         /* y     */ SDL_WINDOWPOS_CENTERED,
-        /* w     */ (int)(main_scale * width),
-        /* h     */ (int)(main_scale * height),
+        /* w     */ (int)(dpi_scale * width),
+        /* h     */ (int)(dpi_scale * height),
         /* flags */ SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI
     );
 
@@ -66,12 +67,14 @@ void create_main_window(const std::string& title, int width, int height) {
     SDL_RendererInfo info;
     SDL_GetRendererInfo(renderer, &info);
     SDL_Log("Current SDL_Renderer: %s", info.name);
+
+    return dpi_scale;
 }
 
 /**
  * Set up the graphics renderer.
  */
-void setup_renderer(my::common::ui_context ctx) {
+void setup_renderer(const my::common::ui_context& ctx) {
     ImGui_ImplSDL2_InitForSDLRenderer(window, renderer);
     ImGui_ImplSDLRenderer2_Init(renderer);
 }
@@ -90,7 +93,7 @@ void setup_renderer(my::common::ui_context ctx) {
  * we can always send all events to ImGui, since ImGui will silently ignore
  * the ones it doesn't need.
  */
-my::common::main_loop_action start_frame(my::common::ui_context ctx) {
+my::common::main_loop_action start_frame(const my::common::ui_context& ctx) {
     my::common::main_loop_action result = my::common::main_loop_action::keep_running;
     SDL_Event event;
 
@@ -120,7 +123,7 @@ my::common::main_loop_action start_frame(my::common::ui_context ctx) {
 /**
  * Draw current frame on the screen.
  */
-void end_frame(my::common::ui_context ctx) {
+void end_frame(const my::common::ui_context& ctx) {
     SDL_RenderSetScale(renderer, ctx.io.DisplayFramebufferScale.x, ctx.io.DisplayFramebufferScale.y);
 
     SDL_SetRenderDrawColor(
