@@ -44,13 +44,21 @@ my::common::ui_context imgui_setup_context(float dpi_scale) {
     // Load Fonts
     style.FontSizeBase = 23.0f;
 
-    ImFont* font = nullptr;
     auto font_file = my::assets::get_path("assets/OpenSans/OpenSans-VariableFont_wdth,wght.ttf");
-    if (font_file) font = ctx.io.Fonts->AddFontFromFileTTF(font_file->c_str());
 
-    if (font == nullptr) {
+    if (font_file) {
+        ctx.io.FontDefault = ctx.io.Fonts->AddFontFromFileTTF(font_file->c_str());
+        ctx.font.heading   = ctx.io.Fonts->AddFontFromFileTTF(font_file->c_str(), 36.0f);
+        ctx.font.status    = ctx.io.Fonts->AddFontFromFileTTF(font_file->c_str(), 18.0f);
+    }
+
+    if (ctx.io.FontDefault == nullptr) {
         std::cerr << "WARNING - Unable to load font OpenSans. Falling back to default font." << std::endl;
-        ctx.io.Fonts->AddFontDefault();
+
+        ctx.io.FontDefault = ctx.io.Fonts->AddFontDefault();
+        ctx.font.heading   = ctx.io.FontDefault;
+        ctx.font.status    = ctx.io.FontDefault;
+    } else {
     }
 
     return ctx;

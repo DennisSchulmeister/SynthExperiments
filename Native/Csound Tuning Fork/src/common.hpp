@@ -22,6 +22,11 @@ struct ui_context {
     ImGuiIO& io;
     ImVec4 clear_color;
     float dpi_scale;
+
+    struct {
+        ImFont* heading;
+        ImFont* status;
+    } font;
 };
 
 /**
