@@ -36,7 +36,7 @@ void os_get_executable_dir(char* dir, size_t len);
 /**
  * Join multiple path segments with the right directory separator.
  * Version that accepts an array of strings.
- * 
+ *
  * @param out - Output buffer
  * @param len - Output buffer size
  * @param segments - Path segments to join
@@ -46,8 +46,8 @@ void os_path_join_a(char* out, size_t len, const char* segments[], size_t count)
 
 /**
  * Join multiple path segments with the right directory separator.
- * Version that accepts forarding variadic arguments of the caller.
- * 
+ * Version that accepts forwarding variadic arguments of the caller.
+ *
  * @param out - Output buffer
  * @param len - Output buffer size
  * @param segments - Path segments to join (the last one must be NULL!)
@@ -65,7 +65,7 @@ static void os_path_join_v(char* out, size_t len, va_list segments) {
 
     const char** segments_a = calloc(sizeof(const char*), count);
     size_t i = 0;
-    
+
     for (; segment = va_arg(segments1, const char*); segment != NULL) {
         segments_a[i++] = segment;
     }
@@ -80,7 +80,7 @@ static void os_path_join_v(char* out, size_t len, va_list segments) {
  * Regular version with variadic arguments. Note that the last argument
  * must always be NULL due to the way C handles variadic arguments.
  * Otherwise the program will crash!
- * 
+ *
  * @param out - Output buffer
  * @param len - Output buffer size
  * @param ... - Path segments to join (the last one must be NULL!)

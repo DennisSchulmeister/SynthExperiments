@@ -58,7 +58,6 @@ my::common::ui_context imgui_setup_context(float dpi_scale) {
         ctx.io.FontDefault = ctx.io.Fonts->AddFontDefault();
         ctx.font.heading   = ctx.io.FontDefault;
         ctx.font.status    = ctx.io.FontDefault;
-    } else {
     }
 
     return ctx;
